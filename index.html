@@ -134,6 +134,7 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .cs-media{display:flex;justify-content:center}
 .cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:360px!important;border-radius:6px!important;box-shadow:var(--shadow)!important}
 .cs-video{width:100%;max-width:340px;aspect-ratio:9/16;object-fit:cover;border-radius:8px;box-shadow:var(--shadow);background:#000}
+.cs-media .slideshow{position:relative;top:auto;width:100%;max-width:none}
 /* galeria da Bienal */
 .bab-gallery{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0 8px}
 .bab-shot{margin:0;border-radius:8px;overflow:hidden;background:var(--panel2);border:1px solid var(--line);box-shadow:0 14px 36px -20px #000}
@@ -558,9 +559,43 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <!-- Case 2 — Bienal de Arquitetura -->
       <article id="case-bienal" class="cs cs-rev reveal">
         <div class="cs-media">
-          <video class="cs-video" controls preload="metadata" playsinline poster="videos/poster-bienal-02.jpg">
-            <source src="videos/bienal-video-02.mp4" type="video/mp4" />
-          </video>
+<div class="slideshow" id="babSlideshow" aria-label="Slides do projeto cenográfico">
+            <div class="sl-head">
+              <span class="sl-tag">Projeto cenográfico · PDF</span>
+              <span class="sl-count" id="slCount">1 / 17</span>
+            </div>
+            <div class="sl-stage" id="slStage">
+              <img class="sl-img on" src="docs/slides/bienal-slide-01.jpg" alt="Capa — Lounge Westwing Bienal de Arquitetura Brasileira" data-cap="Capa — Estudo preliminar">
+              <img class="sl-img" src="docs/slides/bienal-slide-02.jpg" alt="Fotos da visita técnica ao espaço" data-cap="01 · Visita técnica ao pavilhão" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-03.jpg" alt="Desenho 3D — estrutura modular" data-cap="02 · Estrutura modular (esboço)" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-04.jpg" alt="Desenho 3D — base de madeira" data-cap="02 · Base de madeira" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-05.jpg" alt="Desenho 3D — composição com bases" data-cap="02 · Composição com bases" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-06.jpg" alt="Desenho 3D — mobiliário inserido" data-cap="02 · Mobiliário inserido" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-07.jpg" alt="Desenho 3D — finalização com carpete" data-cap="02 · Finalização com carpete" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-08.jpg" alt="Moodboard de materiais" data-cap="03 · Materialidade — moodboard" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-09.jpg" alt="Render 1 — vista interna do lounge" data-cap="04 · Render — vista interna" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-10.jpg" alt="Render 2 — banners W suspensos" data-cap="04 · Render — banners suspensos W" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-11.jpg" alt="Render 3 — corredor" data-cap="04 · Render — corredor" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-12.jpg" alt="Render 4 — vista frontal" data-cap="04 · Render — vista frontal" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-13.jpg" alt="Planta layout e corte AA" data-cap="05 · Planta layout e corte AA" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-14.jpg" alt="Elevação com curadoria de mobiliário" data-cap="05 · Elevação com mobiliário" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-15.jpg" alt="Corte técnico BB" data-cap="05 · Corte técnico BB" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-16.jpg" alt="Lista de mobiliário curado" data-cap="05 · Curadoria — lista de peças" loading="lazy">
+              <img class="sl-img" src="docs/slides/bienal-slide-17.jpg" alt="Créditos do projeto" data-cap="Créditos" loading="lazy">
+              <button class="sl-nav prev" id="slPrev" aria-label="Slide anterior">‹</button>
+              <button class="sl-nav next" id="slNext" aria-label="Próximo slide">›</button>
+            </div>
+            <div class="sl-caption" id="slCaption">Capa — Estudo preliminar</div>
+            <div class="sl-thumbs" id="slThumbs">
+              <!-- thumbnails geradas via JS -->
+            </div>
+            <div class="sl-foot">
+              <span class="sl-foot-hint">use ‹ › ou as setas do teclado</span>
+              <a class="sl-foot-dl" href="docs/bienal-projeto-cenografico-westwing-rosenbaum.pdf" target="_blank" rel="noopener">
+                Baixar PDF (8 MB) ↓
+              </a>
+            </div>
+          </div>
         </div>
         <div class="cs-body">
           <div class="cs-tag">Westwing · Brand Experience</div>
@@ -604,93 +639,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       </div>
 
       <!-- ===== Projeto cenográfico: do conceito à execução (texto + slideshow) ===== -->
-      <div class="project-story reveal" aria-label="Projeto cenográfico — Bienal de Arquitetura">
-        <div class="ps-head">
-          <span class="cx-lbl">Do conceito à execução</span>
-          <h4 class="ps-title">Projeto cenográfico · Westwing × Rosenbaum Arquitetura</h4>
-          <p class="ps-lead">Um diálogo direto com a arquitetura modernista de Niemeyer. Da visita técnica ao espaço vazio até o lounge realizado: a construção do conceito, a escolha da materialidade, os renders e a execução técnica do estande institucional da Westwing na primeira Bienal de Arquitetura Brasileira.</p>
-        </div>
-
-        <div class="cinema-grid">
-          <!-- texto narrativo do projeto -->
-          <div class="cinema-text">
-            <div class="cinema-step">
-              <span class="cs-tagline">01 · O espaço</span>
-              <h5>Pavilhão das Culturas Brasileiras — Ibirapuera</h5>
-              <p>Visita técnica ao espaço vazio: o desafio era ocupar uma área extensa do pavilhão de Niemeyer respeitando a força do concreto, a transparência das esquadrias e a curva do corrimão original dos anos 1950.</p>
-            </div>
-            <div class="cinema-step">
-              <span class="cs-tagline">02 · O conceito</span>
-              <h5>Estrutura-espelho da arquitetura existente</h5>
-              <p>A intervenção foi pensada como um espelho do edifício: estantes que repetem o ritmo, a cadência e a lógica construtiva da fachada de Niemeyer. O design não ocupa o espaço — o materializa, transformando o mobiliário em protagonista da modernidade ressignificada.</p>
-            </div>
-            <div class="cinema-step">
-              <span class="cs-tagline">03 · Materialidade</span>
-              <h5>Paleta monocromática verde-ervilha</h5>
-              <p>Carpete verde-ervilha, bouclé verde-ervilha, madeira pinus pintada de verde e voal com serigrafia. A monocromia reforça a unidade visual entre arquitetura, intervenção e mobiliário — colocando a beleza do edifício e sua espacialidade generosa em evidência.</p>
-            </div>
-            <div class="cinema-step">
-              <span class="cs-tagline">04 · Renders 3D</span>
-              <h5>O espaço imaginado</h5>
-              <p>Renders desenvolvidos em parceria com Rosenbaum Arquitetura traduzem a proposta: estrutura verde em ritmo modular, banners suspensos com a letra W e carpete envolvendo as bases de exposição como uma paisagem contínua.</p>
-            </div>
-            <div class="cinema-step">
-              <span class="cs-tagline">05 · Execução técnica</span>
-              <h5>Planta, elevação e curadoria de mobiliário</h5>
-              <p>Mais de <strong>30 peças</strong> entre poltronas, sofás modulares, estantes, aparadores, mesas de centro e laterais foram curadas e dispostas no eixo de 40m: linhas Cherchio D'Oro e Vimea, sofás Ipuã, Nirvana, Mensa, Drape, Nube e Liber, entre outras.</p>
-            </div>
-          </div>
-
-          <!-- SLIDESHOW do projeto cenográfico (PDF em formato de slides) -->
-          <div class="slideshow" id="babSlideshow" aria-label="Slides do projeto cenográfico">
-            <div class="sl-head">
-              <span class="sl-tag">Projeto cenográfico · PDF</span>
-              <span class="sl-count" id="slCount">1 / 17</span>
-            </div>
-            <div class="sl-stage" id="slStage">
-              <img class="sl-img on" src="docs/slides/bienal-slide-01.jpg" alt="Capa — Lounge Westwing Bienal de Arquitetura Brasileira" data-cap="Capa — Estudo preliminar">
-              <img class="sl-img" src="docs/slides/bienal-slide-02.jpg" alt="Fotos da visita técnica ao espaço" data-cap="01 · Visita técnica ao pavilhão" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-03.jpg" alt="Desenho 3D — estrutura modular" data-cap="02 · Estrutura modular (esboço)" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-04.jpg" alt="Desenho 3D — base de madeira" data-cap="02 · Base de madeira" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-05.jpg" alt="Desenho 3D — composição com bases" data-cap="02 · Composição com bases" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-06.jpg" alt="Desenho 3D — mobiliário inserido" data-cap="02 · Mobiliário inserido" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-07.jpg" alt="Desenho 3D — finalização com carpete" data-cap="02 · Finalização com carpete" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-08.jpg" alt="Moodboard de materiais" data-cap="03 · Materialidade — moodboard" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-09.jpg" alt="Render 1 — vista interna do lounge" data-cap="04 · Render — vista interna" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-10.jpg" alt="Render 2 — banners W suspensos" data-cap="04 · Render — banners suspensos W" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-11.jpg" alt="Render 3 — corredor" data-cap="04 · Render — corredor" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-12.jpg" alt="Render 4 — vista frontal" data-cap="04 · Render — vista frontal" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-13.jpg" alt="Planta layout e corte AA" data-cap="05 · Planta layout e corte AA" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-14.jpg" alt="Elevação com curadoria de mobiliário" data-cap="05 · Elevação com mobiliário" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-15.jpg" alt="Corte técnico BB" data-cap="05 · Corte técnico BB" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-16.jpg" alt="Lista de mobiliário curado" data-cap="05 · Curadoria — lista de peças" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-17.jpg" alt="Créditos do projeto" data-cap="Créditos" loading="lazy">
-              <button class="sl-nav prev" id="slPrev" aria-label="Slide anterior">‹</button>
-              <button class="sl-nav next" id="slNext" aria-label="Próximo slide">›</button>
-            </div>
-            <div class="sl-caption" id="slCaption">Capa — Estudo preliminar</div>
-            <div class="sl-thumbs" id="slThumbs">
-              <!-- thumbnails geradas via JS -->
-            </div>
-            <div class="sl-foot">
-              <span class="sl-foot-hint">use ‹ › ou as setas do teclado</span>
-              <a class="sl-foot-dl" href="docs/bienal-projeto-cenografico-westwing-rosenbaum.pdf" target="_blank" rel="noopener">
-                Baixar PDF (8 MB) ↓
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ps-credits">
-          <div>
-            <span class="cx-lbl">Ficha técnica</span>
-            <p><strong>Direção criativa:</strong> Marcelo Rosenbaum<br>
-            <strong>Equipe Rosenbaum Arquitetura:</strong> Adriana Benguela, Marcelo Anaf, Renan Marques, Rafael Pineda<br>
-            <strong>Comunicação:</strong> Mirela Santana<br>
-            <strong>Execução:</strong> Cenotech</p>
-          </div>
-        </div>
-      </div>
+      
 
 
       <!-- Case 3 — Isa de Oliveira -->
