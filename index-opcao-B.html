@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Nicole Figueiredo — Visual Merchandising & Brand Experience</title>
+<meta name="description" content="Portfólio de Nicole Figueiredo. VM e Brand Experience com 10+ anos no varejo de moda, lifestyle e decoração." />
+<meta property="og:title" content="Nicole Figueiredo — Visual Merchandising & Brand Experience" />
+<meta property="og:description" content="VM que move KPIs de negócio. Westwing, Nike, Vivara, Farm Rio." />
+<meta property="og:image" content="images/og-cover.jpg" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#211B16; --panel:#28211B; --panel2:#2F2820; --line:#43392F;
+  --cream:#EFE6D8; --soft:#B7A992; --clay:#D07B4E; --brass:#C9A24B; --sand:#7A6B57;
+  --serif:"Bricolage Grotesque",system-ui,sans-serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
+  --shadow:0 36px 80px -34px rgba(0,0,0,.7);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--clay);color:#1b1612}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 22px;position:relative;z-index:2}
+section{position:relative}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--clay),var(--brass));z-index:100;transition:width .1s}
+nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:16px 22px;transition:.4s}
+nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.01em;text-decoration:none;color:var(--cream)}
+.brand span{color:var(--brass)}
+.nav-cta{border:1px solid var(--brass);padding:8px 18px;border-radius:30px;color:var(--brass)!important}
+.burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:95}
+.burger span{width:26px;height:2px;background:var(--cream);transition:.3s;border-radius:2px}
+.nav-links{position:fixed;inset:0 0 0 25%;background:var(--panel);flex-direction:column;justify-content:center;gap:28px;padding:40px;transform:translateX(100%);transition:transform .42s cubic-bezier(.6,.05,.2,1);box-shadow:var(--shadow);z-index:92;display:flex}
+.nav-links:not(.open){pointer-events:none}
+.nav-links{transform:translateX(100%)}
+.nav-links.open{transform:none}
+.nav-links a{font-family:var(--serif);font-size:30px;color:var(--cream);text-decoration:none;font-weight:500}
+.nav-links a.nav-cta{font-family:var(--sans);font-size:15px;padding:12px 22px;border-radius:30px;width:max-content}
+
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:88;display:flex;justify-content:space-around;background:rgba(40,33,27,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom))}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--soft);flex:1;padding:4px 0}
+.tabbar a svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tabbar a em{font-style:normal;font-size:10px;letter-spacing:.02em}
+.tabbar a.on{color:var(--brass)}
+
+.hero{min-height:100svh;display:flex;align-items:center;padding:90px 0}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center;width:100%}
+.hero-eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:"";width:34px;height:1px;background:var(--brass)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,13vw,98px);line-height:.95;letter-spacing:-.02em;margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero-sub{font-size:clamp(17px,4.4vw,21px);color:var(--soft);max-width:32ch;margin-bottom:30px;font-weight:300}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-size:14px;font-weight:600;letter-spacing:.03em;padding:14px 26px;border-radius:32px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.3s;border:1px solid transparent}
+.btn-primary{background:var(--clay);color:#1b1612}
+.btn-primary:hover{background:var(--brass)}
+.btn-ghost{border-color:var(--soft);color:var(--cream)}
+.btn-ghost:hover{background:var(--cream);color:#1b1612;border-color:var(--cream)}
+.hero-visual{order:-1}
+.hero-photo{position:relative;aspect-ratio:4/5;max-width:420px;margin:0 auto;border-radius:6px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo .ph{position:absolute;inset:0;background:linear-gradient(150deg,var(--sand),var(--clay));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--cream);text-align:center;padding:20px;font-size:12px}
+.hero-photo .ph b{font-family:var(--serif);font-size:46px;margin-bottom:8px;font-weight:600}
+.hero-badge{position:absolute;left:14px;bottom:18px;background:var(--panel);padding:14px 20px;border-radius:4px;box-shadow:var(--shadow);border-left:3px solid var(--brass)}
+.hero-badge b{font-family:var(--serif);font-size:30px;color:var(--brass);display:block;line-height:1;font-weight:600}
+.hero-badge span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+
+.sec{padding:74px 0}
+.sec-num{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(34px,8vw,56px);line-height:1.0;letter-spacing:-.02em;margin-top:10px}
+.sec-head{margin-bottom:44px;max-width:640px}
+.about{background:var(--panel)}
+.about-grid{display:grid;grid-template-columns:1fr;gap:36px}
+.about-bio p{font-size:18px;color:var(--soft);margin-bottom:18px;font-weight:300}
+.about-bio strong{color:var(--cream);font-weight:600}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--panel);padding:26px 20px}
+.stat b{font-family:var(--serif);font-size:44px;color:var(--brass);font-weight:600;line-height:1;display:block}
+.stat span{font-size:13px;color:var(--soft);margin-top:6px;display:block}
+.skills-wrap{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--panel2);padding:10px 16px;border-radius:30px;font-size:13.5px;color:var(--soft);font-weight:500;transition:.3s}
+.chip:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
+
+.marketing{background:var(--bg)}
+.mkt-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.mkt-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px 22px;transition:.35s}
+.mkt-card:hover{transform:translateY(-4px);border-color:var(--clay);box-shadow:var(--shadow)}
+.mkt-ico{color:var(--clay);font-size:14px;display:block;margin-bottom:12px}
+.mkt-card h4{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.1;margin-bottom:8px;color:var(--cream)}
+.mkt-card p{color:var(--soft);font-size:15px;font-weight:300}
+
+.portfolio{background:var(--panel)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.filter{background:none;border:1px solid var(--line);padding:9px 18px;border-radius:30px;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--soft);cursor:pointer;transition:.3s}
+.filter.active,.filter:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
+.gallery{display:grid;grid-template-columns:1fr;gap:14px}
+.case{position:relative;overflow:hidden;border-radius:5px;background:var(--panel2);box-shadow:0 14px 36px -18px #000;aspect-ratio:4/3;border:1px solid var(--line)}
+.case img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.case:hover img{transform:scale(1.05)}
+.case .ph{position:absolute;inset:0;background:linear-gradient(150deg,var(--sand),var(--panel2));display:flex;align-items:center;justify-content:center;color:var(--cream);font-size:12px;text-align:center;padding:16px;opacity:.9}
+.case-info{position:absolute;left:0;right:0;bottom:0;padding:22px 18px 18px;background:linear-gradient(to top,rgba(20,16,12,.92),transparent);color:var(--cream)}
+.case-info .brand-tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.case-info h4{font-family:var(--serif);font-weight:500;font-size:21px;margin-top:3px}
+.s-tall,.s-wide,.s-half,.s-third{grid-column:auto}
+
+.featured{margin-top:66px}
+.featured-title{font-family:var(--serif);font-weight:500;font-size:clamp(28px,7vw,42px);line-height:1.02;margin:6px 0 36px;max-width:20ch}
+.cs{display:grid;grid-template-columns:1fr;gap:26px;padding:36px 0;border-top:1px solid var(--line)}
+.cs-media{display:flex;justify-content:center}
+.cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:360px!important;border-radius:6px!important;box-shadow:var(--shadow)!important}
+.cs-tag{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);font-weight:700}
+.cs-name{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6vw,35px);line-height:1.02;margin:8px 0 16px;color:var(--cream)}
+.cs-body p{color:var(--soft);font-size:16px;font-weight:300;margin-bottom:13px}
+.cs-body strong{color:var(--cream);font-weight:600}
+.cs-press{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:18px}
+.cs-press-lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.cs-press a{font-size:13px;font-weight:600;color:var(--cream);text-decoration:none;border:1px solid var(--line);padding:7px 13px;border-radius:24px;transition:.3s}
+.cs-press a:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
+.cs-results{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line)}
+.cs-results-lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:12px;display:block}
+.kpi-row{display:flex;flex-wrap:wrap;gap:12px}
+.kpi{background:var(--panel2);border-left:3px solid var(--brass);padding:13px 16px;border-radius:3px;min-width:118px}
+.kpi b{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--brass);line-height:1;display:block}
+.kpi span{font-size:12px;color:var(--soft);margin-top:5px;display:block}
+.kpi.todo b{color:var(--sand)}
+.video-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
+.video-row iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:5px;box-shadow:var(--shadow)}
+
+.exp{background:var(--bg)}
+.timeline{position:relative}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.tl-item{position:relative;padding-left:36px;padding-bottom:40px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:0;top:5px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--brass)}
+.tl-period{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--clay);font-weight:700}
+.tl-role{font-family:var(--serif);font-size:25px;font-weight:500;margin:5px 0 2px;line-height:1.08;color:var(--cream)}
+.tl-company{font-size:13px;color:var(--brass);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+.tl-desc{color:var(--soft);font-size:15px;font-weight:300}
+.tl-desc li{list-style:none;padding-left:16px;position:relative;margin-bottom:6px}
+.tl-desc li::before{content:"—";position:absolute;left:0;color:var(--clay)}
+
+.edu{background:var(--panel)}
+.edu-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.edu-card{border:1px solid var(--line);border-radius:6px;padding:28px;background:var(--panel2);transition:.3s}
+.edu-card:hover{border-color:var(--clay)}
+.edu-card .yr{font-size:12px;letter-spacing:.1em;color:var(--brass);font-weight:700}
+.edu-card h4{font-family:var(--serif);font-size:23px;font-weight:600;margin:6px 0 3px;color:var(--cream)}
+.edu-card p{color:var(--soft);font-size:14.5px}
+
+.contact{background:#171210}
+.contact .sec-num{color:var(--brass)} .contact .sec-title{color:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:34px}
+.contact-lead{font-family:var(--serif);font-size:clamp(30px,8vw,48px);font-weight:500;line-height:1.02;color:var(--cream)}
+.contact-lead em{font-style:italic;color:var(--brass)}
+.contact-sub{color:var(--soft);margin-top:16px;font-size:16px;font-weight:300}
+.contact-list{display:flex;flex-direction:column}
+.contact-link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--cream);transition:.3s}
+.contact-link:hover{padding-left:14px;border-color:var(--brass)}
+.contact-link .lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.contact-link .val{font-family:var(--serif);font-size:21px;font-weight:500;margin-top:2px}
+.contact-link .arr{font-size:19px;color:var(--brass)}
+
+footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px solid var(--line)}
+.foot-grid{display:flex;flex-direction:column;gap:10px;font-size:13px}
+.foot-grid a{color:var(--brass);text-decoration:none}
+
+.fab{position:fixed;right:16px;bottom:84px;z-index:80;width:54px;height:54px;border-radius:50%;background:var(--clay);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.6)}
+.fab svg{width:28px;height:28px;fill:#1b1612}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(min-width:860px){
+  html{scroll-padding-top:84px}
+  .wrap{padding:0 40px}
+  nav{padding:20px 40px}
+  .burger{display:none}
+  .nav-links{position:static;inset:auto;width:auto;flex-direction:row;align-items:center;gap:32px;padding:0;background:none;transform:none;box-shadow:none;pointer-events:auto}
+  .nav-links a{font-family:var(--sans);font-size:13.5px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  .nav-links a:hover{color:var(--cream)}
+  .nav-links a.nav-cta:hover{background:var(--brass);color:#1b1612;border-color:var(--brass)}
+  .tabbar{display:none}
+  .fab{bottom:26px;right:26px;width:58px;height:58px}
+  footer{padding:40px 0}
+  .foot-grid{flex-direction:row;justify-content:space-between;align-items:center}
+  .sec{padding:120px 0}
+  .hero-grid{grid-template-columns:1.12fr .88fr;gap:60px}
+  .hero-visual{order:0}
+  .hero-badge{left:-26px}
+  .about-grid,.contact-grid{grid-template-columns:1fr 1fr;gap:64px}
+  .mkt-grid{grid-template-columns:repeat(3,1fr);gap:22px}
+  .edu-grid{grid-template-columns:1fr 1fr;gap:22px}
+  .gallery{grid-template-columns:repeat(12,1fr);gap:18px}
+  .s-tall{grid-column:span 5;grid-row:span 2;aspect-ratio:4/5}
+  .s-wide{grid-column:span 7;aspect-ratio:16/10}
+  .s-half{grid-column:span 6;aspect-ratio:3/2}
+  .s-third{grid-column:span 4;aspect-ratio:1/1}
+  .case-info{transform:translateY(8px);opacity:0;transition:.45s}
+  .case:hover .case-info{transform:none;opacity:1}
+  .cs{grid-template-columns:minmax(0,400px) 1fr;gap:50px;align-items:center}
+  .cs-rev .cs-media{order:2}
+  .video-row{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav id="nav">
+  <a href="#topo" class="brand">Nicole <span>Figueiredo</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#sobre">Sobre</a>
+    <a href="#marketing">Marketing</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#contato" class="nav-cta">Fale comigo</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<!-- barra inferior mobile (app-like) -->
+<div class="tabbar">
+  <a href="#topo"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg><em>Início</em></a>
+  <a href="#marketing"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg><em>Marketing</em></a>
+  <a href="#portfolio"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 14l4-4 4 4 4-5 4 5"/></svg><em>Portfólio</em></a>
+  <a href="#experiencia"><svg viewBox="0 0 24 24"><path d="M5 7h14v13H5zM9 7V4h6v3"/></svg><em>Carreira</em></a>
+  <a href="#contato"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 6l8 6 8-6"/></svg><em>Contato</em></a>
+</div>
+<!-- ============ HERO ============ -->
+<header class="hero wrap" id="topo">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-eyebrow reveal">Visual Merchandising · Brand Experience</div>
+      <h1 class="reveal">Marcas que viram <em>experiência</em>.</h1>
+      <p class="hero-sub reveal">Mais de 10 anos criando vitrines, ambientações e experiências de marca no varejo de moda, lifestyle e decoração.</p>
+      <div class="hero-actions reveal">
+        <a href="#portfolio" class="btn btn-primary">Ver portfólio →</a>
+        <a href="#contato" class="btn btn-ghost">Fale comigo</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-photo">
+        <!-- Troque o src abaixo pela sua foto: images/nicole.jpg -->
+        <img src="images/nicole.jpg" alt="Nicole Figueiredo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="ph" style="display:none"><b>NF</b>adicione sua foto em<br>images/nicole.jpg</div>
+        <div class="hero-badge">
+          <b>10+</b>
+          <span>anos no varejo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SOBRE ============ -->
+<section class="sec about" id="sobre">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01 — Sobre</div>
+      <h2 class="sec-title">Estratégia visual com alma de varejo.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <p>Uso o <strong>Visual Merchandising como ferramenta de marketing e de negócio</strong> — não como decoração. Mais de 10 anos transformando a experiência de loja em resultado mensurável no varejo de moda, lifestyle e decoração.</p>
+        <p>Atuo na ponta estratégica de <strong>retail e trade marketing, branding, campanhas, eventos, collabs e curadoria de mix</strong> em múltiplos canais, sempre conectando identidade de marca, jornada do cliente e <strong>KPIs comerciais</strong> — conversão, sell-through, fluxo, ticket e faturamento.</p>
+        <p>Perfil <strong>analítico e criativo</strong>: leio o dado, desenho a estratégia visual e provo o impacto no resultado.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b>10+</b><span>anos de experiência</span></div>
+        <div class="stat"><b>4</b><span>grandes marcas</span></div>
+        <div class="stat"><b>OOH</b><span>ON · OFF · eventos</span></div>
+        <div class="stat"><b>360°</b><span>visão omnichannel</span></div>
+      </div>
+    </div>
+    <div style="margin-top:64px" class="reveal">
+      <div class="sec-num" style="margin-bottom:20px">Competências</div>
+      <div class="skills-wrap">
+        <span class="chip">Visual Merchandising</span>
+        <span class="chip">Store Planning</span>
+        <span class="chip">Layout de loja</span>
+        <span class="chip">Vitrines & displays</span>
+        <span class="chip">Ambientações</span>
+        <span class="chip">Guia de VM</span>
+        <span class="chip">Campanhas sazonais</span>
+        <span class="chip">Trade Marketing</span>
+        <span class="chip">Retail Marketing</span>
+        <span class="chip">Branding</span>
+        <span class="chip">Brand Experience</span>
+        <span class="chip">Collabs & co-marketing</span>
+        <span class="chip">Gestão de projetos</span>
+        <span class="chip">Liderança de equipes</span>
+        <span class="chip">Gestão de fornecedores</span>
+        <span class="chip">Orçamento (budget)</span>
+        <span class="chip">KPIs de varejo</span>
+        <span class="chip">Tendências de mercado</span>
+        <span class="chip">Gestão de stakeholders</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARKETING ============ -->
+<section class="sec marketing" id="marketing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02 — Visão de marketing</div>
+      <h2 class="sec-title">Mais que VM: marketing que move o negócio.</h2>
+      <p style="color:var(--mocha);font-size:17px;font-weight:300;margin-top:18px">Minha trajetória vai além da execução visual. Atuo nas alavancas de marketing que geram demanda, fortalecem a marca e impactam o resultado comercial.</p>
+    </div>
+    <div class="mkt-grid">
+      <div class="mkt-card reveal">
+        <span class="mkt-ico">◆</span>
+        <h4>Estratégia de marca & branding</h4>
+        <p>Construção de posicionamento, awareness e atributos de marca on, off e OOH — do conceito ao desdobramento no varejo e no digital.</p>
+      </div>
+      <div class="mkt-card reveal">
+        <span class="mkt-ico">◆</span>
+        <h4>Trade & retail marketing</h4>
+        <p>Campanhas de PDV, calendário promocional, materiais de apoio e ações que convertem fluxo em venda na ponta.</p>
+      </div>
+      <div class="mkt-card reveal">
+        <span class="mkt-ico">◆</span>
+        <h4>Campanhas & eventos 360°</h4>
+        <p>Planejamento e execução de campanhas sazonais, lançamentos, ativações e eventos com foco em engajamento e captação de leads.</p>
+      </div>
+      <div class="mkt-card reveal">
+        <span class="mkt-ico">◆</span>
+        <h4>Collabs & co-marketing</h4>
+        <p>Parcerias autorais (Marina Bitu, Isa de Oliveira, Tarsila do Amaral) com cobertura de imprensa e ganho de marca.</p>
+      </div>
+      <div class="mkt-card reveal">
+        <span class="mkt-ico">◆</span>
+        <h4>Dados & KPIs de negócio</h4>
+        <p>Leitura de conversão, sell-through, fluxo, ticket médio e faturamento para orientar decisões de exposição e sortimento.</p>
+      </div>
+      <div class="mkt-card reveal">
+        <span class="mkt-ico">◆</span>
+        <h4>Gestão & stakeholders</h4>
+        <p>Budget, fornecedores, agências e times cross-functional (comercial, produto, conteúdo, e-commerce) alinhados ao plano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFÓLIO ============ -->
+<section class="sec portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03 — Portfólio</div>
+      <h2 class="sec-title">Projetos por marca.</h2>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter active" data-f="all">Todas</button>
+      <button class="filter" data-f="westwing">Westwing</button>
+      <button class="filter" data-f="nike">Nike</button>
+      <button class="filter" data-f="vivara">Vivara</button>
+      <button class="filter" data-f="farm">Farm Rio</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <!-- Cada .case: troque o <img src> pelo caminho da imagem. Se vazio, mostra placeholder. -->
+      <figure class="case s-tall reveal" data-brand="westwing">
+        <img src="images/westwing-01.jpg" alt="Westwing x Marina Bitu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/westwing-01.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Westwing × Marina Bitu</div><h4>Corpo, Casa e Território</h4></div>
+      </figure>
+
+      <figure class="case s-wide reveal" data-brand="westwing">
+        <img src="images/westwing-02.jpg" alt="Westwing na Bienal de Arquitetura" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/westwing-02.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Westwing</div><h4>Bienal de Arquitetura Brasileira</h4></div>
+      </figure>
+
+      <figure class="case s-third reveal" data-brand="westwing">
+        <img src="images/westwing-03.jpg" alt="Westwing x Isa de Oliveira" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/westwing-03.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Westwing × Isa de Oliveira</div><h4>Collab & ativação</h4></div>
+      </figure>
+
+      <figure class="case s-third reveal" data-brand="nike">
+        <img src="images/nike-01.jpg" alt="Nike VM digital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/nike-01.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Nike</div><h4>VM Digital · Nike.com</h4></div>
+      </figure>
+
+      <figure class="case s-half reveal" data-brand="nike">
+        <img src="images/nike-02.jpg" alt="Nike Air Max Day" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/nike-02.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Nike</div><h4>Air Max Day · shooting</h4></div>
+      </figure>
+
+      <figure class="case s-half reveal" data-brand="nike">
+        <img src="images/nike-03.jpg" alt="Nike styling" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/nike-03.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Nike</div><h4>Styling & exposição</h4></div>
+      </figure>
+
+      <figure class="case s-third reveal" data-brand="vivara">
+        <img src="images/vivara-01.jpg" alt="Vivara PDV" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/vivara-01.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Vivara</div><h4>Comunicação visual de PDV</h4></div>
+      </figure>
+
+      <figure class="case s-third reveal" data-brand="vivara">
+        <img src="images/vivara-02.jpg" alt="Vivara campanha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/vivara-02.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Vivara</div><h4>Trade marketing</h4></div>
+      </figure>
+
+      <figure class="case s-third reveal" data-brand="farm">
+        <img src="images/farm-01.jpg" alt="Farm Rio loja" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/farm-01.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Farm Rio</div><h4>Inauguração de lojas</h4></div>
+      </figure>
+
+      <figure class="case s-wide reveal" data-brand="farm">
+        <img src="images/farm-02.jpg" alt="Farm Rio evento" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/farm-02.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Farm Rio</div><h4>Ativações · Lollapalooza</h4></div>
+      </figure>
+
+      <figure class="case s-third reveal" data-brand="farm">
+        <img src="images/farm-03.jpg" alt="Farm Rio showroom" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <figcaption class="ph" style="display:none">images/farm-03.jpg</figcaption>
+        <div class="case-info"><div class="brand-tag">Farm Rio</div><h4>Showroom multimarcas</h4></div>
+      </figure>
+    </div>
+
+    <!-- ===== CASES EM DESTAQUE ===== -->
+    <div class="featured" style="margin-top:96px">
+      <div class="sec-num reveal" style="margin-bottom:8px">Cases em destaque</div>
+      <h3 class="featured-title reveal">Projetos que conectam marca, cultura e varejo.</h3>
+
+      <!-- Case 1 — Marina Bitu -->
+      <article class="cs reveal">
+        <div class="cs-media">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DYzfA5HR4qt/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="cs-body">
+          <div class="cs-tag">Westwing × Marina Bitu</div>
+          <h4 class="cs-name">Corpo, Casa e Território</h4>
+          <p>Collab que marcou a estreia da estilista Marina Bitu no universo da decoração. A coleção traduziu seu olhar autoral e brasileiro em tapetes e almofadas, com formas orgânicas, texturas e matérias-primas naturais.</p>
+          <p>Atuei na construção da experiência de marca, no alinhamento entre conceito criativo e execução no varejo e no evento de lançamento — conectando moda, design de interiores e lifestyle nas jornadas física e digital da Westwing.</p>
+          <div class="cs-press">
+            <span class="cs-press-lbl">Imprensa</span>
+            <a href="https://harpersbazaar.uol.com.br/bazaar-interiors/marina-bitu-estreia-na-decoracao-em-collab-com-a-westwing/" target="_blank" rel="noopener">Harper's Bazaar ↗</a>
+            <a href="https://stealthelook.com.br/essas-sao-as-collabs-de-moda-mais-legais-do-momento-para-ficar-de-olho/" target="_blank" rel="noopener">Steal The Look ↗</a>
+            <a href="https://glamour.globo.com/shopping/noticia/2026/06/os-lancamentos-de-moda-para-atualizar-sua-wish-list.ghtml" target="_blank" rel="noopener">Glamour ↗</a>
+          </div>
+          <!-- PREENCHA OS NÚMEROS REAIS abaixo (troque o "00") e apague .todo -->
+          <div class="cs-results">
+            <span class="cs-results-lbl">Resultados</span>
+            <div class="kpi-row">
+              <div class="kpi todo"><b>00%</b><span>sell-through da coleção</span></div>
+              <div class="kpi todo"><b>00</b><span>matérias de imprensa</span></div>
+              <div class="kpi todo"><b>00%</b><span>vs. meta de venda</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 2 — Bienal de Arquitetura -->
+      <article class="cs cs-rev reveal">
+        <div class="cs-media">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DXhwJo-j_XH/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="cs-body">
+          <div class="cs-tag">Westwing · Brand Experience</div>
+          <h4 class="cs-name">Bienal de Arquitetura Brasileira</h4>
+          <p>Liderei a frente de Brand Experience da Westwing na primeira Bienal de Arquitetura Brasileira, do planejamento à execução — coordenando orçamento, fornecedores, ativações, produção de conteúdo e relacionamento com stakeholders.</p>
+          <p>A cenografia foi desenvolvida em parceria com o arquiteto e designer <strong>Marcelo Rosenbaum</strong>, criando uma experiência imersiva alinhada aos valores da marca. Fiz a curadoria de mobiliário e decoração para pavilhões de ~100m² inspirados em estados brasileiros, fortalecendo a presença institucional da Westwing junto à comunidade de arquitetura e design.</p>
+          <div class="cs-press">
+            <span class="cs-press-lbl">Vídeos</span>
+            <a href="https://www.instagram.com/reel/DXpZPEADBGK/" target="_blank" rel="noopener">Pavilhões ↗</a>
+            <a href="https://www.instagram.com/reel/DXm_vCajpbf/" target="_blank" rel="noopener">Bastidores ↗</a>
+          </div>
+          <!-- PREENCHA OS NÚMEROS REAIS abaixo (troque o "00") e apague .todo -->
+          <div class="cs-results">
+            <span class="cs-results-lbl">Resultados</span>
+            <div class="kpi-row">
+              <div class="kpi todo"><b>00</b><span>visitantes no espaço</span></div>
+              <div class="kpi todo"><b>00</b><span>leads captados</span></div>
+              <div class="kpi todo"><b>00</b><span>alcance / impressões</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 3 — Isa de Oliveira -->
+      <article class="cs reveal">
+        <div class="cs-media">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYCWo7dlkjI/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="cs-body">
+          <div class="cs-tag">Westwing × Isa de Oliveira</div>
+          <h4 class="cs-name">Collab & experiência de marca</h4>
+          <p>Collab Westwing × Isa de Oliveira com desdobramento omnichannel, integrando conteúdo, curadoria de produto e experiência de marca nas jornadas física e digital.</p>
+          <p>Parte de uma frente contínua de collabs autorais da Westwing — que também incluiu nomes como <strong>Tarsila do Amaral</strong> — voltadas a reforçar a curadoria, a cultura brasileira e o posicionamento da marca no universo de casa, design e lifestyle.</p>
+          <!-- PREENCHA OS NÚMEROS REAIS abaixo (troque o "00") e apague .todo -->
+          <div class="cs-results">
+            <span class="cs-results-lbl">Resultados</span>
+            <div class="kpi-row">
+              <div class="kpi todo"><b>00%</b><span>engajamento da ação</span></div>
+              <div class="kpi todo"><b>00%</b><span>uplift de venda no período</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Vídeos -->
+    <div style="margin-top:80px" class="reveal">
+      <div class="sec-num" style="margin-bottom:22px">Em movimento</div>
+      <div class="video-row">
+        <iframe src="https://www.youtube-nocookie.com/embed/QOYssfi5CEY" title="Nike" loading="lazy" allowfullscreen></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/Q_FIlmvmrWo" title="Nike Air Max Day" loading="lazy" allowfullscreen></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/qnR55Q7XLZ0" title="Westwing" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div style="margin-top:44px" class="reveal">
+      <a href="https://express.adobe.com/page/d0j8MoEVHPFDt/" target="_blank" rel="noopener" class="btn btn-ghost">Ver portfólio completo no Adobe Express →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIÊNCIA ============ -->
+<section class="sec exp" id="experiencia">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04 — Trajetória</div>
+      <h2 class="sec-title">Onde construí marca.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-period">Set 2022 — Jun 2026</div>
+        <h3 class="tl-role">Coordenadora de Experiência de Marca & Visual Merchandising</h3>
+        <div class="tl-company">Westwing Brasil</div>
+        <ul class="tl-desc">
+          <li>Liderança da estratégia de branding e VM das lojas físicas, conectando brand e customer experience à performance comercial.</li>
+          <li>Gestão de collabs autorais omnichannel (Marina Bitu, Isa de Oliveira, Tarsila do Amaral), do conceito ao evento de lançamento.</li>
+          <li>Frente de Brand Experience da Bienal de Arquitetura Brasileira, com cenografia em parceria com Marcelo Rosenbaum. Gestão de budget e fornecedores.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">Mar 2022 — Set 2022</div>
+        <h3 class="tl-role">Analista de Trade Marketing</h3>
+        <div class="tl-company">Vivara</div>
+        <ul class="tl-desc">
+          <li>Gestão da comunicação visual da rede de lojas, garantindo padrão visual e consistência de marca.</li>
+          <li>Workflow com agências para campanhas de PDV e desenvolvimento de materiais de apoio para o time de loja.</li>
+          <li>Análise de exposição de produtos por clusters de lojas e shoppings.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">Fev 2020 — Mar 2022</div>
+        <h3 class="tl-role">Analista de Visual Merchandising Digital</h3>
+        <div class="tl-company">Nike</div>
+        <ul class="tl-desc">
+          <li>Integração omnichannel entre canais digitais e físicos via estratégia de VM e styling.</li>
+          <li>Planos sazonais para parceiros do varejo físico (Centauro, Authentic Feet, Artwalk).</li>
+          <li>Treinamentos de equipes e gestão da plataforma de VM com indicadores de engajamento.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">Set 2015 — Fev 2020</div>
+        <h3 class="tl-role">Visual Merchandiser & Stylist</h3>
+        <div class="tl-company">Farm Rio</div>
+        <ul class="tl-desc">
+          <li>Inauguração de novas lojas e pop-ups em diversas regiões do Brasil.</li>
+          <li>Ativações de marca em eventos estratégicos (Lollapalooza, Adidas, Havaianas, Enjoei).</li>
+          <li>Showroom orientado a vendas para parceiros multimarcas e ações de trade marketing.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMAÇÃO ============ -->
+<section class="sec edu" id="formacao">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">05 — Formação</div>
+      <h2 class="sec-title">Base acadêmica.</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="yr">2022</div>
+        <h4>Pós-Graduação em Marketing Digital</h4>
+        <p>FIA — Fundação Instituto de Administração</p>
+      </div>
+      <div class="edu-card reveal">
+        <div class="yr">2016</div>
+        <h4>Bacharelado em Design de Moda</h4>
+        <p>FASM — Faculdade Santa Marcelina</p>
+      </div>
+    </div>
+    <p style="margin-top:28px;color:var(--mocha);font-size:15px" class="reveal"><strong style="color:var(--espresso)">Idiomas:</strong> Português (nativo) · Inglês (avançado)</p>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="sec contact" id="contato">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">06 — Contato</div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="contact-lead">Vamos criar algo <em>memorável</em> juntos?</h2>
+        <p class="contact-sub">Disponível para novas oportunidades e projetos em Visual Merchandising e Brand Experience.</p>
+      </div>
+      <div class="contact-list reveal">
+        <a class="contact-link" href="https://wa.me/5511950252503?text=Ol%C3%A1%20Nicole!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">
+          <div><div class="lbl">WhatsApp</div><div class="val">(11) 95025-2503</div></div><div class="arr">↗</div>
+        </a>
+        <a class="contact-link" href="mailto:nicolefigueiredo.m@gmail.com">
+          <div><div class="lbl">E-mail</div><div class="val">nicolefigueiredo.m@gmail.com</div></div><div class="arr">↗</div>
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/nicolefigueiredomoreira/" target="_blank" rel="noopener">
+          <div><div class="lbl">LinkedIn</div><div class="val">/nicolefigueiredomoreira</div></div><div class="arr">↗</div>
+        </a>
+        <a class="contact-link" href="https://express.adobe.com/page/d0j8MoEVHPFDt/" target="_blank" rel="noopener">
+          <div><div class="lbl">Portfólio completo</div><div class="val">Adobe Express</div></div><div class="arr">↗</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <span>© 2026 Nicole Figueiredo — São Paulo, SP</span>
+    <span>Visual Merchandising · Brand Experience · Retail Marketing</span>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="fab" href="https://wa.me/5511950252503" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+// nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+// burger
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+// portfolio filter
+const filters=document.querySelectorAll('.filter'),cases=document.querySelectorAll('.case');
+filters.forEach(f=>f.addEventListener('click',()=>{
+  filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');
+  const v=f.dataset.f;
+  cases.forEach(c=>{
+    const show=v==='all'||c.dataset.brand===v;
+    c.style.display=show?'':'none';
+  });
+}));
+</script>
+<!-- Instagram embeds -->
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+(function(){
+  var p=document.getElementById('progress');
+  addEventListener('scroll',function(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    p.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+  });
+  // marca link ativo na tabbar
+  var secs=['topo','marketing','portfolio','experiencia','contato'].map(function(id){return document.getElementById(id)});
+  var tabs=document.querySelectorAll('.tabbar a');
+  addEventListener('scroll',function(){
+    var y=scrollY+120,cur=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    tabs.forEach(function(t,i){t.classList.toggle('on',i===cur)});
+  });
+})();
+</script>
+</body>
+</html>
