@@ -1,0 +1,12 @@
+Coloque suas imagens nesta pasta com os nomes exatos:
+
+nicole.jpg          → foto principal (vertical 4:5)
+og-cover.jpg        → imagem de compartilhamento (1200x630)
+westwing-01.jpg, westwing-02.jpg, westwing-03.jpg
+nike-01.jpg, nike-02.jpg, nike-03.jpg
+vivara-01.jpg, vivara-02.jpg
+farm-01.jpg, farm-02.jpg, farm-03.jpg
+
+As imagens estão no seu portfólio Adobe Express:
+https://express.adobe.com/page/d0j8MoEVHPFDt/
+(botão direito > Salvar imagem como > renomeie)

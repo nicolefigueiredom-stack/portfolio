@@ -1,0 +1,28 @@
+VÍDEOS DO SITE (versão B)
+
+1) Na SUA pasta do Google Drive (você está logada), baixe cada vídeo:
+   abrir o vídeo > menu (3 pontos) > Fazer download.
+
+2) Salve os arquivos AQUI (pasta videos/) com EXATAMENTE estes nomes:
+   video-01.mp4
+   video-02.mp4
+   video-03.mp4
+   video-04.mp4
+
+   (são vídeos verticais; se tiver mais ou menos, me avise que eu ajusto
+    a quantidade de blocos no index.)
+
+3) (Opcional) Uma imagem de capa para cada um, para carregar mais bonito:
+   poster-01.jpg, poster-02.jpg, poster-03.jpg, poster-04.jpg
+
+4) Edite as legendas no index.html procurando por "Westwing · projeto 01" etc.
+
+OBS:
+- Se um arquivo de vídeo não existir, o bloco some sozinho (não aparece quebrado).
+- Para o site carregar rápido, deixe cada vídeo idealmente abaixo de ~15-20 MB
+  (dá pra comprimir em handbrake.fr ou em https://www.veed.io/tools/compress-video).
+- Formato recomendado: .mp4 (H.264). Se seus vídeos forem .mov, converta para .mp4.
+
+ALTERNATIVA (recomendada para performance):
+  Suba os vídeos como "não listados" no YouTube e me mande os links —
+  eu troco por embeds leves, igual aos vídeos da Nike/Westwing que já estão no site.

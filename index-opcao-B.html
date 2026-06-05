@@ -14,8 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#211B16; --panel:#28211B; --panel2:#2F2820; --line:#43392F;
-  --cream:#EFE6D8; --soft:#B7A992; --clay:#D07B4E; --brass:#C9A24B; --sand:#7A6B57;
+  --bg:#1E1A15; --panel:#27211A; --panel2:#2F2820; --line:#433A2E;
+  --cream:#EDE6D7; --soft:#B2A88E; --clay:#9BA06A; --brass:#C9B083; --sand:#7C6E58;
   --serif:"Bricolage Grotesque",system-ui,sans-serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
   --shadow:0 36px 80px -34px rgba(0,0,0,.7);
 }
@@ -108,11 +108,44 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .case-info h4{font-family:var(--serif);font-weight:500;font-size:21px;margin-top:3px}
 .s-tall,.s-wide,.s-half,.s-third{grid-column:auto}
 
+/* ---- Carrossel rotativo ---- */
+.carousel{position:relative}
+.car-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 2px 14px;scrollbar-width:none}
+.car-track::-webkit-scrollbar{display:none}
+.slide{position:relative;flex:0 0 86%;scroll-snap-align:center;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--panel2);border:1px solid var(--line);box-shadow:0 16px 40px -20px #000;text-decoration:none;display:block}
+.slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.slide:hover img{transform:scale(1.04)}
+.slide .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--sand),var(--panel2));color:var(--cream);font-size:12px;text-align:center;padding:16px;opacity:.9}
+.slide-info{position:absolute;left:0;right:0;bottom:0;padding:26px 20px 20px;background:linear-gradient(to top,rgba(18,14,10,.92),rgba(18,14,10,.2) 70%,transparent);color:var(--cream);display:flex;flex-direction:column;gap:3px}
+.slide-info .brand-tag{font-style:normal;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.slide-info strong{font-family:var(--serif);font-weight:500;font-size:23px;line-height:1.1}
+.slide-cta{margin-top:8px;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--clay)}
+.car-nav{display:none;position:absolute;top:calc(50% - 30px);transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(39,33,26,.85);backdrop-filter:blur(6px);color:var(--cream);font-size:26px;line-height:1;cursor:pointer;transition:.3s}
+.car-nav:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
+.car-nav.prev{left:-8px} .car-nav.next{right:-8px}
+.car-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
+.car-dots button{width:8px;height:8px;border-radius:50%;border:none;background:var(--line);cursor:pointer;padding:0;transition:.3s}
+.car-dots button.on{background:var(--clay);width:22px;border-radius:5px}
+.cs[id]{scroll-margin-top:90px}
+
 .featured{margin-top:66px}
 .featured-title{font-family:var(--serif);font-weight:500;font-size:clamp(28px,7vw,42px);line-height:1.02;margin:6px 0 36px;max-width:20ch}
 .cs{display:grid;grid-template-columns:1fr;gap:26px;padding:36px 0;border-top:1px solid var(--line)}
 .cs-media{display:flex;justify-content:center}
 .cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:360px!important;border-radius:6px!important;box-shadow:var(--shadow)!important}
+.cs-video{width:100%;max-width:340px;aspect-ratio:9/16;object-fit:cover;border-radius:8px;box-shadow:var(--shadow);background:#000}
+/* galeria da Bienal */
+.bab-gallery{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0 8px}
+.bab-shot{margin:0;border-radius:8px;overflow:hidden;background:var(--panel2);border:1px solid var(--line);box-shadow:0 14px 36px -20px #000}
+.bab-shot img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .7s}
+.bab-shot img:hover{transform:scale(1.03)}
+.bab-shot video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;background:#000}
+.bab-vid{display:flex;align-items:center;justify-content:center;background:#000}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(15,12,9,.94);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:96vw;max-height:92vh;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .lb-x{position:absolute;top:18px;right:22px;font-size:34px;color:var(--cream);background:none;border:none;cursor:pointer;line-height:1}
 .cs-tag{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);font-weight:700}
 .cs-name{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6vw,35px);line-height:1.02;margin:8px 0 16px;color:var(--cream)}
 .cs-body p{color:var(--soft);font-size:16px;font-weight:300;margin-bottom:13px}
@@ -130,6 +163,10 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .kpi.todo b{color:var(--sand)}
 .video-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
 .video-row iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:5px;box-shadow:var(--shadow)}
+.native-videos{display:grid;grid-template-columns:1fr;gap:18px}
+.vcard{background:var(--panel2);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.vcard video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;background:#000}
+.vcap{display:block;padding:12px 16px;font-size:12.5px;letter-spacing:.04em;color:var(--soft)}
 
 .exp{background:var(--bg)}
 .timeline{position:relative}
@@ -205,6 +242,13 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .cs{grid-template-columns:minmax(0,400px) 1fr;gap:50px;align-items:center}
   .cs-rev .cs-media{order:2}
   .video-row{grid-template-columns:repeat(3,1fr)}
+  .native-videos{grid-template-columns:repeat(4,1fr)}
+  .car-nav{display:block}
+  .slide{flex-basis:calc((100% - 32px)/3)}
+  .car-track{padding:4px 2px 16px}
+  .bab-gallery{grid-template-columns:repeat(3,1fr);gap:16px;grid-auto-flow:dense}
+  .bab-span2{grid-column:span 2}
+  .bab-shot img{aspect-ratio:3/2}
 }
 </style>
 </head>
@@ -361,73 +405,50 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <button class="filter" data-f="farm">Farm Rio</button>
     </div>
 
-    <div class="gallery" id="gallery">
-      <!-- Cada .case: troque o <img src> pelo caminho da imagem. Se vazio, mostra placeholder. -->
-      <figure class="case s-tall reveal" data-brand="westwing">
-        <img src="images/westwing-01.jpg" alt="Westwing x Marina Bitu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/westwing-01.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Westwing × Marina Bitu</div><h4>Corpo, Casa e Território</h4></div>
-      </figure>
+    <!-- ===== CARROSSEL ROTATIVO ===== -->
+    <div class="carousel reveal" id="carousel">
+      <button class="car-nav prev" id="carPrev" aria-label="Anterior">‹</button>
+      <div class="car-track" id="carTrack">
 
-      <figure class="case s-wide reveal" data-brand="westwing">
-        <img src="images/westwing-02.jpg" alt="Westwing na Bienal de Arquitetura" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/westwing-02.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Westwing</div><h4>Bienal de Arquitetura Brasileira</h4></div>
-      </figure>
+        <a class="slide" data-brand="westwing" href="#case-marina">
+          <img src="images/westwing-01.jpg" alt="Westwing x Marina Bitu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/westwing-01.jpg</span>
+          <span class="slide-info"><em class="brand-tag">Westwing × Marina Bitu</em><strong>Corpo, Casa e Território</strong><span class="slide-cta">Ver case →</span></span>
+        </a>
 
-      <figure class="case s-third reveal" data-brand="westwing">
-        <img src="images/westwing-03.jpg" alt="Westwing x Isa de Oliveira" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/westwing-03.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Westwing × Isa de Oliveira</div><h4>Collab & ativação</h4></div>
-      </figure>
+        <a class="slide" data-brand="westwing" href="#case-bienal">
+          <img src="images/westwing-02.jpg" alt="Westwing na Bienal de Arquitetura" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/westwing-02.jpg</span>
+          <span class="slide-info"><em class="brand-tag">Westwing · Brand Experience</em><strong>Bienal de Arquitetura</strong><span class="slide-cta">Ver case →</span></span>
+        </a>
 
-      <figure class="case s-third reveal" data-brand="nike">
-        <img src="images/nike-01.jpg" alt="Nike VM digital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/nike-01.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Nike</div><h4>VM Digital · Nike.com</h4></div>
-      </figure>
+        <a class="slide" data-brand="westwing" href="#case-isa">
+          <img src="images/westwing-03.jpg" alt="Westwing x Isa de Oliveira" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/westwing-03.jpg</span>
+          <span class="slide-info"><em class="brand-tag">Westwing × Isa de Oliveira</em><strong>Collab & ativação</strong><span class="slide-cta">Ver case →</span></span>
+        </a>
 
-      <figure class="case s-half reveal" data-brand="nike">
-        <img src="images/nike-02.jpg" alt="Nike Air Max Day" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/nike-02.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Nike</div><h4>Air Max Day · shooting</h4></div>
-      </figure>
+        <a class="slide" data-brand="nike" href="#case-nike">
+          <img src="images/nike-01.jpg" alt="Nike VM digital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/nike-01.jpg</span>
+          <span class="slide-info"><em class="brand-tag">Nike</em><strong>VM Digital & Omnichannel</strong><span class="slide-cta">Ver case →</span></span>
+        </a>
 
-      <figure class="case s-half reveal" data-brand="nike">
-        <img src="images/nike-03.jpg" alt="Nike styling" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/nike-03.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Nike</div><h4>Styling & exposição</h4></div>
-      </figure>
+        <a class="slide" data-brand="vivara" href="#case-vivara">
+          <img src="images/vivara-01.jpg" alt="Vivara PDV" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/vivara-01.jpg</span>
+          <span class="slide-info"><em class="brand-tag">Vivara</em><strong>Trade Marketing & PDV</strong><span class="slide-cta">Ver case →</span></span>
+        </a>
 
-      <figure class="case s-third reveal" data-brand="vivara">
-        <img src="images/vivara-01.jpg" alt="Vivara PDV" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/vivara-01.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Vivara</div><h4>Comunicação visual de PDV</h4></div>
-      </figure>
+        <a class="slide" data-brand="farm" href="#case-farm">
+          <img src="images/farm-01.jpg" alt="Farm Rio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/farm-01.jpg</span>
+          <span class="slide-info"><em class="brand-tag">Farm Rio</em><strong>Lojas, Pop-ups & Ativações</strong><span class="slide-cta">Ver case →</span></span>
+        </a>
 
-      <figure class="case s-third reveal" data-brand="vivara">
-        <img src="images/vivara-02.jpg" alt="Vivara campanha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/vivara-02.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Vivara</div><h4>Trade marketing</h4></div>
-      </figure>
-
-      <figure class="case s-third reveal" data-brand="farm">
-        <img src="images/farm-01.jpg" alt="Farm Rio loja" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/farm-01.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Farm Rio</div><h4>Inauguração de lojas</h4></div>
-      </figure>
-
-      <figure class="case s-wide reveal" data-brand="farm">
-        <img src="images/farm-02.jpg" alt="Farm Rio evento" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/farm-02.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Farm Rio</div><h4>Ativações · Lollapalooza</h4></div>
-      </figure>
-
-      <figure class="case s-third reveal" data-brand="farm">
-        <img src="images/farm-03.jpg" alt="Farm Rio showroom" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <figcaption class="ph" style="display:none">images/farm-03.jpg</figcaption>
-        <div class="case-info"><div class="brand-tag">Farm Rio</div><h4>Showroom multimarcas</h4></div>
-      </figure>
+      </div>
+      <button class="car-nav next" id="carNext" aria-label="Próximo">›</button>
+      <div class="car-dots" id="carDots"></div>
     </div>
 
     <!-- ===== CASES EM DESTAQUE ===== -->
@@ -436,7 +457,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <h3 class="featured-title reveal">Projetos que conectam marca, cultura e varejo.</h3>
 
       <!-- Case 1 — Marina Bitu -->
-      <article class="cs reveal">
+      <article id="case-marina" class="cs reveal">
         <div class="cs-media">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DYzfA5HR4qt/" data-instgrm-version="14"></blockquote>
         </div>
@@ -464,9 +485,11 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       </article>
 
       <!-- Case 2 — Bienal de Arquitetura -->
-      <article class="cs cs-rev reveal">
+      <article id="case-bienal" class="cs cs-rev reveal">
         <div class="cs-media">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DXhwJo-j_XH/" data-instgrm-version="14"></blockquote>
+          <video class="cs-video" controls preload="metadata" playsinline poster="videos/poster-bienal-02.jpg">
+            <source src="videos/bienal-video-02.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="cs-body">
           <div class="cs-tag">Westwing · Brand Experience</div>
@@ -474,7 +497,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <p>Liderei a frente de Brand Experience da Westwing na primeira Bienal de Arquitetura Brasileira, do planejamento à execução — coordenando orçamento, fornecedores, ativações, produção de conteúdo e relacionamento com stakeholders.</p>
           <p>A cenografia foi desenvolvida em parceria com o arquiteto e designer <strong>Marcelo Rosenbaum</strong>, criando uma experiência imersiva alinhada aos valores da marca. Fiz a curadoria de mobiliário e decoração para pavilhões de ~100m² inspirados em estados brasileiros, fortalecendo a presença institucional da Westwing junto à comunidade de arquitetura e design.</p>
           <div class="cs-press">
-            <span class="cs-press-lbl">Vídeos</span>
+            <span class="cs-press-lbl">Mais vídeos</span>
             <a href="https://www.instagram.com/reel/DXpZPEADBGK/" target="_blank" rel="noopener">Pavilhões ↗</a>
             <a href="https://www.instagram.com/reel/DXm_vCajpbf/" target="_blank" rel="noopener">Bastidores ↗</a>
           </div>
@@ -490,8 +513,28 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
         </div>
       </article>
 
+      <!-- Galeria da Bienal (fotos + vídeo curto) -->
+      <div class="bab-gallery reveal">
+        <figure class="bab-shot bab-span2"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
+        <figure class="bab-shot"><img src="images/bienal-02.jpg" alt="Estantes e mobiliário — Espaço Westwing Bienal" loading="lazy"></figure>
+        <figure class="bab-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
+        <figure class="bab-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
+        <figure class="bab-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
+        <figure class="bab-shot bab-vid">
+          <video controls preload="metadata" playsinline poster="images/bienal-02.jpg">
+            <source src="videos/bab-social-01.mp4" type="video/mp4" />
+          </video>
+        </figure>
+        <figure class="bab-shot bab-vid">
+          <video controls preload="metadata" playsinline poster="images/bienal-01.jpg">
+            <source src="videos/bab-social-02.mp4" type="video/mp4" />
+          </video>
+        </figure>
+      </div>
+
+
       <!-- Case 3 — Isa de Oliveira -->
-      <article class="cs reveal">
+      <article id="case-isa" class="cs reveal">
         <div class="cs-media">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYCWo7dlkjI/" data-instgrm-version="14"></blockquote>
         </div>
@@ -510,11 +553,112 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           </div>
         </div>
       </article>
+
+      <!-- Case 4 — Nike -->
+      <article id="case-nike" class="cs cs-rev reveal">
+        <div class="cs-media">
+          <img src="images/nike-01.jpg" alt="Nike VM Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
+          <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/nike-01.jpg</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-tag">Nike · 2020–2022</div>
+          <h4 class="cs-name">VM Digital & Omnichannel</h4>
+          <p>Responsável pela integração entre canais digitais e físicos por meio da estratégia de Visual Merchandising e styling. Planejei o VM da Nike.com, a jornada do cliente online e a exposição de produto, traduzindo coleções em experiências de compra que converteram.</p>
+          <p>Apresentei planos sazonais para parceiros do varejo físico (Centauro, Authentic Feet, Artwalk), desenvolvi briefings criativos, conduzi treinamentos de equipes e geri a plataforma de VM com acompanhamento de indicadores de engajamento. Liderei também o shooting de <strong>Air Max Day</strong>.</p>
+          <div class="cs-press">
+            <span class="cs-press-lbl">Vídeos</span>
+            <a href="https://www.youtube.com/watch?v=QOYssfi5CEY" target="_blank" rel="noopener">Projeto Nike ↗</a>
+            <a href="https://www.youtube.com/watch?v=Q_FIlmvmrWo" target="_blank" rel="noopener">Air Max Day ↗</a>
+          </div>
+          <div class="cs-results">
+            <span class="cs-results-lbl">Resultados</span>
+            <div class="kpi-row">
+              <div class="kpi todo"><b>00%</b><span>conversão Nike.com</span></div>
+              <div class="kpi todo"><b>00%</b><span>engajamento da plataforma VM</span></div>
+              <div class="kpi todo"><b>00</b><span>parceiros atendidos</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 5 — Vivara -->
+      <article id="case-vivara" class="cs reveal">
+        <div class="cs-media">
+          <img src="images/vivara-01.jpg" alt="Vivara Trade Marketing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
+          <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/vivara-01.jpg</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-tag">Vivara · 2022</div>
+          <h4 class="cs-name">Trade Marketing & Comunicação de PDV</h4>
+          <p>Gestão da comunicação visual da rede de lojas, garantindo padrão visual e consistência de marca. Conduzi o workflow completo com agências criativas para campanhas de PDV — briefing, criação, aprovação e execução — e desenvolvi materiais de apoio para os times de loja.</p>
+          <p>Analisei a exposição de produtos por <strong>clusters de lojas e shoppings</strong>, prestei atendimento consultivo de marketing às lojas e participei de projetos de identidade de marca, como renovação de uniformes e embalagens.</p>
+          <div class="cs-results">
+            <span class="cs-results-lbl">Resultados</span>
+            <div class="kpi-row">
+              <div class="kpi todo"><b>00</b><span>lojas padronizadas</span></div>
+              <div class="kpi todo"><b>00%</b><span>giro em campanhas de PDV</span></div>
+              <div class="kpi todo"><b>00</b><span>clusters mapeados</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 6 — Farm Rio -->
+      <article id="case-farm" class="cs cs-rev reveal">
+        <div class="cs-media">
+          <img src="images/farm-01.jpg" alt="Farm Rio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
+          <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/farm-01.jpg</span>
+        </div>
+        <div class="cs-body">
+          <div class="cs-tag">Farm Rio · 2015–2020</div>
+          <h4 class="cs-name">Lojas, Pop-ups & Ativações</h4>
+          <p>Gestão da equipe de Visual Merchandising em São Paulo — cronogramas, feedbacks e aprovações. Responsável pela inauguração de novas lojas e pop-ups em diversas regiões do Brasil e pela montagem de showroom orientado a vendas para parceiros multimarcas.</p>
+          <p>Organizei e executei ativações de marca em eventos estratégicos como <strong>Lollapalooza, Adidas, Havaianas e Enjoei</strong>, desenvolvendo campanhas promocionais e ações de trade marketing com acompanhamento de indicadores de performance.</p>
+          <div class="cs-results">
+            <span class="cs-results-lbl">Resultados</span>
+            <div class="kpi-row">
+              <div class="kpi todo"><b>00</b><span>lojas e pop-ups inaugurados</span></div>
+              <div class="kpi todo"><b>00</b><span>ativações em eventos</span></div>
+              <div class="kpi todo"><b>00%</b><span>sell-out em ações</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
 
     <!-- Vídeos -->
     <div style="margin-top:80px" class="reveal">
       <div class="sec-num" style="margin-bottom:22px">Em movimento</div>
+      <!-- VÍDEOS DA SUA PASTA DO DRIVE: baixe os arquivos e salve em videos/ com estes nomes.
+           Adicione ou remova blocos <div class="vcard"> conforme a quantidade de vídeos. -->
+      <div class="native-videos">
+        <div class="vcard">
+          <video controls preload="metadata" playsinline poster="videos/poster-01.jpg">
+            <source src="videos/video-01.mp4" type="video/mp4" />
+          </video>
+          <span class="vcap">Westwing · projeto 01</span>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline poster="videos/poster-02.jpg">
+            <source src="videos/video-02.mp4" type="video/mp4" />
+          </video>
+          <span class="vcap">Westwing · projeto 02</span>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline poster="videos/poster-03.jpg">
+            <source src="videos/video-03.mp4" type="video/mp4" />
+          </video>
+          <span class="vcap">Westwing · projeto 03</span>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline poster="videos/poster-04.jpg">
+            <source src="videos/video-04.mp4" type="video/mp4" />
+          </video>
+          <span class="vcap">Westwing · projeto 04</span>
+        </div>
+      </div>
+
+      <div class="sec-num" style="margin:42px 0 18px">Campanhas em vídeo</div>
       <div class="video-row">
         <iframe src="https://www.youtube-nocookie.com/embed/QOYssfi5CEY" title="Nike" loading="lazy" allowfullscreen></iframe>
         <iframe src="https://www.youtube-nocookie.com/embed/Q_FIlmvmrWo" title="Nike Air Max Day" loading="lazy" allowfullscreen></iframe>
@@ -656,16 +800,55 @@ links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.clas
 // reveal on scroll
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
-// portfolio filter
-const filters=document.querySelectorAll('.filter'),cases=document.querySelectorAll('.case');
+// portfolio filter + carrossel
+const filters=document.querySelectorAll('.filter');
+const track=document.getElementById('carTrack');
+const allSlides=Array.from(document.querySelectorAll('.slide'));
+const dotsWrap=document.getElementById('carDots');
+let autoTimer;
+
+function visibleSlides(){return allSlides.filter(s=>s.style.display!=='none')}
+
+function buildDots(){
+  dotsWrap.innerHTML='';
+  visibleSlides().forEach((s,i)=>{
+    const b=document.createElement('button');
+    b.addEventListener('click',()=>{s.scrollIntoView({inline:'center',block:'nearest'});resetAuto()});
+    dotsWrap.appendChild(b);
+  });
+  updateDots();
+}
+function updateDots(){
+  const vs=visibleSlides();if(!vs.length)return;
+  const center=track.scrollLeft+track.clientWidth/2;
+  let idx=0,best=1e9;
+  vs.forEach((s,i)=>{const c=s.offsetLeft+s.offsetWidth/2-track.offsetLeft;const d=Math.abs(c-center);if(d<best){best=d;idx=i}});
+  dotsWrap.querySelectorAll('button').forEach((d,i)=>d.classList.toggle('on',i===idx));
+}
+function step(dir){
+  const vs=visibleSlides();if(!vs.length)return;
+  const w=vs[0].offsetWidth+16;
+  track.scrollBy({left:dir*w,behavior:'smooth'});
+}
+function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(()=>{
+  const max=track.scrollWidth-track.clientWidth-4;
+  if(track.scrollLeft>=max){track.scrollTo({left:0,behavior:'smooth'})}else{step(1)}
+},5000);}
+
+document.getElementById('carPrev').addEventListener('click',()=>{step(-1);resetAuto()});
+document.getElementById('carNext').addEventListener('click',()=>{step(1);resetAuto()});
+track.addEventListener('scroll',()=>{updateDots()},{passive:true});
+
 filters.forEach(f=>f.addEventListener('click',()=>{
   filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');
   const v=f.dataset.f;
-  cases.forEach(c=>{
-    const show=v==='all'||c.dataset.brand===v;
-    c.style.display=show?'':'none';
-  });
+  allSlides.forEach(s=>{s.style.display=(v==='all'||s.dataset.brand===v)?'':'none';});
+  track.scrollTo({left:0});buildDots();resetAuto();
 }));
+
+// pausa auto-rotação ao interagir; clique no slide rola suave até o case
+allSlides.forEach(s=>s.addEventListener('click',()=>clearInterval(autoTimer)));
+buildDots();resetAuto();
 </script>
 <!-- Instagram embeds -->
 <script async src="https://www.instagram.com/embed.js"></script>
@@ -676,7 +859,6 @@ filters.forEach(f=>f.addEventListener('click',()=>{
     var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
     p.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
   });
-  // marca link ativo na tabbar
   var secs=['topo','marketing','portfolio','experiencia','contato'].map(function(id){return document.getElementById(id)});
   var tabs=document.querySelectorAll('.tabbar a');
   addEventListener('scroll',function(){
@@ -684,7 +866,24 @@ filters.forEach(f=>f.addEventListener('click',()=>{
     secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
     tabs.forEach(function(t,i){t.classList.toggle('on',i===cur)});
   });
+  // esconde cards de video cujo arquivo ainda nao existe
+  document.querySelectorAll('.vcard video').forEach(function(v){
+    v.addEventListener('error',function(){var c=v.closest('.vcard');if(c)c.style.display='none'},true);
+    var s=v.querySelector('source');
+    if(s){var img=new Image();}
+    v.addEventListener('loadeddata',function(){v.dataset.ok='1'});
+  });
+  // lightbox para a galeria da Bienal
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+  document.querySelectorAll('.bab-shot img').forEach(function(im){
+    im.addEventListener('click',function(){lbImg.src=im.src;lb.classList.add('open')});
+  });
+  function closeLb(){lb.classList.remove('open');lbImg.src=''}
+  lb.addEventListener('click',closeLb);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
 })();
 </script>
+<!-- Lightbox -->
+<div class="lb" id="lb"><button class="lb-x" aria-label="Fechar">×</button><img id="lbImg" alt=""></div>
 </body>
 </html>
