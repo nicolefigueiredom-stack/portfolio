@@ -961,7 +961,10 @@ function buildDots(){
   dotsWrap.innerHTML='';
   visibleSlides().forEach((s,i)=>{
     const b=document.createElement('button');
-    b.addEventListener('click',()=>{s.scrollIntoView({inline:'center',block:'nearest'});resetAuto()});
+    b.addEventListener('click',()=>{
+      track.scrollTo({left:s.offsetLeft-track.offsetLeft-(track.clientWidth-s.offsetWidth)/2,behavior:'smooth'});
+      resetAuto();
+    });
     dotsWrap.appendChild(b);
   });
   updateDots();
@@ -1058,7 +1061,9 @@ buildDots();resetAuto();
     }
     function go(i){
       var shot=shots[(i+shots.length)%shots.length];
-      if(shot)shot.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+      if(shot){
+        track.scrollTo({left:shot.offsetLeft-track.offsetLeft-(track.clientWidth-shot.offsetWidth)/2,behavior:'smooth'});
+      }
       setTimeout(updateDots,320);
     }
     function step(dir){go(currentIndex()+dir)}
@@ -1119,8 +1124,8 @@ buildDots();resetAuto();
       caption.textContent=cap;
       // mantém o thumb ativo visível na barra
       var th=thumbs[idx];
-      if(th && th.scrollIntoView){
-        th.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+      if(th){
+        thumbsWrap.scrollTo({left:th.offsetLeft-thumbsWrap.offsetLeft-(thumbsWrap.clientWidth-th.offsetWidth)/2,behavior:'smooth'});
       }
     }
     function startAuto(){
