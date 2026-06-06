@@ -135,21 +135,21 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:360px!important;border-radius:6px!important;box-shadow:var(--shadow)!important}
 .cs-video{width:100%;max-width:340px;aspect-ratio:9/16;object-fit:cover;border-radius:8px;box-shadow:var(--shadow);background:#000}
 .cs-media .slideshow{position:relative;top:auto;width:100%;max-width:none}
-.cs-media .bab-gallery{width:100%;margin:0}
+.cs-media .media-gallery{width:100%;margin:0}
 /* galeria da Bienal */
-.bab-gallery{position:relative;margin:20px 0 8px}
-.bab-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 2px 14px;scrollbar-width:none}
-.bab-track::-webkit-scrollbar{display:none}
-.bab-shot{position:relative;flex:0 0 86%;scroll-snap-align:center;margin:0;border-radius:8px;overflow:hidden;background:var(--panel2);border:1px solid var(--line);box-shadow:0 14px 36px -20px #000}
-.bab-shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:zoom-in;transition:transform .7s}
-.bab-shot img:hover{transform:scale(1.04)}
-.bab-nav{display:none;position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(39,33,26,.86);backdrop-filter:blur(6px);color:var(--cream);font-size:25px;line-height:1;cursor:pointer;transition:.25s}
-.bab-nav:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
-.bab-nav.prev{left:-8px}.bab-nav.next{right:-8px}
-.bab-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
-.bab-dots button{width:8px;height:8px;border:0;border-radius:50%;background:var(--line);padding:0;cursor:pointer;transition:.25s}
-.bab-dots button.on{width:22px;border-radius:8px;background:var(--clay)}
-.bab-shot video{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:#000}
+.media-gallery{position:relative;margin:20px 0 8px}
+.media-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 2px 14px;scrollbar-width:none}
+.media-track::-webkit-scrollbar{display:none}
+.media-shot{position:relative;flex:0 0 86%;scroll-snap-align:center;margin:0;border-radius:8px;overflow:hidden;background:var(--panel2);border:1px solid var(--line);box-shadow:0 14px 36px -20px #000}
+.media-shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:zoom-in;transition:transform .7s}
+.media-shot img:hover{transform:scale(1.04)}
+.media-nav{display:none;position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(39,33,26,.86);backdrop-filter:blur(6px);color:var(--cream);font-size:25px;line-height:1;cursor:pointer;transition:.25s}
+.media-nav:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
+.media-nav.prev{left:-8px}.media-nav.next{right:-8px}
+.media-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.media-dots button{width:8px;height:8px;border:0;border-radius:50%;background:var(--line);padding:0;cursor:pointer;transition:.25s}
+.media-dots button.on{width:22px;border-radius:8px;background:var(--clay)}
+.media-shot video{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:#000}
 .bab-vid{display:flex;align-items:center;justify-content:center;background:#000}
 .pdf-project{padding:32px 0 44px;border-top:1px dashed var(--line)}
 .pdf-project-head{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
@@ -332,9 +332,9 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .slideshow{padding:18px}
   .sl-thumb{flex-basis:62px}
   .pdf-project-head{flex-direction:row;align-items:flex-end}
-  .bab-nav{display:block}
-  .bab-shot{flex-basis:calc((100% - 28px)/2)}
-  .bab-shot img,.bab-shot video{aspect-ratio:3/2}
+  .media-nav{display:block}
+  .media-shot{flex-basis:calc((100% - 28px)/2)}
+  .media-shot img,.media-shot video{aspect-ratio:3/2}
 }
 </style>
 </head>
@@ -545,7 +545,22 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <!-- Case 1 — Marina Bitu -->
       <article id="case-marina" class="cs reveal">
         <div class="cs-media">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DYzfA5HR4qt/" data-instgrm-version="14"></blockquote>
+          <div class="media-gallery" id="marinaGallery" aria-label="Galeria Westwing x Marina Bitu">
+            <button class="media-nav prev" aria-label="Imagem anterior">‹</button>
+            <div class="media-track">
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-01.jpeg" alt="Tapete da collab Westwing x Marina Bitu em escada de concreto" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-02.jpeg" alt="Almofadas da collab Westwing x Marina Bitu em escada" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-03.jpeg" alt="Ambientação Westwing x Marina Bitu com tapete e mobiliário" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-04.jpeg" alt="Sala com tapete colorido da collab Westwing x Marina Bitu" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-05.jpeg" alt="Modelo com vestido vermelho em ambientação da collab Westwing x Marina Bitu" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-06.jpeg" alt="Tapete da collab Westwing x Marina Bitu em paisagem árida" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-07.jpeg" alt="Detalhe do tapete Westwing x Marina Bitu em paisagem árida" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-08.jpeg" alt="Capa em paisagem externa da collab Westwing x Marina Bitu" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-09.jpeg" alt="Modelo sentada em cadeira com tapete da collab Westwing x Marina Bitu" loading="lazy"></figure>
+            </div>
+            <button class="media-nav next" aria-label="Próxima imagem">›</button>
+            <div class="media-dots"></div>
+          </div>
         </div>
         <div class="cs-body">
           <div class="cs-tag">Westwing × Marina Bitu</div>
@@ -573,27 +588,27 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <!-- Case 2 — Bienal de Arquitetura -->
       <article id="case-bienal" class="cs cs-rev reveal">
         <div class="cs-media">
-          <div class="bab-gallery" id="babGallery" aria-label="Galeria de fotos e vídeos da Bienal">
-            <button class="bab-nav prev" id="babPrev" aria-label="Foto anterior">‹</button>
-            <div class="bab-track" id="babTrack">
-              <figure class="bab-shot"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
-              <figure class="bab-shot"><img src="images/bienal-02.jpg" alt="Estantes e mobiliário — Espaço Westwing Bienal" loading="lazy"></figure>
-              <figure class="bab-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
-              <figure class="bab-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
-              <figure class="bab-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
-              <figure class="bab-shot bab-vid">
+          <div class="media-gallery" id="babGallery" aria-label="Galeria de fotos e vídeos da Bienal">
+            <button class="media-nav prev" aria-label="Foto anterior">‹</button>
+            <div class="media-track">
+              <figure class="media-shot"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-02.jpg" alt="Estantes e mobiliário — Espaço Westwing Bienal" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
+              <figure class="media-shot bab-vid">
                 <video controls preload="metadata" playsinline poster="images/bienal-02.jpg">
                   <source src="videos/bab-social-01.mp4" type="video/mp4" />
                 </video>
               </figure>
-              <figure class="bab-shot bab-vid">
+              <figure class="media-shot bab-vid">
                 <video controls preload="metadata" playsinline poster="images/bienal-01.jpg">
                   <source src="videos/bab-social-02.mp4" type="video/mp4" />
                 </video>
               </figure>
             </div>
-            <button class="bab-nav next" id="babNext" aria-label="Próxima foto">›</button>
-            <div class="bab-dots" id="babDots"></div>
+            <button class="media-nav next" aria-label="Próxima foto">›</button>
+            <div class="media-dots"></div>
           </div>
         </div>
         <div class="cs-body">
@@ -1006,10 +1021,10 @@ buildDots();resetAuto();
     if(s){var img=new Image();}
     v.addEventListener('loadeddata',function(){v.dataset.ok='1'});
   });
-  // lightbox para a galeria da Bienal
+  // lightbox para galerias de imagem
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
   if(lb && lbImg){
-    document.querySelectorAll('.bab-shot img').forEach(function(im){
+    document.querySelectorAll('.media-shot img').forEach(function(im){
       im.addEventListener('click',function(){lbImg.src=im.src;lb.classList.add('open')});
     });
     function closeLb(){lb.classList.remove('open');lbImg.src=''}
@@ -1017,15 +1032,14 @@ buildDots();resetAuto();
     document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
   }
 
-  // galeria rotativa da Bienal
-  (function(){
-    var gallery=document.getElementById('babGallery');
-    var track=document.getElementById('babTrack');
-    var prev=document.getElementById('babPrev');
-    var next=document.getElementById('babNext');
-    var dotsWrap=document.getElementById('babDots');
+  // galerias rotativas
+  function initMediaGallery(gallery){
+    var track=gallery.querySelector('.media-track');
+    var prev=gallery.querySelector('.media-nav.prev');
+    var next=gallery.querySelector('.media-nav.next');
+    var dotsWrap=gallery.querySelector('.media-dots');
     if(!gallery||!track||!prev||!next||!dotsWrap)return;
-    var shots=Array.prototype.slice.call(track.querySelectorAll('.bab-shot'));
+    var shots=Array.prototype.slice.call(track.querySelectorAll('.media-shot'));
     var timer;
 
     function currentIndex(){
@@ -1067,7 +1081,8 @@ buildDots();resetAuto();
     gallery.addEventListener('mouseleave',start);
     updateDots();
     start();
-  })();
+  }
+  document.querySelectorAll('.media-gallery').forEach(initMediaGallery);
 
   // ====== Slideshow do projeto cenográfico (PDF em slides) ======
   (function(){
