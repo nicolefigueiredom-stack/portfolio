@@ -238,11 +238,13 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .kpi b{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--brass);line-height:1;display:block}
 .kpi span{font-size:12px;color:var(--soft);margin-top:5px;display:block}
 .kpi.todo b{color:var(--sand)}
-.case-highlights{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line)}
-.case-highlights-lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:12px;display:block}
-.highlight-list{display:grid;grid-template-columns:1fr;gap:8px;list-style:none}
-.highlight-list li{position:relative;border:1px solid var(--line);background:var(--panel2);border-radius:4px;padding:12px 15px 12px 34px;color:var(--soft);font-size:13.5px;font-weight:500}
-.highlight-list li::before{content:"";position:absolute;left:15px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--brass)}
+.case-framework{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:20px}
+.framework-col{padding-top:14px;border-top:1px solid rgba(211,177,124,.22)}
+.framework-col:first-child{padding-top:0;border-top:0}
+.framework-col h6{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:11px}
+.framework-col ul{list-style:none;display:grid;gap:8px}
+.framework-col li{position:relative;color:var(--soft);font-size:14px;line-height:1.55;padding-left:17px}
+.framework-col li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;border-radius:50%;background:var(--brass)}
 .case-subsection{margin-top:34px;padding-top:30px;border-top:1px dashed var(--line)}
 .case-subtitle{font-family:var(--serif);font-weight:500;font-size:clamp(25px,5vw,36px);line-height:1.05;color:var(--cream);margin-bottom:14px}
 .case-subsection p{color:var(--soft);font-size:16px;font-weight:300;margin-bottom:13px}
@@ -326,6 +328,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .case-info{transform:translateY(8px);opacity:0;transition:.45s}
   .case:hover .case-info{transform:none;opacity:1}
   .cs{gap:34px;align-items:stretch}
+  .cs-body{max-width:940px}
   .video-row{grid-template-columns:repeat(3,1fr)}
   .native-videos{grid-template-columns:repeat(4,1fr)}
   .car-nav{display:block}
@@ -354,7 +357,9 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .media-shot img,.media-shot video{aspect-ratio:3/2}
   .media-shot.media-vertical{flex-basis:28%}
   .media-shot.media-vertical video{aspect-ratio:9/16}
-  .highlight-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .case-framework{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+  .framework-col{padding-top:0;padding-left:18px;border-top:0;border-left:1px solid rgba(211,177,124,.24)}
+  .framework-col:first-child{padding-left:0;border-left:0}
 }
 </style>
 </head>
@@ -528,10 +533,10 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <span class="slide-info"><em class="brand-tag">Westwing · Brand Experience</em><strong>Bienal de Arquitetura</strong><span class="slide-cta">Ver case →</span></span>
         </a>
 
-        <a class="slide" data-brand="westwing" href="#case-isa">
-          <img src="images/westwing-03.jpg" alt="Westwing x Isa de Oliveira" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <span class="ph" style="display:none">images/westwing-03.jpg</span>
-          <span class="slide-info"><em class="brand-tag">Westwing × Isa de Oliveira</em><strong>Collab & ativação</strong><span class="slide-cta">Ver case →</span></span>
+        <a class="slide" data-brand="vivara" href="#case-vivara-namorados">
+          <img src="images/vivara-namorados/vivara-namorados-01.jpeg" alt="Campanha de Dia dos Namorados Vivara e Life by Vivara" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/vivara-namorados/vivara-namorados-01.jpeg</span>
+          <span class="slide-info"><em class="brand-tag">Vivara · Life by Vivara</em><strong>Dia dos Namorados</strong><span class="slide-cta">Ver case →</span></span>
         </a>
 
         <a class="slide" data-brand="nike" href="#case-nike">
@@ -575,26 +580,56 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
             <a href="https://stealthelook.com.br/essas-sao-as-collabs-de-moda-mais-legais-do-momento-para-ficar-de-olho/" target="_blank" rel="noopener">Steal The Look ↗</a>
             <a href="https://glamour.globo.com/shopping/noticia/2026/06/os-lancamentos-de-moda-para-atualizar-sua-wish-list.ghtml" target="_blank" rel="noopener">Glamour ↗</a>
           </div>
-          <div class="case-highlights">
-            <span class="case-highlights-lbl">Destaques</span>
-            <ul class="highlight-list">
-              <li>Estreia da estilista no universo de casa e decoração</li>
-              <li>Narrativa integrada entre moda, produto e lifestyle</li>
-              <li>Desdobramento em loja, conteúdo e cobertura de imprensa</li>
-            </ul>
+          <div class="case-framework" aria-label="Escopo, execução e entrega do case Westwing x Marina Bitu">
+            <div class="framework-col">
+              <h6>Escopo</h6>
+              <ul>
+                <li>Collab entre Westwing e Marina Bitu para lançar a estilista no universo de casa e decoração.</li>
+                <li>Integração entre moda, design de interiores, lifestyle e narrativa autoral brasileira.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Execução</h6>
+              <ul>
+                <li>Alinhamento entre conceito criativo, experiência de marca, varejo físico e canais digitais.</li>
+                <li>Desdobramento da coleção em produção audiovisual, evento de lançamento e vitrines.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Entrega</h6>
+              <ul>
+                <li>Experiência de marca consistente em diferentes pontos de contato.</li>
+                <li>Fortalecimento da collab com conteúdo, imprensa e presença no varejo.</li>
+              </ul>
+            </div>
           </div>
 
           <div class="case-subsection" id="case-marina-audiovisual">
             <div class="cs-tag">Frente de atuação · Produção audiovisual</div>
             <h5 class="case-subtitle">Campanha, narrativa visual e conteúdo</h5>
             <p>Atuação na construção da narrativa visual da collab, conectando direção criativa, styling, produto e ambientação para traduzir o conceito <strong>Corpo, Casa e Território</strong> em imagens com força editorial e valor de marca.</p>
-            <div class="case-highlights">
-              <span class="case-highlights-lbl">Habilidades em destaque</span>
-              <ul class="highlight-list">
-                <li>Alinhamento entre conceito criativo, produto e storytelling visual.</li>
-                <li>Curadoria de cenas, objetos e atmosfera para comunicar a coleção.</li>
-                <li>Desdobramento de conteúdo para campanha, imprensa e canais digitais.</li>
-              </ul>
+            <div class="case-framework" aria-label="Escopo, execução e entrega da produção audiovisual">
+              <div class="framework-col">
+                <h6>Escopo</h6>
+                <ul>
+                  <li>Construção da narrativa visual da campanha para comunicar a collab com força editorial.</li>
+                  <li>Conexão entre produto, styling, ambientação e território criativo da coleção.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Execução</h6>
+                <ul>
+                  <li>Curadoria de cenas, objetos, atmosfera e enquadramentos alinhados ao conceito.</li>
+                  <li>Interface entre direção criativa, produto e necessidades de comunicação da marca.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Entrega</h6>
+                <ul>
+                  <li>Conteúdo visual para campanha, imprensa e canais digitais.</li>
+                  <li>Imagem de marca sofisticada, coerente e conectada ao storytelling da collab.</li>
+                </ul>
+              </div>
             </div>
             <div class="media-gallery" id="marinaGallery" aria-label="Galeria da produção audiovisual Westwing x Marina Bitu">
               <button class="media-nav prev" aria-label="Imagem anterior">‹</button>
@@ -619,21 +654,28 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
             <h5 class="case-subtitle">Evento Westwing + Marina Bitu</h5>
             <p>Gestão integral do evento de lançamento da collab, conduzindo o projeto do planejamento estratégico à execução final para ampliar a parceria entre Westwing e Marina Bitu junto a convidados estratégicos.</p>
             <p>Atuação na construção da experiência, definição de escopo, cronograma, alinhamento entre áreas internas e parceiros externos, gestão de fornecedores, controle orçamentário e acompanhamento operacional de todas as entregas.</p>
-            <div class="case-highlights">
-              <span class="case-highlights-lbl">Escopo de atuação</span>
-              <ul class="highlight-list">
-                <li>Coordenação da cenografia e da jornada dos convidados, garantindo consistência com os objetivos de branding.</li>
-                <li>Gestão de montagem, fornecedores, equipes e demandas em tempo real durante a execução.</li>
-                <li>Relacionamento com imprensa, influenciadores, arquitetos, designers e stakeholders para geração de conteúdo e amplificação da ação.</li>
-              </ul>
-            </div>
-            <div class="case-highlights">
-              <span class="case-highlights-lbl">Competências mobilizadas</span>
-              <ul class="highlight-list">
-                <li>Visão estratégica e gestão multidisciplinar.</li>
-                <li>Negociação com parceiros e controle financeiro.</li>
-                <li>Execução operacional com foco em qualidade, posicionamento e visibilidade de marca.</li>
-              </ul>
+            <div class="case-framework" aria-label="Escopo, execução e entrega do evento Westwing x Marina Bitu">
+              <div class="framework-col">
+                <h6>Escopo</h6>
+                <ul>
+                  <li>Gestão integral do evento no LAPI, em São Paulo, para apresentar e amplificar a collab.</li>
+                  <li>Construção da experiência, jornada dos convidados e conexão entre marca, imprensa e parceiros.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Execução</h6>
+                <ul>
+                  <li>Definição de escopo, cronograma, fornecedores, orçamento e acompanhamento operacional.</li>
+                  <li>Coordenação de cenografia, montagem, equipes e resolução de demandas em tempo real.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Entrega</h6>
+                <ul>
+                  <li>Experiência alinhada aos objetivos de branding da ação.</li>
+                  <li>Ambiente de relacionamento com imprensa, influenciadores, arquitetos, designers e stakeholders.</li>
+                </ul>
+              </div>
             </div>
             <div class="media-gallery" id="marinaEventGallery" aria-label="Galeria do evento Westwing x Marina Bitu">
               <button class="media-nav prev" aria-label="Imagem anterior do evento">‹</button>
@@ -646,6 +688,51 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
                 <figure class="media-shot"><img src="images/marina-bitu-event/event-06.jpeg" alt="Detalhe de tapete e cenografia no evento Westwing x Marina Bitu" loading="lazy"></figure>
               </div>
               <button class="media-nav next" aria-label="Próxima imagem do evento">›</button>
+              <div class="media-dots"></div>
+            </div>
+          </div>
+
+          <div class="case-subsection" id="case-marina-vitrines">
+            <div class="cs-tag">Frente de atuação · Visual Merchandising & Retail Experience</div>
+            <h5 class="case-subtitle">Vitrines Westwing Collection por Marina Bitu</h5>
+            <p>Responsável pela concepção, planejamento e implementação das vitrines da collab Westwing Collection por Marina Bitu, conduzindo o projeto da construção do conceito criativo à execução nos pontos de venda.</p>
+            <p>A estratégia partiu da leitura dos pilares conceituais da coleção e da identidade criativa de Marina Bitu, traduzindo a narrativa da brasilidade contemporânea para uma experiência visual alinhada ao posicionamento premium da Westwing.</p>
+            <p>A cenografia incorporou fibras naturais, palhas, texturas orgânicas, materiais artesanais e peças em cerâmica de Dona Dagmar Belmonte, estabelecendo um diálogo sofisticado entre moda, design, decoração e território.</p>
+            <div class="case-framework" aria-label="Escopo, execução e entrega das vitrines Westwing Collection por Marina Bitu">
+              <div class="framework-col">
+                <h6>Escopo</h6>
+                <ul>
+                  <li>Concepção, planejamento e implementação das vitrines da collab nos pontos de venda.</li>
+                  <li>Tradução dos pilares da coleção para uma experiência visual premium e comercial.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Execução</h6>
+                <ul>
+                  <li>Pesquisa de referências, desenvolvimento cenográfico, projetos executivos e gestão de orçamento.</li>
+                  <li>Negociação com fornecedores, acompanhamento de produção e adaptação às lojas.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Entrega</h6>
+                <ul>
+                  <li>Fachadas transformadas em extensão da narrativa da coleção.</li>
+                  <li>Equilíbrio entre criatividade, viabilidade operacional e objetivos comerciais.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="media-gallery" id="marinaWindowGallery" aria-label="Galeria das vitrines Westwing Collection por Marina Bitu">
+              <button class="media-nav prev" aria-label="Imagem anterior das vitrines">‹</button>
+              <div class="media-track">
+                <figure class="media-shot"><img src="images/marina-bitu-vitrines/vitrine-02.jpg" alt="Vitrine Westwing Collection por Marina Bitu com tapete, poltrona e painel conceitual" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-vitrines/vitrine-05.jpg" alt="Fachada da loja Westwing com vitrine da collab Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-vitrines/vitrine-07.jpg" alt="Entrada da loja Westwing com ambientação da collab Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-vitrines/vitrine-06.jpg" alt="Vitrine lateral com cerâmicas, fibras naturais e produtos da collab Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-vitrines/vitrine-04.jpg" alt="Vista superior da ambientação de loja Westwing Collection por Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-vitrines/vitrine-01.jpg" alt="Detalhe de tapete e cenografia da vitrine Westwing Collection por Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-vitrines/vitrine-03.jpg" alt="Vista interna da loja com instalação da collab Westwing Collection por Marina Bitu" loading="lazy"></figure>
+              </div>
+              <button class="media-nav next" aria-label="Próxima imagem das vitrines">›</button>
               <div class="media-dots"></div>
             </div>
           </div>
@@ -665,13 +752,28 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
               <a href="https://www.instagram.com/reel/DXpZPEADBGK/" target="_blank" rel="noopener">Pavilhões ↗</a>
               <a href="https://www.instagram.com/reel/DXm_vCajpbf/" target="_blank" rel="noopener">Bastidores ↗</a>
             </div>
-            <div class="case-highlights">
-              <span class="case-highlights-lbl">Destaques</span>
-              <ul class="highlight-list">
-                <li>Cenografia imersiva em parceria com Marcelo Rosenbaum</li>
-                <li>Curadoria de mobiliário e decoração conectada à narrativa dos pavilhões</li>
-                <li>Gestão de fornecedores, ativações e conteúdo em um projeto institucional</li>
-              </ul>
+            <div class="case-framework" aria-label="Escopo, execução e entrega da Bienal de Arquitetura Brasileira">
+              <div class="framework-col">
+                <h6>Escopo</h6>
+                <ul>
+                  <li>Presença da Westwing na primeira Bienal de Arquitetura Brasileira.</li>
+                  <li>Construção de uma experiência institucional para comunidade de arquitetura e design.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Execução</h6>
+                <ul>
+                  <li>Gestão de orçamento, fornecedores, ativações, conteúdo e relacionamento com stakeholders.</li>
+                  <li>Curadoria de mobiliário e decoração para pavilhões desenvolvidos com Marcelo Rosenbaum.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Entrega</h6>
+                <ul>
+                  <li>Cenografia imersiva alinhada aos valores e à estética da marca.</li>
+                  <li>Fortalecimento da presença da Westwing no território de arquitetura e design.</li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="case-feature-video">
@@ -741,22 +843,52 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       </div>
 
 
-      <!-- Case 3 — Isa de Oliveira -->
-      <article id="case-isa" class="cs reveal">
+      <!-- Case 3 — Vivara Dia dos Namorados -->
+      <article id="case-vivara-namorados" class="cs reveal">
         <div class="cs-media">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYCWo7dlkjI/" data-instgrm-version="14"></blockquote>
+          <div class="media-gallery" id="vivaraValentinesGallery" aria-label="Galeria da campanha de Dia dos Namorados Vivara e Life by Vivara">
+            <button class="media-nav prev" aria-label="Imagem anterior da campanha Vivara">‹</button>
+            <div class="media-track">
+              <figure class="media-shot"><img src="images/vivara-namorados/vivara-namorados-01.jpeg" alt="Fachada Life by Vivara com campanha de Dia dos Namorados" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/vivara-namorados/vivara-namorados-02.jpeg" alt="Detalhe de expositor Life by Vivara para Dia dos Namorados" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/vivara-namorados/vivara-namorados-03.jpeg" alt="Vitrine interna Vivara com comunicação de Dia dos Namorados" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/vivara-namorados/vivara-namorados-04.jpeg" alt="Fachada Vivara com implantação de campanha de Dia dos Namorados" loading="lazy"></figure>
+            </div>
+            <button class="media-nav next" aria-label="Próxima imagem da campanha Vivara">›</button>
+            <div class="media-dots"></div>
+          </div>
         </div>
         <div class="cs-body">
-          <div class="cs-tag">Case · Collab & experiência de marca</div>
-          <h4 class="cs-name">Westwing × Isa de Oliveira</h4>
-          <p>Collab Westwing × Isa de Oliveira com desdobramento omnichannel, integrando conteúdo, curadoria de produto e experiência de marca nas jornadas física e digital.</p>
-          <p>Parte de uma frente contínua de collabs autorais da Westwing — que também incluiu nomes como <strong>Tarsila do Amaral</strong> — voltadas a reforçar a curadoria, a cultura brasileira e o posicionamento da marca no universo de casa, design e lifestyle.</p>
-          <div class="case-highlights">
-            <span class="case-highlights-lbl">Destaques</span>
-            <ul class="highlight-list">
-              <li>Collab autoral com linguagem de marca consistente</li>
-              <li>Integração entre conteúdo, curadoria de produto e experiência física</li>
-            </ul>
+          <div class="cs-tag">Case · Campanha de Dia dos Namorados · Visual Merchandising</div>
+          <h4 class="cs-name">Vivara e Life by Vivara</h4>
+          <p>Atuei na liderança do desenvolvimento e da implementação nacional da campanha de Dia dos Namorados para Vivara e Life by Vivara, uma das principais datas comerciais do calendário da marca.</p>
+          <p>O projeto contemplou vitrines, materiais expositivos e comunicações visuais, com adaptação para diferentes formatos de loja e gestão próxima entre agência, fornecedores, transportadoras e equipes de campo.</p>
+          <p>Diante da escala de implantação e de ocorrências logísticas, estruturei processos de acompanhamento para identificar desvios, coordenar reposições e apoiar as lojas em tempo real, preservando a consistência visual da campanha em todo o Brasil.</p>
+          <div class="case-framework" aria-label="Escopo, execução e entrega da campanha de Dia dos Namorados Vivara e Life by Vivara">
+            <div class="framework-col">
+              <h6>Escopo</h6>
+              <ul>
+                <li>Campanha nacional de Dia dos Namorados para Vivara e Life by Vivara.</li>
+                <li>Desenvolvimento de vitrines, expositores, materiais de apoio e comunicação visual.</li>
+                <li>Mapeamento das lojas para adaptar projetos a diferentes formatos e limitações físicas.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Execução</h6>
+              <ul>
+                <li>Acompanhamento do desenvolvimento com a agência Wimmer, validação de protótipos e testes com produtos.</li>
+                <li>Coordenação entre lojas, fornecedores, agência, transportadoras e parceiros logísticos.</li>
+                <li>Monitoramento de implantação, gestão de avarias, reenvios e resolução de ocorrências.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Entrega</h6>
+              <ul>
+                <li>Implantação em 336 lojas e operações distribuídas pelo Brasil.</li>
+                <li>Consistência de Visual Merchandising na principal campanha comercial do ano.</li>
+                <li>Fluxo operacional capaz de sustentar escala, padronização e resposta rápida em campo.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -777,13 +909,28 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
             <a href="https://www.youtube.com/watch?v=QOYssfi5CEY" target="_blank" rel="noopener">Projeto Nike ↗</a>
             <a href="https://www.youtube.com/watch?v=Q_FIlmvmrWo" target="_blank" rel="noopener">Air Max Day ↗</a>
           </div>
-          <div class="case-highlights">
-            <span class="case-highlights-lbl">Destaques</span>
-            <ul class="highlight-list">
-              <li>Estratégia omnichannel entre Nike.com e varejo físico</li>
-              <li>Planos sazonais para parceiros como Centauro, Authentic Feet e Artwalk</li>
-              <li>Treinamento de equipes e gestão de plataforma de VM</li>
-            </ul>
+          <div class="case-framework" aria-label="Escopo, execução e entrega do case Nike">
+            <div class="framework-col">
+              <h6>Escopo</h6>
+              <ul>
+                <li>Estratégia de Visual Merchandising para Nike.com e parceiros do varejo físico.</li>
+                <li>Integração entre exposição de produto, styling e jornada de compra omnichannel.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Execução</h6>
+              <ul>
+                <li>Planejamento de VM digital, planos sazonais e briefings criativos para campanhas.</li>
+                <li>Treinamento de equipes, gestão de plataforma de VM e acompanhamento de engajamento.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Entrega</h6>
+              <ul>
+                <li>Consistência entre Nike.com, Centauro, Authentic Feet e Artwalk.</li>
+                <li>Experiências de compra mais claras, comerciais e alinhadas ao storytelling das coleções.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -799,13 +946,28 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <h4 class="cs-name">Vivara</h4>
           <p>Gestão da comunicação visual da rede de lojas, garantindo padrão visual e consistência de marca. Conduzi o workflow completo com agências criativas para campanhas de PDV — briefing, criação, aprovação e execução — e desenvolvi materiais de apoio para os times de loja.</p>
           <p>Analisei a exposição de produtos por <strong>clusters de lojas e shoppings</strong>, prestei atendimento consultivo de marketing às lojas e participei de projetos de identidade de marca, como renovação de uniformes e embalagens.</p>
-          <div class="case-highlights">
-            <span class="case-highlights-lbl">Destaques</span>
-            <ul class="highlight-list">
-              <li>Padronização de comunicação visual para rede de lojas</li>
-              <li>Workflow completo com agências criativas e times de loja</li>
-              <li>Leitura de exposição por clusters e perfis de shopping</li>
-            </ul>
+          <div class="case-framework" aria-label="Escopo, execução e entrega do case Vivara">
+            <div class="framework-col">
+              <h6>Escopo</h6>
+              <ul>
+                <li>Gestão da comunicação visual e do padrão de marca na rede de lojas.</li>
+                <li>Apoio às campanhas de PDV e aos projetos de identidade da marca.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Execução</h6>
+              <ul>
+                <li>Workflow com agências criativas: briefing, criação, aprovação e execução.</li>
+                <li>Análise de exposição por clusters, materiais de apoio e atendimento consultivo às lojas.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Entrega</h6>
+              <ul>
+                <li>Comunicação de PDV mais padronizada, clara e aderente à identidade Vivara.</li>
+                <li>Suporte para equipes de loja aplicarem campanhas com consistência operacional.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -821,13 +983,28 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <h4 class="cs-name">Farm Rio</h4>
           <p>Gestão da equipe de Visual Merchandising em São Paulo — cronogramas, feedbacks e aprovações. Responsável pela inauguração de novas lojas e pop-ups em diversas regiões do Brasil e pela montagem de showroom orientado a vendas para parceiros multimarcas.</p>
           <p>Organizei e executei ativações de marca em eventos estratégicos como <strong>Lollapalooza, Adidas, Havaianas e Enjoei</strong>, desenvolvendo campanhas promocionais e ações de trade marketing com acompanhamento de indicadores de performance.</p>
-          <div class="case-highlights">
-            <span class="case-highlights-lbl">Destaques</span>
-            <ul class="highlight-list">
-              <li>Gestão de VM em lojas, pop-ups e showroom multimarcas</li>
-              <li>Ativações de marca em eventos estratégicos e collabs</li>
-              <li>Execução de campanhas promocionais com leitura de performance</li>
-            </ul>
+          <div class="case-framework" aria-label="Escopo, execução e entrega do case Farm Rio">
+            <div class="framework-col">
+              <h6>Escopo</h6>
+              <ul>
+                <li>Gestão de Visual Merchandising em São Paulo, novas lojas, pop-ups e showroom.</li>
+                <li>Ativações de marca em eventos estratégicos e ações de trade marketing.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Execução</h6>
+              <ul>
+                <li>Coordenação de equipe, cronogramas, feedbacks, aprovações e inaugurações.</li>
+                <li>Montagem de showroom orientado a vendas e execução de experiências em eventos.</li>
+              </ul>
+            </div>
+            <div class="framework-col">
+              <h6>Entrega</h6>
+              <ul>
+                <li>Experiências de varejo e marca consistentes em diferentes formatos de operação.</li>
+                <li>Ações promocionais com leitura de performance e suporte ao resultado comercial.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
