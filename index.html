@@ -130,12 +130,16 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 
 .featured{margin-top:66px}
 .featured-title{font-family:var(--serif);font-weight:500;font-size:clamp(28px,7vw,42px);line-height:1.02;margin:6px 0 36px;max-width:20ch}
-.cs{display:grid;grid-template-columns:1fr;gap:26px;padding:36px 0;border-top:1px solid var(--line)}
-.cs-media{display:flex;justify-content:center}
+.cs{display:flex;flex-direction:column;gap:26px;padding:42px 0;border-top:1px solid var(--line)}
+.cs-media{order:2;display:flex;justify-content:center;width:100%}
+.cs-body{order:1;max-width:760px}
 .cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:360px!important;border-radius:6px!important;box-shadow:var(--shadow)!important}
 .cs-video{width:100%;max-width:340px;aspect-ratio:9/16;object-fit:cover;border-radius:8px;box-shadow:var(--shadow);background:#000}
 .cs-media .slideshow{position:relative;top:auto;width:100%;max-width:none}
 .cs-media .media-gallery{width:100%;margin:0}
+.case-lead{display:flex;flex-direction:column;gap:26px}
+.case-feature-video{order:2;width:100%;max-width:360px;margin:0 auto;position:relative}
+.case-feature-video video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:#000;box-shadow:var(--shadow);border:1px solid var(--line);cursor:pointer}
 /* galeria da Bienal */
 .media-gallery{position:relative;margin:20px 0 8px}
 .media-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 2px 14px;scrollbar-width:none}
@@ -150,6 +154,8 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .media-dots button{width:8px;height:8px;border:0;border-radius:50%;background:var(--line);padding:0;cursor:pointer;transition:.25s}
 .media-dots button.on{width:22px;border-radius:8px;background:var(--clay)}
 .media-shot video{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:#000}
+.media-shot.media-vertical{flex-basis:46%}
+.media-shot.media-vertical video{aspect-ratio:9/16;object-fit:cover}
 .bab-vid{display:flex;align-items:center;justify-content:center;background:#000}
 .pdf-project{padding:32px 0 44px;border-top:1px dashed var(--line)}
 .pdf-project-head{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
@@ -218,7 +224,7 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .lb img{max-width:96vw;max-height:92vh;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .lb .lb-x{position:absolute;top:18px;right:22px;font-size:34px;color:var(--cream);background:none;border:none;cursor:pointer;line-height:1}
 .cs-tag{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);font-weight:700}
-.cs-name{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6vw,35px);line-height:1.02;margin:8px 0 16px;color:var(--cream)}
+.cs-name{font-family:var(--serif);font-weight:500;font-size:clamp(36px,8vw,58px);line-height:.96;letter-spacing:-.02em;margin:8px 0 18px;color:var(--cream)}
 .cs-body p{color:var(--soft);font-size:16px;font-weight:300;margin-bottom:13px}
 .cs-body strong{color:var(--cream);font-weight:600}
 .cs-press{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:18px}
@@ -232,6 +238,15 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .kpi b{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--brass);line-height:1;display:block}
 .kpi span{font-size:12px;color:var(--soft);margin-top:5px;display:block}
 .kpi.todo b{color:var(--sand)}
+.case-highlights{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line)}
+.case-highlights-lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:12px;display:block}
+.highlight-list{display:grid;grid-template-columns:1fr;gap:8px;list-style:none}
+.highlight-list li{position:relative;border:1px solid var(--line);background:var(--panel2);border-radius:4px;padding:12px 15px 12px 34px;color:var(--soft);font-size:13.5px;font-weight:500}
+.highlight-list li::before{content:"";position:absolute;left:15px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--brass)}
+.case-subsection{margin-top:34px;padding-top:30px;border-top:1px dashed var(--line)}
+.case-subtitle{font-family:var(--serif);font-weight:500;font-size:clamp(25px,5vw,36px);line-height:1.05;color:var(--cream);margin-bottom:14px}
+.case-subsection p{color:var(--soft);font-size:16px;font-weight:300;margin-bottom:13px}
+.case-subsection .media-gallery{margin-top:20px}
 .video-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
 .video-row iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:5px;box-shadow:var(--shadow)}
 .native-videos{display:grid;grid-template-columns:1fr;gap:18px}
@@ -310,8 +325,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .s-third{grid-column:span 4;aspect-ratio:1/1}
   .case-info{transform:translateY(8px);opacity:0;transition:.45s}
   .case:hover .case-info{transform:none;opacity:1}
-  .cs{grid-template-columns:minmax(0,400px) 1fr;gap:50px;align-items:center}
-  .cs-rev .cs-media{order:2}
+  .cs{gap:34px;align-items:stretch}
   .video-row{grid-template-columns:repeat(3,1fr)}
   .native-videos{grid-template-columns:repeat(4,1fr)}
   .car-nav{display:block}
@@ -332,9 +346,15 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .slideshow{padding:18px}
   .sl-thumb{flex-basis:62px}
   .pdf-project-head{flex-direction:row;align-items:flex-end}
+  .case-lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,340px);gap:46px;align-items:start}
+  .case-lead .cs-body{max-width:760px}
+  .case-feature-video{order:0;position:sticky;top:96px}
   .media-nav{display:block}
   .media-shot{flex-basis:calc((100% - 28px)/2)}
   .media-shot img,.media-shot video{aspect-ratio:3/2}
+  .media-shot.media-vertical{flex-basis:28%}
+  .media-shot.media-vertical video{aspect-ratio:9/16}
+  .highlight-list{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 </style>
 </head>
@@ -544,27 +564,9 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
 
       <!-- Case 1 — Marina Bitu -->
       <article id="case-marina" class="cs reveal">
-        <div class="cs-media">
-          <div class="media-gallery" id="marinaGallery" aria-label="Galeria Westwing x Marina Bitu">
-            <button class="media-nav prev" aria-label="Imagem anterior">‹</button>
-            <div class="media-track">
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-01.jpeg" alt="Tapete da collab Westwing x Marina Bitu em escada de concreto" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-02.jpeg" alt="Almofadas da collab Westwing x Marina Bitu em escada" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-03.jpeg" alt="Ambientação Westwing x Marina Bitu com tapete e mobiliário" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-04.jpeg" alt="Sala com tapete colorido da collab Westwing x Marina Bitu" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-05.jpeg" alt="Modelo com vestido vermelho em ambientação da collab Westwing x Marina Bitu" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-06.jpeg" alt="Tapete da collab Westwing x Marina Bitu em paisagem árida" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-07.jpeg" alt="Detalhe do tapete Westwing x Marina Bitu em paisagem árida" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-08.jpeg" alt="Capa em paisagem externa da collab Westwing x Marina Bitu" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-09.jpeg" alt="Modelo sentada em cadeira com tapete da collab Westwing x Marina Bitu" loading="lazy"></figure>
-            </div>
-            <button class="media-nav next" aria-label="Próxima imagem">›</button>
-            <div class="media-dots"></div>
-          </div>
-        </div>
         <div class="cs-body">
-          <div class="cs-tag">Westwing × Marina Bitu</div>
-          <h4 class="cs-name">Corpo, Casa e Território</h4>
+          <div class="cs-tag">Case · Corpo, Casa e Território</div>
+          <h4 class="cs-name">Westwing × Marina Bitu</h4>
           <p>Collab que marcou a estreia da estilista Marina Bitu no universo da decoração. A coleção traduziu seu olhar autoral e brasileiro em tapetes e almofadas, com formas orgânicas, texturas e matérias-primas naturais.</p>
           <p>Atuei na construção da experiência de marca, no alinhamento entre conceito criativo e execução no varejo e no evento de lançamento — conectando moda, design de interiores e lifestyle nas jornadas física e digital da Westwing.</p>
           <div class="cs-press">
@@ -573,13 +575,78 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
             <a href="https://stealthelook.com.br/essas-sao-as-collabs-de-moda-mais-legais-do-momento-para-ficar-de-olho/" target="_blank" rel="noopener">Steal The Look ↗</a>
             <a href="https://glamour.globo.com/shopping/noticia/2026/06/os-lancamentos-de-moda-para-atualizar-sua-wish-list.ghtml" target="_blank" rel="noopener">Glamour ↗</a>
           </div>
-          <!-- PREENCHA OS NÚMEROS REAIS abaixo (troque o "00") e apague .todo -->
-          <div class="cs-results">
-            <span class="cs-results-lbl">Resultados</span>
-            <div class="kpi-row">
-              <div class="kpi todo"><b>00%</b><span>sell-through da coleção</span></div>
-              <div class="kpi todo"><b>00</b><span>matérias de imprensa</span></div>
-              <div class="kpi todo"><b>00%</b><span>vs. meta de venda</span></div>
+          <div class="case-highlights">
+            <span class="case-highlights-lbl">Destaques</span>
+            <ul class="highlight-list">
+              <li>Estreia da estilista no universo de casa e decoração</li>
+              <li>Narrativa integrada entre moda, produto e lifestyle</li>
+              <li>Desdobramento em loja, conteúdo e cobertura de imprensa</li>
+            </ul>
+          </div>
+
+          <div class="case-subsection" id="case-marina-audiovisual">
+            <div class="cs-tag">Frente de atuação · Produção audiovisual</div>
+            <h5 class="case-subtitle">Campanha, narrativa visual e conteúdo</h5>
+            <p>Atuação na construção da narrativa visual da collab, conectando direção criativa, styling, produto e ambientação para traduzir o conceito <strong>Corpo, Casa e Território</strong> em imagens com força editorial e valor de marca.</p>
+            <div class="case-highlights">
+              <span class="case-highlights-lbl">Habilidades em destaque</span>
+              <ul class="highlight-list">
+                <li>Alinhamento entre conceito criativo, produto e storytelling visual.</li>
+                <li>Curadoria de cenas, objetos e atmosfera para comunicar a coleção.</li>
+                <li>Desdobramento de conteúdo para campanha, imprensa e canais digitais.</li>
+              </ul>
+            </div>
+            <div class="media-gallery" id="marinaGallery" aria-label="Galeria da produção audiovisual Westwing x Marina Bitu">
+              <button class="media-nav prev" aria-label="Imagem anterior">‹</button>
+              <div class="media-track">
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-01.jpeg" alt="Tapete da collab Westwing x Marina Bitu em escada de concreto" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-02.jpeg" alt="Almofadas da collab Westwing x Marina Bitu em escada" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-03.jpeg" alt="Ambientação Westwing x Marina Bitu com tapete e mobiliário" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-04.jpeg" alt="Sala com tapete colorido da collab Westwing x Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-05.jpeg" alt="Modelo com vestido vermelho em ambientação da collab Westwing x Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-06.jpeg" alt="Tapete da collab Westwing x Marina Bitu em paisagem árida" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-07.jpeg" alt="Detalhe do tapete Westwing x Marina Bitu em paisagem árida" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-08.jpeg" alt="Capa em paisagem externa da collab Westwing x Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu/marina-bitu-09.jpeg" alt="Modelo sentada em cadeira com tapete da collab Westwing x Marina Bitu" loading="lazy"></figure>
+              </div>
+              <button class="media-nav next" aria-label="Próxima imagem">›</button>
+              <div class="media-dots"></div>
+            </div>
+          </div>
+
+          <div class="case-subsection" id="case-marina-evento">
+            <div class="cs-tag">Frente de atuação · Evento de lançamento · LAPI, São Paulo</div>
+            <h5 class="case-subtitle">Evento Westwing + Marina Bitu</h5>
+            <p>Gestão integral do evento de lançamento da collab, conduzindo o projeto do planejamento estratégico à execução final para ampliar a parceria entre Westwing e Marina Bitu junto a convidados estratégicos.</p>
+            <p>Atuação na construção da experiência, definição de escopo, cronograma, alinhamento entre áreas internas e parceiros externos, gestão de fornecedores, controle orçamentário e acompanhamento operacional de todas as entregas.</p>
+            <div class="case-highlights">
+              <span class="case-highlights-lbl">Escopo de atuação</span>
+              <ul class="highlight-list">
+                <li>Coordenação da cenografia e da jornada dos convidados, garantindo consistência com os objetivos de branding.</li>
+                <li>Gestão de montagem, fornecedores, equipes e demandas em tempo real durante a execução.</li>
+                <li>Relacionamento com imprensa, influenciadores, arquitetos, designers e stakeholders para geração de conteúdo e amplificação da ação.</li>
+              </ul>
+            </div>
+            <div class="case-highlights">
+              <span class="case-highlights-lbl">Competências mobilizadas</span>
+              <ul class="highlight-list">
+                <li>Visão estratégica e gestão multidisciplinar.</li>
+                <li>Negociação com parceiros e controle financeiro.</li>
+                <li>Execução operacional com foco em qualidade, posicionamento e visibilidade de marca.</li>
+              </ul>
+            </div>
+            <div class="media-gallery" id="marinaEventGallery" aria-label="Galeria do evento Westwing x Marina Bitu">
+              <button class="media-nav prev" aria-label="Imagem anterior do evento">‹</button>
+              <div class="media-track">
+                <figure class="media-shot"><img src="images/marina-bitu-event/event-01.jpeg" alt="Grupo de convidados no evento Westwing x Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-event/event-02.jpeg" alt="Cenografia do evento Westwing x Marina Bitu no LAPI" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-event/event-03.jpeg" alt="Painel de tecido com texto curatorial no evento Westwing x Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-event/event-04.jpeg" alt="Talk de lançamento da collab Westwing x Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-event/event-05.jpeg" alt="Instalação de almofadas no evento Westwing x Marina Bitu" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/marina-bitu-event/event-06.jpeg" alt="Detalhe de tapete e cenografia no evento Westwing x Marina Bitu" loading="lazy"></figure>
+              </div>
+              <button class="media-nav next" aria-label="Próxima imagem do evento">›</button>
+              <div class="media-dots"></div>
             </div>
           </div>
         </div>
@@ -587,8 +654,34 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
 
       <!-- Case 2 — Bienal de Arquitetura -->
       <article id="case-bienal" class="cs cs-rev reveal">
+        <div class="case-lead">
+          <div class="cs-body">
+            <div class="cs-tag">Case · Westwing Brand Experience</div>
+            <h4 class="cs-name">Bienal de Arquitetura Brasileira</h4>
+            <p>Liderei a frente de Brand Experience da Westwing na primeira Bienal de Arquitetura Brasileira, do planejamento à execução — coordenando orçamento, fornecedores, ativações, produção de conteúdo e relacionamento com stakeholders.</p>
+            <p>A cenografia foi desenvolvida em parceria com o arquiteto e designer <strong>Marcelo Rosenbaum</strong>, criando uma experiência imersiva alinhada aos valores da marca. Fiz a curadoria de mobiliário e decoração para pavilhões de ~100m² inspirados em estados brasileiros, fortalecendo a presença institucional da Westwing junto à comunidade de arquitetura e design.</p>
+            <div class="cs-press">
+              <span class="cs-press-lbl">Mais vídeos</span>
+              <a href="https://www.instagram.com/reel/DXpZPEADBGK/" target="_blank" rel="noopener">Pavilhões ↗</a>
+              <a href="https://www.instagram.com/reel/DXm_vCajpbf/" target="_blank" rel="noopener">Bastidores ↗</a>
+            </div>
+            <div class="case-highlights">
+              <span class="case-highlights-lbl">Destaques</span>
+              <ul class="highlight-list">
+                <li>Cenografia imersiva em parceria com Marcelo Rosenbaum</li>
+                <li>Curadoria de mobiliário e decoração conectada à narrativa dos pavilhões</li>
+                <li>Gestão de fornecedores, ativações e conteúdo em um projeto institucional</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-feature-video">
+            <video class="sound-on-click" autoplay muted loop playsinline preload="metadata" poster="images/bienal-01.jpg" aria-label="Vídeo vertical da Bienal de Arquitetura Brasileira">
+              <source src="videos/bab-social-02.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
         <div class="cs-media">
-          <div class="media-gallery" id="babGallery" aria-label="Galeria de fotos e vídeos da Bienal">
+          <div class="media-gallery" id="babGallery" aria-label="Galeria de fotos da Bienal">
             <button class="media-nav prev" aria-label="Foto anterior">‹</button>
             <div class="media-track">
               <figure class="media-shot"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
@@ -596,39 +689,9 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
               <figure class="media-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
               <figure class="media-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
               <figure class="media-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
-              <figure class="media-shot bab-vid">
-                <video controls preload="metadata" playsinline poster="images/bienal-02.jpg">
-                  <source src="videos/bab-social-01.mp4" type="video/mp4" />
-                </video>
-              </figure>
-              <figure class="media-shot bab-vid">
-                <video controls preload="metadata" playsinline poster="images/bienal-01.jpg">
-                  <source src="videos/bab-social-02.mp4" type="video/mp4" />
-                </video>
-              </figure>
             </div>
             <button class="media-nav next" aria-label="Próxima foto">›</button>
             <div class="media-dots"></div>
-          </div>
-        </div>
-        <div class="cs-body">
-          <div class="cs-tag">Westwing · Brand Experience</div>
-          <h4 class="cs-name">Bienal de Arquitetura Brasileira</h4>
-          <p>Liderei a frente de Brand Experience da Westwing na primeira Bienal de Arquitetura Brasileira, do planejamento à execução — coordenando orçamento, fornecedores, ativações, produção de conteúdo e relacionamento com stakeholders.</p>
-          <p>A cenografia foi desenvolvida em parceria com o arquiteto e designer <strong>Marcelo Rosenbaum</strong>, criando uma experiência imersiva alinhada aos valores da marca. Fiz a curadoria de mobiliário e decoração para pavilhões de ~100m² inspirados em estados brasileiros, fortalecendo a presença institucional da Westwing junto à comunidade de arquitetura e design.</p>
-          <div class="cs-press">
-            <span class="cs-press-lbl">Mais vídeos</span>
-            <a href="https://www.instagram.com/reel/DXpZPEADBGK/" target="_blank" rel="noopener">Pavilhões ↗</a>
-            <a href="https://www.instagram.com/reel/DXm_vCajpbf/" target="_blank" rel="noopener">Bastidores ↗</a>
-          </div>
-          <!-- PREENCHA OS NÚMEROS REAIS abaixo (troque o "00") e apague .todo -->
-          <div class="cs-results">
-            <span class="cs-results-lbl">Resultados</span>
-            <div class="kpi-row">
-              <div class="kpi todo"><b>00</b><span>visitantes no espaço</span></div>
-              <div class="kpi todo"><b>00</b><span>leads captados</span></div>
-              <div class="kpi todo"><b>00</b><span>alcance / impressões</span></div>
-            </div>
           </div>
         </div>
       </article>
@@ -684,17 +747,16 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYCWo7dlkjI/" data-instgrm-version="14"></blockquote>
         </div>
         <div class="cs-body">
-          <div class="cs-tag">Westwing × Isa de Oliveira</div>
-          <h4 class="cs-name">Collab & experiência de marca</h4>
+          <div class="cs-tag">Case · Collab & experiência de marca</div>
+          <h4 class="cs-name">Westwing × Isa de Oliveira</h4>
           <p>Collab Westwing × Isa de Oliveira com desdobramento omnichannel, integrando conteúdo, curadoria de produto e experiência de marca nas jornadas física e digital.</p>
           <p>Parte de uma frente contínua de collabs autorais da Westwing — que também incluiu nomes como <strong>Tarsila do Amaral</strong> — voltadas a reforçar a curadoria, a cultura brasileira e o posicionamento da marca no universo de casa, design e lifestyle.</p>
-          <!-- PREENCHA OS NÚMEROS REAIS abaixo (troque o "00") e apague .todo -->
-          <div class="cs-results">
-            <span class="cs-results-lbl">Resultados</span>
-            <div class="kpi-row">
-              <div class="kpi todo"><b>00%</b><span>engajamento da ação</span></div>
-              <div class="kpi todo"><b>00%</b><span>uplift de venda no período</span></div>
-            </div>
+          <div class="case-highlights">
+            <span class="case-highlights-lbl">Destaques</span>
+            <ul class="highlight-list">
+              <li>Collab autoral com linguagem de marca consistente</li>
+              <li>Integração entre conteúdo, curadoria de produto e experiência física</li>
+            </ul>
           </div>
         </div>
       </article>
@@ -706,8 +768,8 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/nike-01.jpg</span>
         </div>
         <div class="cs-body">
-          <div class="cs-tag">Nike · 2020–2022</div>
-          <h4 class="cs-name">VM Digital & Omnichannel</h4>
+          <div class="cs-tag">Case · VM Digital & Omnichannel · 2020–2022</div>
+          <h4 class="cs-name">Nike</h4>
           <p>Responsável pela integração entre canais digitais e físicos por meio da estratégia de Visual Merchandising e styling. Planejei o VM da Nike.com, a jornada do cliente online e a exposição de produto, traduzindo coleções em experiências de compra que converteram.</p>
           <p>Apresentei planos sazonais para parceiros do varejo físico (Centauro, Authentic Feet, Artwalk), desenvolvi briefings criativos, conduzi treinamentos de equipes e geri a plataforma de VM com acompanhamento de indicadores de engajamento. Liderei também o shooting de <strong>Air Max Day</strong>.</p>
           <div class="cs-press">
@@ -715,13 +777,13 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
             <a href="https://www.youtube.com/watch?v=QOYssfi5CEY" target="_blank" rel="noopener">Projeto Nike ↗</a>
             <a href="https://www.youtube.com/watch?v=Q_FIlmvmrWo" target="_blank" rel="noopener">Air Max Day ↗</a>
           </div>
-          <div class="cs-results">
-            <span class="cs-results-lbl">Resultados</span>
-            <div class="kpi-row">
-              <div class="kpi todo"><b>00%</b><span>conversão Nike.com</span></div>
-              <div class="kpi todo"><b>00%</b><span>engajamento da plataforma VM</span></div>
-              <div class="kpi todo"><b>00</b><span>parceiros atendidos</span></div>
-            </div>
+          <div class="case-highlights">
+            <span class="case-highlights-lbl">Destaques</span>
+            <ul class="highlight-list">
+              <li>Estratégia omnichannel entre Nike.com e varejo físico</li>
+              <li>Planos sazonais para parceiros como Centauro, Authentic Feet e Artwalk</li>
+              <li>Treinamento de equipes e gestão de plataforma de VM</li>
+            </ul>
           </div>
         </div>
       </article>
@@ -733,17 +795,17 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/vivara-01.jpg</span>
         </div>
         <div class="cs-body">
-          <div class="cs-tag">Vivara · 2022</div>
-          <h4 class="cs-name">Trade Marketing & Comunicação de PDV</h4>
+          <div class="cs-tag">Case · Trade Marketing & Comunicação de PDV · 2022</div>
+          <h4 class="cs-name">Vivara</h4>
           <p>Gestão da comunicação visual da rede de lojas, garantindo padrão visual e consistência de marca. Conduzi o workflow completo com agências criativas para campanhas de PDV — briefing, criação, aprovação e execução — e desenvolvi materiais de apoio para os times de loja.</p>
           <p>Analisei a exposição de produtos por <strong>clusters de lojas e shoppings</strong>, prestei atendimento consultivo de marketing às lojas e participei de projetos de identidade de marca, como renovação de uniformes e embalagens.</p>
-          <div class="cs-results">
-            <span class="cs-results-lbl">Resultados</span>
-            <div class="kpi-row">
-              <div class="kpi todo"><b>00</b><span>lojas padronizadas</span></div>
-              <div class="kpi todo"><b>00%</b><span>giro em campanhas de PDV</span></div>
-              <div class="kpi todo"><b>00</b><span>clusters mapeados</span></div>
-            </div>
+          <div class="case-highlights">
+            <span class="case-highlights-lbl">Destaques</span>
+            <ul class="highlight-list">
+              <li>Padronização de comunicação visual para rede de lojas</li>
+              <li>Workflow completo com agências criativas e times de loja</li>
+              <li>Leitura de exposição por clusters e perfis de shopping</li>
+            </ul>
           </div>
         </div>
       </article>
@@ -755,17 +817,17 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/farm-01.jpg</span>
         </div>
         <div class="cs-body">
-          <div class="cs-tag">Farm Rio · 2015–2020</div>
-          <h4 class="cs-name">Lojas, Pop-ups & Ativações</h4>
+          <div class="cs-tag">Case · Lojas, Pop-ups & Ativações · 2015–2020</div>
+          <h4 class="cs-name">Farm Rio</h4>
           <p>Gestão da equipe de Visual Merchandising em São Paulo — cronogramas, feedbacks e aprovações. Responsável pela inauguração de novas lojas e pop-ups em diversas regiões do Brasil e pela montagem de showroom orientado a vendas para parceiros multimarcas.</p>
           <p>Organizei e executei ativações de marca em eventos estratégicos como <strong>Lollapalooza, Adidas, Havaianas e Enjoei</strong>, desenvolvendo campanhas promocionais e ações de trade marketing com acompanhamento de indicadores de performance.</p>
-          <div class="cs-results">
-            <span class="cs-results-lbl">Resultados</span>
-            <div class="kpi-row">
-              <div class="kpi todo"><b>00</b><span>lojas e pop-ups inaugurados</span></div>
-              <div class="kpi todo"><b>00</b><span>ativações em eventos</span></div>
-              <div class="kpi todo"><b>00%</b><span>sell-out em ações</span></div>
-            </div>
+          <div class="case-highlights">
+            <span class="case-highlights-lbl">Destaques</span>
+            <ul class="highlight-list">
+              <li>Gestão de VM em lojas, pop-ups e showroom multimarcas</li>
+              <li>Ativações de marca em eventos estratégicos e collabs</li>
+              <li>Execução de campanhas promocionais com leitura de performance</li>
+            </ul>
           </div>
         </div>
       </article>
@@ -1023,6 +1085,17 @@ buildDots();resetAuto();
     var s=v.querySelector('source');
     if(s){var img=new Image();}
     v.addEventListener('loadeddata',function(){v.dataset.ok='1'});
+  });
+  document.querySelectorAll('.sound-on-click').forEach(function(v){
+    v.controls=false;
+    v.muted=true;
+    v.addEventListener('click',function(){
+      if(v.dataset.soundEnabled==='1')return;
+      v.dataset.soundEnabled='1';
+      v.muted=false;
+      v.controls=true;
+      v.play();
+    });
   });
   // lightbox para galerias de imagem
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
