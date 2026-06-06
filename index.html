@@ -8,7 +8,7 @@
 <meta property="og:title" content="Nicole Figueiredo — Visual Merchandising & Brand Experience" />
 <meta property="og:description" content="VM que move KPIs de negócio. Westwing, Nike, Vivara, Farm Rio." />
 <meta property="og:image" content="images/og-cover.jpg" />
-<meta property="og:type" content="webite" />
+<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -128,9 +128,18 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .car-dots button.on{background:var(--clay);width:22px;border-radius:5px}
 .cs[id]{scroll-margin-top:90px}
 
-.featured{margin-top:66px}
+.featured{margin-top:66px;display:flex;flex-direction:column}
 .featured-title{font-family:var(--serif);font-weight:500;font-size:clamp(28px,7vw,42px);line-height:1.02;margin:6px 0 36px;max-width:20ch}
+#case-bienal{order:1}
+#pdf-bienal{order:2}
+#case-marina{order:3}
+#case-vivara-namorados{order:4}
+#case-nike{order:5}
+#case-vivara{order:6}
+#case-farm{order:7}
 .cs{display:flex;flex-direction:column;gap:26px;padding:42px 0;border-top:1px solid var(--line)}
+.cs-featured{padding-top:52px;border-top-color:rgba(211,177,124,.55)}
+.cs-featured .cs-tag::before{content:"Case em destaque · ";color:var(--brass)}
 .cs-media{order:2;display:flex;justify-content:center;width:100%}
 .cs-body{order:1;max-width:760px}
 .cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:360px!important;border-radius:6px!important;box-shadow:var(--shadow)!important}
@@ -370,7 +379,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   <div class="nav-links" id="navLinks">
     <a href="#sobre">Sobre</a>
     <a href="#marketing">Marketing</a>
-    <a href="#portfolio">Portfólio</a>
+    <a href="#portfolio">Cases e portfólio</a>
     <a href="#experiencia">Experiência</a>
     <a href="#contato" class="nav-cta">Fale comigo</a>
   </div>
@@ -380,7 +389,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
 <div class="tabbar">
   <a href="#topo"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg><em>Início</em></a>
   <a href="#marketing"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg><em>Marketing</em></a>
-  <a href="#portfolio"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 14l4-4 4 4 4-5 4 5"/></svg><em>Portfólio</em></a>
+  <a href="#portfolio"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 14l4-4 4 4 4-5 4 5"/></svg><em>Cases</em></a>
   <a href="#experiencia"><svg viewBox="0 0 24 24"><path d="M5 7h14v13H5zM9 7V4h6v3"/></svg><em>Carreira</em></a>
   <a href="#contato"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 6l8 6 8-6"/></svg><em>Contato</em></a>
 </div>
@@ -392,8 +401,8 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <h1 class="reveal">Marcas que viram <em>experiência</em>.</h1>
       <p class="hero-sub reveal">Mais de 10 anos criando vitrines, ambientações e experiências de marca no varejo de moda, lifestyle e decoração.</p>
       <div class="hero-actions reveal">
-        <a href="#portfolio" class="btn btn-primary">Ver portfólio →</a>
-        <a href="#contato" class="btn btn-ghost">Fale comigo</a>
+        <a href="#portfolio" class="btn btn-primary">Ver cases e portfólio →</a>
+        <a href="docs/nicole-figueiredo-cv.pdf" class="btn btn-ghost" download>Baixar CV</a>
       </div>
     </div>
     <div class="hero-visual reveal">
@@ -415,13 +424,13 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-num">01 — Sobre</div>
-      <h2 class="sec-title">Estratégia visual com alma de varejo.</h2>
+      <h2 class="sec-title">Estratégia visual com olhar humano.</h2>
     </div>
     <div class="about-grid">
       <div class="about-bio reveal">
-        <p>Uso o <strong>Visual Merchandising como ferramenta de marketing e de negócio</strong> — não como decoração. Mais de 10 anos transformando a experiência de loja em resultado mensurável no varejo de moda, lifestyle e decoração.</p>
-        <p>Atuo na ponta estratégica de <strong>retail e trade marketing, branding, campanhas, eventos, collabs e curadoria de mix</strong> em múltiplos canais, sempre conectando identidade de marca, jornada do cliente e <strong>KPIs comerciais</strong> — conversão, sell-through, fluxo, ticket e faturamento.</p>
-        <p>Perfil <strong>analítico e criativo</strong>: leio o dado, desenho a estratégia visual e provo o impacto no resultado.</p>
+        <p>Sou uma profissional de <strong>Visual Merchandising, Brand Experience e Retail Marketing</strong> movida por projetos que aproximam marca, produto e pessoas. Gosto de transformar conceito em presença física: uma vitrine que chama, uma loja que conta uma história, um evento que faz a marca ser lembrada.</p>
+        <p>Minha trajetória passa por moda, lifestyle, decoração e joalheria, sempre em ambientes onde estética, operação e resultado precisam andar juntos. Tenho um olhar cuidadoso para narrativa, mas também gosto da parte prática: cronograma, fornecedor, orçamento, loja, montagem e execução.</p>
+        <p>Trabalho bem no encontro entre <strong>sensibilidade criativa e visão de negócio</strong>. Leio o contexto, organizo as frentes, conecto times e busco entregar experiências bonitas, viáveis e relevantes para quem vive a marca no dia a dia.</p>
       </div>
       <div class="stats reveal">
         <div class="stat"><b>10+</b><span>anos de experiência</span></div>
@@ -521,16 +530,16 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <button class="car-nav prev" id="carPrev" aria-label="Anterior">‹</button>
       <div class="car-track" id="carTrack">
 
-        <a class="slide" data-brand="westwing" href="#case-marina">
-          <img src="images/westwing-01.jpg" alt="Westwing x Marina Bitu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <span class="ph" style="display:none">images/westwing-01.jpg</span>
-          <span class="slide-info"><em class="brand-tag">Westwing × Marina Bitu</em><strong>Corpo, Casa e Território</strong><span class="slide-cta">Ver case →</span></span>
-        </a>
-
         <a class="slide" data-brand="westwing" href="#case-bienal">
           <img src="images/westwing-02.jpg" alt="Westwing na Bienal de Arquitetura" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <span class="ph" style="display:none">images/westwing-02.jpg</span>
           <span class="slide-info"><em class="brand-tag">Westwing · Brand Experience</em><strong>Bienal de Arquitetura</strong><span class="slide-cta">Ver case →</span></span>
+        </a>
+
+        <a class="slide" data-brand="westwing" href="#case-marina">
+          <img src="images/westwing-01.jpg" alt="Westwing x Marina Bitu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="ph" style="display:none">images/westwing-01.jpg</span>
+          <span class="slide-info"><em class="brand-tag">Westwing × Marina Bitu</em><strong>Corpo, Casa e Território</strong><span class="slide-cta">Ver case →</span></span>
         </a>
 
         <a class="slide" data-brand="vivara" href="#case-vivara-namorados">
@@ -740,7 +749,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       </article>
 
       <!-- Case 2 — Bienal de Arquitetura -->
-      <article id="case-bienal" class="cs cs-rev reveal">
+      <article id="case-bienal" class="cs cs-rev cs-featured reveal">
         <div class="case-lead">
           <div class="cs-body">
             <div class="cs-tag">Case · Westwing Brand Experience</div>
@@ -876,7 +885,7 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
             <div class="framework-col">
               <h6>Execução</h6>
               <ul>
-                <li>Acompanhamento do desenvolvimento com a agência Vimer, validação de protótipos e testes com produtos.</li>
+                <li>Acompanhamento do desenvolvimento com a agência Wimmer, validação de protótipos e testes com produtos.</li>
                 <li>Coordenação entre lojas, fornecedores, agência, transportadoras e parceiros logísticos.</li>
                 <li>Monitoramento de implantação, gestão de avarias, reenvios e resolução de ocorrências.</li>
               </ul>
@@ -1050,9 +1059,6 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       </div>
     </div>
 
-    <div style="margin-top:44px" class="reveal">
-      <a href="https://express.adobe.com/page/d0j8MoEVHPFDt/" target="_blank" rel="noopener" class="btn btn-ghost">Ver portfólio completo no Adobe Express →</a>
-    </div>
   </div>
 </section>
 
@@ -1152,8 +1158,8 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
         <a class="contact-link" href="https://www.linkedin.com/in/nicolefigueiredomoreira/" target="_blank" rel="noopener">
           <div><div class="lbl">LinkedIn</div><div class="val">/nicolefigueiredomoreira</div></div><div class="arr">↗</div>
         </a>
-        <a class="contact-link" href="https://express.adobe.com/page/d0j8MoEVHPFDt/" target="_blank" rel="noopener">
-          <div><div class="lbl">Portfólio completo</div><div class="val">Adobe Express</div></div><div class="arr">↗</div>
+        <a class="contact-link" href="docs/nicole-figueiredo-cv.pdf" download>
+          <div><div class="lbl">Currículo</div><div class="val">Baixar CV</div></div><div class="arr">↓</div>
         </a>
       </div>
     </div>
