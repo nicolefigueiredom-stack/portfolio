@@ -135,13 +135,26 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:360px!important;border-radius:6px!important;box-shadow:var(--shadow)!important}
 .cs-video{width:100%;max-width:340px;aspect-ratio:9/16;object-fit:cover;border-radius:8px;box-shadow:var(--shadow);background:#000}
 .cs-media .slideshow{position:relative;top:auto;width:100%;max-width:none}
+.cs-media .bab-gallery{width:100%;margin:0}
 /* galeria da Bienal */
-.bab-gallery{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0 8px}
-.bab-shot{margin:0;border-radius:8px;overflow:hidden;background:var(--panel2);border:1px solid var(--line);box-shadow:0 14px 36px -20px #000}
-.bab-shot img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .7s}
-.bab-shot img:hover{transform:scale(1.03)}
-.bab-shot video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;background:#000}
+.bab-gallery{position:relative;margin:20px 0 8px}
+.bab-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 2px 14px;scrollbar-width:none}
+.bab-track::-webkit-scrollbar{display:none}
+.bab-shot{position:relative;flex:0 0 86%;scroll-snap-align:center;margin:0;border-radius:8px;overflow:hidden;background:var(--panel2);border:1px solid var(--line);box-shadow:0 14px 36px -20px #000}
+.bab-shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:zoom-in;transition:transform .7s}
+.bab-shot img:hover{transform:scale(1.04)}
+.bab-nav{display:none;position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(39,33,26,.86);backdrop-filter:blur(6px);color:var(--cream);font-size:25px;line-height:1;cursor:pointer;transition:.25s}
+.bab-nav:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
+.bab-nav.prev{left:-8px}.bab-nav.next{right:-8px}
+.bab-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.bab-dots button{width:8px;height:8px;border:0;border-radius:50%;background:var(--line);padding:0;cursor:pointer;transition:.25s}
+.bab-dots button.on{width:22px;border-radius:8px;background:var(--clay)}
+.bab-shot video{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;background:#000}
 .bab-vid{display:flex;align-items:center;justify-content:center;background:#000}
+.pdf-project{padding:32px 0 44px;border-top:1px dashed var(--line)}
+.pdf-project-head{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
+.pdf-project-title{font-family:var(--serif);font-weight:500;font-size:clamp(25px,6vw,38px);line-height:1.05;color:var(--cream)}
+.pdf-project .slideshow{position:relative;top:auto;width:100%;max-width:980px;margin:0 auto}
 
 /* ---- Projeto cenográfico (story) ---- */
 .project-story{margin:42px 0 16px;padding:36px 0 8px;border-top:1px dashed var(--line)}
@@ -318,9 +331,10 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .cinema-grid{grid-template-columns:1fr 1.05fr;gap:48px}
   .slideshow{padding:18px}
   .sl-thumb{flex-basis:62px}
-  .bab-gallery{grid-template-columns:repeat(3,1fr);gap:16px;grid-auto-flow:dense}
-  .bab-span2{grid-column:span 2}
-  .bab-shot img{aspect-ratio:3/2}
+  .pdf-project-head{flex-direction:row;align-items:flex-end}
+  .bab-nav{display:block}
+  .bab-shot{flex-basis:calc((100% - 28px)/2)}
+  .bab-shot img,.bab-shot video{aspect-ratio:3/2}
 }
 </style>
 </head>
@@ -559,42 +573,27 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <!-- Case 2 — Bienal de Arquitetura -->
       <article id="case-bienal" class="cs cs-rev reveal">
         <div class="cs-media">
-<div class="slideshow" id="babSlideshow" aria-label="Slides do projeto cenográfico">
-            <div class="sl-head">
-              <span class="sl-tag">Projeto cenográfico · PDF</span>
-              <span class="sl-count" id="slCount">1 / 17</span>
+          <div class="bab-gallery" id="babGallery" aria-label="Galeria de fotos e vídeos da Bienal">
+            <button class="bab-nav prev" id="babPrev" aria-label="Foto anterior">‹</button>
+            <div class="bab-track" id="babTrack">
+              <figure class="bab-shot"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
+              <figure class="bab-shot"><img src="images/bienal-02.jpg" alt="Estantes e mobiliário — Espaço Westwing Bienal" loading="lazy"></figure>
+              <figure class="bab-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
+              <figure class="bab-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
+              <figure class="bab-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
+              <figure class="bab-shot bab-vid">
+                <video controls preload="metadata" playsinline poster="images/bienal-02.jpg">
+                  <source src="videos/bab-social-01.mp4" type="video/mp4" />
+                </video>
+              </figure>
+              <figure class="bab-shot bab-vid">
+                <video controls preload="metadata" playsinline poster="images/bienal-01.jpg">
+                  <source src="videos/bab-social-02.mp4" type="video/mp4" />
+                </video>
+              </figure>
             </div>
-            <div class="sl-stage" id="slStage">
-              <img class="sl-img on" src="docs/slides/bienal-slide-01.jpg" alt="Capa — Lounge Westwing Bienal de Arquitetura Brasileira" data-cap="Capa — Estudo preliminar">
-              <img class="sl-img" src="docs/slides/bienal-slide-02.jpg" alt="Fotos da visita técnica ao espaço" data-cap="01 · Visita técnica ao pavilhão" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-03.jpg" alt="Desenho 3D — estrutura modular" data-cap="02 · Estrutura modular (esboço)" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-04.jpg" alt="Desenho 3D — base de madeira" data-cap="02 · Base de madeira" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-05.jpg" alt="Desenho 3D — composição com bases" data-cap="02 · Composição com bases" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-06.jpg" alt="Desenho 3D — mobiliário inserido" data-cap="02 · Mobiliário inserido" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-07.jpg" alt="Desenho 3D — finalização com carpete" data-cap="02 · Finalização com carpete" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-08.jpg" alt="Moodboard de materiais" data-cap="03 · Materialidade — moodboard" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-09.jpg" alt="Render 1 — vista interna do lounge" data-cap="04 · Render — vista interna" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-10.jpg" alt="Render 2 — banners W suspensos" data-cap="04 · Render — banners suspensos W" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-11.jpg" alt="Render 3 — corredor" data-cap="04 · Render — corredor" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-12.jpg" alt="Render 4 — vista frontal" data-cap="04 · Render — vista frontal" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-13.jpg" alt="Planta layout e corte AA" data-cap="05 · Planta layout e corte AA" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-14.jpg" alt="Elevação com curadoria de mobiliário" data-cap="05 · Elevação com mobiliário" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-15.jpg" alt="Corte técnico BB" data-cap="05 · Corte técnico BB" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-16.jpg" alt="Lista de mobiliário curado" data-cap="05 · Curadoria — lista de peças" loading="lazy">
-              <img class="sl-img" src="docs/slides/bienal-slide-17.jpg" alt="Créditos do projeto" data-cap="Créditos" loading="lazy">
-              <button class="sl-nav prev" id="slPrev" aria-label="Slide anterior">‹</button>
-              <button class="sl-nav next" id="slNext" aria-label="Próximo slide">›</button>
-            </div>
-            <div class="sl-caption" id="slCaption">Capa — Estudo preliminar</div>
-            <div class="sl-thumbs" id="slThumbs">
-              <!-- thumbnails geradas via JS -->
-            </div>
-            <div class="sl-foot">
-              <span class="sl-foot-hint">use ‹ › ou as setas do teclado</span>
-              <a class="sl-foot-dl" href="docs/bienal-projeto-cenografico-westwing-rosenbaum.pdf" target="_blank" rel="noopener">
-                Baixar PDF (8 MB) ↓
-              </a>
-            </div>
+            <button class="bab-nav next" id="babNext" aria-label="Próxima foto">›</button>
+            <div class="bab-dots" id="babDots"></div>
           </div>
         </div>
         <div class="cs-body">
@@ -619,27 +618,49 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
         </div>
       </article>
 
-      <!-- Galeria da Bienal (fotos + vídeo curto) -->
-      <div class="bab-gallery reveal">
-        <figure class="bab-shot bab-span2"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
-        <figure class="bab-shot"><img src="images/bienal-02.jpg" alt="Estantes e mobiliário — Espaço Westwing Bienal" loading="lazy"></figure>
-        <figure class="bab-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
-        <figure class="bab-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
-        <figure class="bab-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
-        <figure class="bab-shot bab-vid">
-          <video controls preload="metadata" playsinline poster="images/bienal-02.jpg">
-            <source src="videos/bab-social-01.mp4" type="video/mp4" />
-          </video>
-        </figure>
-        <figure class="bab-shot bab-vid">
-          <video controls preload="metadata" playsinline poster="images/bienal-01.jpg">
-            <source src="videos/bab-social-02.mp4" type="video/mp4" />
-          </video>
-        </figure>
+      <!-- Projeto cenográfico em PDF -->
+      <div class="pdf-project reveal" id="pdf-bienal">
+        <div class="pdf-project-head">
+          <h4 class="pdf-project-title">Projeto cenográfico em PDF.</h4>
+          <a class="sl-foot-dl" href="docs/bienal-projeto-cenografico-westwing-rosenbaum.pdf" target="_blank" rel="noopener">
+            Abrir PDF completo ↗
+          </a>
+        </div>
+        <div class="slideshow" id="babSlideshow" aria-label="Slides do projeto cenográfico">
+          <div class="sl-head">
+            <span class="sl-tag">Projeto cenográfico · PDF</span>
+            <span class="sl-count" id="slCount">1 / 17</span>
+          </div>
+          <div class="sl-stage" id="slStage">
+            <img class="sl-img on" src="docs/slides/bienal-slide-01.jpg" alt="Capa — Lounge Westwing Bienal de Arquitetura Brasileira" data-cap="Capa — Estudo preliminar">
+            <img class="sl-img" src="docs/slides/bienal-slide-02.jpg" alt="Fotos da visita técnica ao espaço" data-cap="01 · Visita técnica ao pavilhão" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-03.jpg" alt="Desenho 3D — estrutura modular" data-cap="02 · Estrutura modular (esboço)" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-04.jpg" alt="Desenho 3D — base de madeira" data-cap="02 · Base de madeira" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-05.jpg" alt="Desenho 3D — composição com bases" data-cap="02 · Composição com bases" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-06.jpg" alt="Desenho 3D — mobiliário inserido" data-cap="02 · Mobiliário inserido" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-07.jpg" alt="Desenho 3D — finalização com carpete" data-cap="02 · Finalização com carpete" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-08.jpg" alt="Moodboard de materiais" data-cap="03 · Materialidade — moodboard" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-09.jpg" alt="Render 1 — vista interna do lounge" data-cap="04 · Render — vista interna" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-10.jpg" alt="Render 2 — banners W suspensos" data-cap="04 · Render — banners suspensos W" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-11.jpg" alt="Render 3 — corredor" data-cap="04 · Render — corredor" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-12.jpg" alt="Render 4 — vista frontal" data-cap="04 · Render — vista frontal" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-13.jpg" alt="Planta layout e corte AA" data-cap="05 · Planta layout e corte AA" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-14.jpg" alt="Elevação com curadoria de mobiliário" data-cap="05 · Elevação com mobiliário" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-15.jpg" alt="Corte técnico BB" data-cap="05 · Corte técnico BB" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-16.jpg" alt="Lista de mobiliário curado" data-cap="05 · Curadoria — lista de peças" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-17.jpg" alt="Créditos do projeto" data-cap="Créditos" loading="lazy">
+            <button class="sl-nav prev" id="slPrev" aria-label="Slide anterior">‹</button>
+            <button class="sl-nav next" id="slNext" aria-label="Próximo slide">›</button>
+          </div>
+          <div class="sl-caption" id="slCaption">Capa — Estudo preliminar</div>
+          <div class="sl-thumbs" id="slThumbs">
+            <!-- thumbnails geradas via JS -->
+          </div>
+          <div class="sl-foot">
+            <span class="sl-foot-hint">slideshow automático · use ‹ › se quiser navegar</span>
+          </div>
+        </div>
       </div>
-
-      <!-- ===== Projeto cenográfico: do conceito à execução (texto + slideshow) ===== -->
-      
 
 
       <!-- Case 3 — Isa de Oliveira -->
@@ -898,6 +919,9 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
 
+<!-- Lightbox -->
+<div class="lb" id="lb"><button class="lb-x" aria-label="Fechar">×</button><img id="lbImg" alt=""></div>
+
 <script>
 // nav scroll state
 const nav=document.getElementById('nav');
@@ -984,12 +1008,66 @@ buildDots();resetAuto();
   });
   // lightbox para a galeria da Bienal
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
-  document.querySelectorAll('.bab-shot img').forEach(function(im){
-    im.addEventListener('click',function(){lbImg.src=im.src;lb.classList.add('open')});
-  });
-  function closeLb(){lb.classList.remove('open');lbImg.src=''}
-  lb.addEventListener('click',closeLb);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+  if(lb && lbImg){
+    document.querySelectorAll('.bab-shot img').forEach(function(im){
+      im.addEventListener('click',function(){lbImg.src=im.src;lb.classList.add('open')});
+    });
+    function closeLb(){lb.classList.remove('open');lbImg.src=''}
+    lb.addEventListener('click',closeLb);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+  }
+
+  // galeria rotativa da Bienal
+  (function(){
+    var gallery=document.getElementById('babGallery');
+    var track=document.getElementById('babTrack');
+    var prev=document.getElementById('babPrev');
+    var next=document.getElementById('babNext');
+    var dotsWrap=document.getElementById('babDots');
+    if(!gallery||!track||!prev||!next||!dotsWrap)return;
+    var shots=Array.prototype.slice.call(track.querySelectorAll('.bab-shot'));
+    var timer;
+
+    function currentIndex(){
+      var center=track.scrollLeft+track.clientWidth/2;
+      var idx=0,best=Infinity;
+      shots.forEach(function(s,i){
+        var c=s.offsetLeft+s.offsetWidth/2-track.offsetLeft;
+        var d=Math.abs(c-center);
+        if(d<best){best=d;idx=i}
+      });
+      return idx;
+    }
+    function updateDots(){
+      var idx=currentIndex();
+      dotsWrap.querySelectorAll('button').forEach(function(dot,i){dot.classList.toggle('on',i===idx)});
+    }
+    function go(i){
+      var shot=shots[(i+shots.length)%shots.length];
+      if(shot)shot.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+      setTimeout(updateDots,320);
+    }
+    function step(dir){go(currentIndex()+dir)}
+    function start(){
+      clearInterval(timer);
+      timer=setInterval(function(){step(1)},4800);
+    }
+    function reset(){start()}
+
+    shots.forEach(function(shot,i){
+      var dot=document.createElement('button');
+      dot.setAttribute('aria-label','Ver foto '+(i+1));
+      dot.addEventListener('click',function(){go(i);reset()});
+      dotsWrap.appendChild(dot);
+    });
+    prev.addEventListener('click',function(){step(-1);reset()});
+    next.addEventListener('click',function(){step(1);reset()});
+    track.addEventListener('scroll',updateDots,{passive:true});
+    gallery.addEventListener('mouseenter',function(){clearInterval(timer)});
+    gallery.addEventListener('mouseleave',start);
+    updateDots();
+    start();
+  })();
 
   // ====== Slideshow do projeto cenográfico (PDF em slides) ======
   (function(){
@@ -1002,6 +1080,7 @@ buildDots();resetAuto();
     var caption=document.getElementById('slCaption');
     var thumbsWrap=document.getElementById('slThumbs');
     var total=imgs.length, idx=0;
+    var slideTimer;
 
     // monta thumbnails
     imgs.forEach(function(im,i){
@@ -1011,7 +1090,7 @@ buildDots();resetAuto();
       var t=document.createElement('img');
       t.src=im.src; t.alt=''; t.loading='lazy';
       b.appendChild(t);
-      b.addEventListener('click',function(){go(i)});
+      b.addEventListener('click',function(){go(i);resetAuto()});
       thumbsWrap.appendChild(b);
     });
     var thumbs=thumbsWrap.querySelectorAll('.sl-thumb');
@@ -1029,8 +1108,15 @@ buildDots();resetAuto();
         th.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
       }
     }
-    prev.addEventListener('click',function(){go(idx-1)});
-    next.addEventListener('click',function(){go(idx+1)});
+    function startAuto(){
+      clearInterval(slideTimer);
+      slideTimer=setInterval(function(){go(idx+1)},4200);
+    }
+    function resetAuto(){
+      startAuto();
+    }
+    prev.addEventListener('click',function(){go(idx-1);resetAuto()});
+    next.addEventListener('click',function(){go(idx+1);resetAuto()});
 
     // teclado (quando o slideshow estiver visível na tela)
     var inView=false;
@@ -1040,8 +1126,8 @@ buildDots();resetAuto();
     ob.observe(stage);
     document.addEventListener('keydown',function(e){
       if(!inView)return;
-      if(e.key==='ArrowLeft'){go(idx-1)}
-      if(e.key==='ArrowRight'){go(idx+1)}
+      if(e.key==='ArrowLeft'){go(idx-1);resetAuto()}
+      if(e.key==='ArrowRight'){go(idx+1);resetAuto()}
     });
 
     // swipe touch
@@ -1050,13 +1136,12 @@ buildDots();resetAuto();
     stage.addEventListener('touchend',function(e){
       if(x0===null)return;
       var dx=e.changedTouches[0].clientX-x0;
-      if(Math.abs(dx)>40){go(idx+(dx<0?1:-1))}
+      if(Math.abs(dx)>40){go(idx+(dx<0?1:-1));resetAuto()}
       x0=null;
     });
+    startAuto();
   })();
 })();
 </script>
-<!-- Lightbox -->
-<div class="lb" id="lb"><button class="lb-x" aria-label="Fechar">×</button><img id="lbImg" alt=""></div>
 </body>
 </html>
