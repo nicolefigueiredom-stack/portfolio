@@ -75,13 +75,28 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 .sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(34px,8vw,56px);line-height:1.0;letter-spacing:-.02em;margin-top:10px}
 .sec-head{margin-bottom:44px;max-width:640px}
 .about{background:var(--panel)}
-.about-grid{display:grid;grid-template-columns:1fr;gap:36px}
+.about-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
+.about-grid>*{min-width:0}
+.about-copy .sec-head{margin-bottom:36px}
 .about-bio p{font-size:18px;color:var(--soft);margin-bottom:18px;font-weight:300}
 .about-bio strong{color:var(--cream);font-weight:600}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.stat{background:var(--panel);padding:26px 20px}
-.stat b{font-family:var(--serif);font-size:44px;color:var(--brass);font-weight:600;line-height:1;display:block}
-.stat span{font-size:13px;color:var(--soft);margin-top:6px;display:block}
+.editorial-profile{position:relative;min-width:0;border:1px solid var(--line);border-radius:8px;background:linear-gradient(145deg,#2f2820 0%,#211b16 58%,#352a20 100%);overflow:hidden;box-shadow:0 28px 70px -38px #000}
+.editorial-profile::before{content:"VM";position:absolute;right:-18px;top:-26px;font-family:var(--serif);font-size:150px;line-height:.8;color:rgba(237,230,215,.055);font-weight:700;pointer-events:none}
+.ed-topline{position:relative;z-index:1;display:flex;justify-content:space-between;gap:18px;padding:18px 20px;border-bottom:1px solid var(--line);font-size:10.5px;text-transform:uppercase;color:var(--brass);font-weight:700}
+.ed-cover{position:relative;z-index:1;padding:26px 20px 18px}
+.ed-kicker{display:block;font-size:10.5px;text-transform:uppercase;color:var(--clay);font-weight:700;margin-bottom:12px}
+.ed-cover b{display:block;font-family:var(--serif);font-size:clamp(34px,8vw,58px);line-height:.92;color:var(--cream);font-weight:500;max-width:8.5ch}
+.ed-cover p{max-width:36ch;margin-top:16px;color:var(--soft);font-size:15px;line-height:1.55}
+.ed-marquee{position:relative;max-width:100%;min-width:0;height:38px;margin-top:22px;border-top:1px solid rgba(201,176,131,.28);border-bottom:1px solid rgba(201,176,131,.28);overflow:hidden;white-space:nowrap}
+.ed-marquee-track{position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;width:max-content;gap:28px;font-size:11px;text-transform:uppercase;color:var(--brass);font-weight:700;animation:edMarquee 18s linear infinite}
+.ed-marquee-track span{flex:0 0 auto}
+.ed-grid{position:relative;z-index:1;min-width:0;display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.ed-note{min-width:0;background:rgba(30,26,21,.76);padding:18px 20px;min-height:auto;display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:16px;align-items:start}
+.ed-note em{display:block;grid-row:1/3;font-style:normal;font-family:var(--serif);font-size:28px;line-height:1;color:var(--clay);font-weight:600}
+.ed-note strong{display:block;font-family:var(--serif);font-size:21px;line-height:1.08;color:var(--cream);font-weight:500;margin-bottom:8px}
+.ed-note span{display:block;color:var(--soft);font-size:14px;line-height:1.45;overflow-wrap:break-word}
+@keyframes edMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ed-marquee-track{animation:none}}
 .skills-wrap{display:flex;flex-wrap:wrap;gap:10px}
 .chip{border:1px solid var(--line);background:var(--panel2);padding:10px 16px;border-radius:30px;font-size:13.5px;color:var(--soft);font-weight:500;transition:.3s}
 .chip:hover{background:var(--clay);color:#1b1612;border-color:var(--clay)}
@@ -135,8 +150,7 @@ nav.scrolled{background:rgba(33,27,22,.82);backdrop-filter:blur(12px);border-bot
 #case-marina{order:3}
 #case-vivara-namorados{order:4}
 #case-nike{order:5}
-#case-vivara{order:6}
-#case-farm{order:7}
+#case-farm{order:6}
 .cs{display:flex;flex-direction:column;gap:26px;padding:42px 0;border-top:1px solid var(--line)}
 .cs-featured{padding-top:52px;border-top-color:rgba(211,177,124,.55)}
 .cs-featured .cs-tag::before{content:"Case em destaque · ";color:var(--brass)}
@@ -326,7 +340,13 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
   .hero-grid{grid-template-columns:1.12fr .88fr;gap:60px}
   .hero-visual{order:0}
   .hero-badge{left:-26px}
-  .about-grid,.contact-grid{grid-template-columns:1fr 1fr;gap:64px}
+  .about-grid,.contact-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}
+  .editorial-profile{min-height:520px;display:grid;grid-template-rows:auto 1fr auto}
+  .editorial-profile::before{font-size:220px;right:-28px;top:-34px}
+  .ed-topline{padding:18px 24px}
+  .ed-cover{padding:34px 28px 24px}
+  .ed-cover b{font-size:64px}
+  .ed-note{padding:20px 24px}
   .mkt-grid{grid-template-columns:repeat(3,1fr);gap:22px}
   .edu-grid{grid-template-columns:1fr 1fr;gap:22px}
   .gallery{grid-template-columns:repeat(12,1fr);gap:18px}
@@ -422,45 +442,56 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
 <!-- ============ SOBRE ============ -->
 <section class="sec about" id="sobre">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-num">01 — Sobre</div>
-      <h2 class="sec-title">Estratégia visual com olhar humano.</h2>
-    </div>
     <div class="about-grid">
-      <div class="about-bio reveal">
-        <p>Sou uma profissional de <strong>Visual Merchandising, Brand Experience e Retail Marketing</strong> movida por projetos que aproximam marca, produto e pessoas. Gosto de transformar conceito em presença física: uma vitrine que chama, uma loja que conta uma história, um evento que faz a marca ser lembrada.</p>
-        <p>Minha trajetória passa por moda, lifestyle, decoração e joalheria, sempre em ambientes onde estética, operação e resultado precisam andar juntos. Tenho um olhar cuidadoso para narrativa, mas também gosto da parte prática: cronograma, fornecedor, orçamento, loja, montagem e execução.</p>
-        <p>Trabalho bem no encontro entre <strong>sensibilidade criativa e visão de negócio</strong>. Leio o contexto, organizo as frentes, conecto times e busco entregar experiências bonitas, viáveis e relevantes para quem vive a marca no dia a dia.</p>
+      <div class="about-copy">
+        <div class="sec-head reveal">
+          <div class="sec-num">01 — Sobre</div>
+          <h2 class="sec-title">Estratégia visual com olhar humano.</h2>
+        </div>
+        <div class="about-bio reveal">
+          <p>Sou uma profissional de <strong>Visual Merchandising, Brand Experience e Retail Marketing</strong> movida por projetos que aproximam marca, produto e pessoas. Gosto de transformar conceito em presença física: uma vitrine que chama, uma loja que conta uma história, um evento que faz a marca ser lembrada.</p>
+          <p>Minha trajetória passa por moda, lifestyle, decoração e joalheria, sempre em ambientes onde estética, operação e resultado precisam andar juntos. Tenho um olhar cuidadoso para narrativa, mas também gosto da parte prática: cronograma, fornecedor, orçamento, loja, montagem e execução.</p>
+          <p>Trabalho bem no encontro entre <strong>sensibilidade criativa e visão de negócio</strong>. Leio o contexto, organizo as frentes, conecto times e busco entregar experiências bonitas, viáveis e relevantes para quem vive a marca no dia a dia.</p>
+        </div>
       </div>
-      <div class="stats reveal">
-        <div class="stat"><b>10+</b><span>anos de experiência</span></div>
-        <div class="stat"><b>4</b><span>grandes marcas</span></div>
-        <div class="stat"><b>OOH</b><span>ON · OFF · eventos</span></div>
-        <div class="stat"><b>360°</b><span>visão omnichannel</span></div>
-      </div>
-    </div>
-    <div style="margin-top:64px" class="reveal">
-      <div class="sec-num" style="margin-bottom:20px">Competências</div>
-      <div class="skills-wrap">
-        <span class="chip">Visual Merchandising</span>
-        <span class="chip">Store Planning</span>
-        <span class="chip">Layout de loja</span>
-        <span class="chip">Vitrines & displays</span>
-        <span class="chip">Ambientações</span>
-        <span class="chip">Guia de VM</span>
-        <span class="chip">Campanhas sazonais</span>
-        <span class="chip">Trade Marketing</span>
-        <span class="chip">Retail Marketing</span>
-        <span class="chip">Branding</span>
-        <span class="chip">Brand Experience</span>
-        <span class="chip">Collabs & co-marketing</span>
-        <span class="chip">Gestão de projetos</span>
-        <span class="chip">Liderança de equipes</span>
-        <span class="chip">Gestão de fornecedores</span>
-        <span class="chip">Orçamento (budget)</span>
-        <span class="chip">KPIs de varejo</span>
-        <span class="chip">Tendências de mercado</span>
-        <span class="chip">Gestão de stakeholders</span>
+      <div class="editorial-profile reveal" aria-label="Composição editorial da atuação profissional">
+        <div class="ed-topline">
+          <span>Brand Experience</span>
+          <span>Retail / VM</span>
+        </div>
+        <div class="ed-cover">
+          <span class="ed-kicker">Profile issue</span>
+          <b>Do conceito à presença.</b>
+          <p>Uma atuação que combina repertório de varejo, pensamento de marca, sensibilidade estética e execução operacional para construir experiências memoráveis.</p>
+          <div class="ed-marquee" aria-hidden="true">
+            <div class="ed-marquee-track">
+              <span>vitrine</span><span>loja</span><span>evento</span><span>collab</span><span>campanha</span><span>jornada</span>
+              <span>vitrine</span><span>loja</span><span>evento</span><span>collab</span><span>campanha</span><span>jornada</span>
+            </div>
+          </div>
+        </div>
+        <div class="ed-grid">
+          <article class="ed-note">
+            <em>01</em>
+            <strong>Repertório de varejo</strong>
+            <span>Mais de 10 anos em moda, lifestyle, decoração e joalheria, conectando produto, desejo e comportamento de compra.</span>
+          </article>
+          <article class="ed-note">
+            <em>02</em>
+            <strong>Marcas com escala</strong>
+            <span>Westwing, Nike, Vivara e Farm Rio como base para unir posicionamento, linguagem visual e operação.</span>
+          </article>
+          <article class="ed-note">
+            <em>03</em>
+            <strong>Presença 360°</strong>
+            <span>Campanhas, vitrines, lojas, eventos e ativações pensados como uma narrativa única de marca.</span>
+          </article>
+          <article class="ed-note">
+            <em>04</em>
+            <strong>Execução viável</strong>
+            <span>Da ideia ao fornecedor, da montagem ao cliente, da experiência ao resultado comercial.</span>
+          </article>
+        </div>
       </div>
     </div>
   </div>
@@ -552,12 +583,6 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
           <img src="images/nike-01.jpg" alt="Nike VM digital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <span class="ph" style="display:none">images/nike-01.jpg</span>
           <span class="slide-info"><em class="brand-tag">Nike</em><strong>VM Digital & Omnichannel</strong><span class="slide-cta">Ver case →</span></span>
-        </a>
-
-        <a class="slide" data-brand="vivara" href="#case-vivara">
-          <img src="images/vivara-01.jpg" alt="Vivara PDV" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <span class="ph" style="display:none">images/vivara-01.jpg</span>
-          <span class="slide-info"><em class="brand-tag">Vivara</em><strong>Trade Marketing & PDV</strong><span class="slide-cta">Ver case →</span></span>
         </a>
 
         <a class="slide" data-brand="farm" href="#case-farm">
@@ -870,32 +895,33 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
         <div class="cs-body">
           <div class="cs-tag">Case · Campanha de Dia dos Namorados · Visual Merchandising</div>
           <h4 class="cs-name">Vivara e Life by Vivara</h4>
-          <p>Atuei na liderança do desenvolvimento e da implementação nacional da campanha de Dia dos Namorados para Vivara e Life by Vivara, uma das principais datas comerciais do calendário da marca.</p>
-          <p>O projeto contemplou vitrines, materiais expositivos e comunicações visuais, com adaptação para diferentes formatos de loja e gestão próxima entre agência, fornecedores, transportadoras e equipes de campo.</p>
-          <p>Diante da escala de implantação e de ocorrências logísticas, estruturei processos de acompanhamento para identificar desvios, coordenar reposições e apoiar as lojas em tempo real, preservando a consistência visual da campanha em todo o Brasil.</p>
+          <p>Atuei na liderança do desenvolvimento e da implementação da campanha de Dia dos Namorados para Vivara e Life by Vivara, principal data comercial da marca e uma das iniciativas de Visual Merchandising mais estratégicas do ano.</p>
+          <p>O projeto envolveu criação e implantação nacional de vitrines, expositores e comunicações visuais. Minha atuação passou pelo desenvolvimento técnico com a agência Wimmer, validação de protótipos, testes com produtos, adaptação para diferentes formatos de vitrine e mapeamento individual das lojas.</p>
+          <p>O desafio estava na escala: a campanha precisava chegar simultaneamente a 336 lojas e operações em todo o Brasil, com arquiteturas, limitações físicas e particularidades regionais diferentes. Durante a distribuição, surgiram avarias logísticas, inconsistências de entrega e divergências de implantação, criando risco para a padronização visual e para o cronograma.</p>
+          <p>Para viabilizar a entrega, estruturei uma rotina de acompanhamento nacional, com fluxos de comunicação entre lojas, fornecedores e parceiros logísticos. O monitoramento em tempo real permitiu identificar desvios rapidamente, coordenar reenvios, resolver ocorrências com fornecedores e apoiar as equipes de loja durante toda a implantação.</p>
           <div class="case-framework" aria-label="Escopo, execução e entrega da campanha de Dia dos Namorados Vivara e Life by Vivara">
             <div class="framework-col">
-              <h6>Escopo</h6>
+              <h6>Desafio</h6>
               <ul>
-                <li>Campanha nacional de Dia dos Namorados para Vivara e Life by Vivara.</li>
-                <li>Desenvolvimento de vitrines, expositores, materiais de apoio e comunicação visual.</li>
-                <li>Mapeamento das lojas para adaptar projetos a diferentes formatos e limitações físicas.</li>
+                <li>Implantar a principal campanha comercial do ano em 336 lojas e operações pelo Brasil.</li>
+                <li>Adaptar vitrines, expositores e comunicação visual a diferentes formatos e limitações arquitetônicas.</li>
+                <li>Preservar padrão de marca mesmo diante de avarias logísticas, atrasos e divergências de aplicação.</li>
               </ul>
             </div>
             <div class="framework-col">
-              <h6>Execução</h6>
+              <h6>Caminho</h6>
               <ul>
-                <li>Acompanhamento do desenvolvimento com a agência Wimmer, validação de protótipos e testes com produtos.</li>
-                <li>Coordenação entre lojas, fornecedores, agência, transportadoras e parceiros logísticos.</li>
-                <li>Monitoramento de implantação, gestão de avarias, reenvios e resolução de ocorrências.</li>
+                <li>Mapeamento individual das lojas para definir a melhor solução expositiva por operação.</li>
+                <li>Validação de protótipos e testes com produtos em parceria com a agência Wimmer.</li>
+                <li>Criação de fluxos de acompanhamento entre lojas, fornecedores, agência e logística.</li>
               </ul>
             </div>
             <div class="framework-col">
-              <h6>Entrega</h6>
+              <h6>Resultado</h6>
               <ul>
-                <li>Implantação em 336 lojas e operações distribuídas pelo Brasil.</li>
-                <li>Consistência de Visual Merchandising na principal campanha comercial do ano.</li>
-                <li>Fluxo operacional capaz de sustentar escala, padronização e resposta rápida em campo.</li>
+                <li>Gestão nacional da implantação com monitoramento de ocorrências em tempo real.</li>
+                <li>Reposição e reenvio de materiais para reduzir impactos na execução da campanha.</li>
+                <li>Consistência visual e experiência de marca preservadas em escala nacional.</li>
               </ul>
             </div>
           </div>
@@ -905,158 +931,95 @@ footer{background:#171210;color:var(--sand);padding:32px 0 96px;border-top:1px s
       <!-- Case 4 — Nike -->
       <article id="case-nike" class="cs cs-rev reveal">
         <div class="cs-media">
-          <img src="images/nike-01.jpg" alt="Nike VM Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
-          <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/nike-01.jpg</span>
+          <img src="images/nike-women-04.jpg" alt="Nike Women — encontro com consumidoras plus size" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
+          <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/nike-women-04.jpg</span>
         </div>
         <div class="cs-body">
-          <div class="cs-tag">Case · VM Digital & Omnichannel · 2020–2022</div>
+          <div class="cs-tag">Case · Nike Women · Estratégia Omnichannel & Consumer Insights · 2020–2022</div>
           <h4 class="cs-name">Nike</h4>
-          <p>Responsável pela integração entre canais digitais e físicos por meio da estratégia de Visual Merchandising e styling. Planejei o VM da Nike.com, a jornada do cliente online e a exposição de produto, traduzindo coleções em experiências de compra que converteram.</p>
-          <p>Apresentei planos sazonais para parceiros do varejo físico (Centauro, Authentic Feet, Artwalk), desenvolvi briefings criativos, conduzi treinamentos de equipes e geri a plataforma de VM com acompanhamento de indicadores de engajamento. Liderei também o shooting de <strong>Air Max Day</strong>.</p>
+          <p><strong>Contexto.</strong> Atuei na estratégia Omnichannel da Nike, contribuindo para iniciativas de integração da experiência do consumidor entre os canais físicos e digitais da marca. Meu papel envolvia análise da jornada de compra, identificação de oportunidades de melhoria e desenvolvimento de ações capazes de gerar experiências mais relevantes, consistentes e centradas nas consumidoras. Dentro desse escopo, participei de um projeto estratégico da categoria <strong>Nike Women</strong>, focado na ampliação da participação feminina no esporte por meio da compreensão aprofundada das necessidades, expectativas e barreiras de mulheres plus size em sua jornada com a marca.</p>
+          <p><strong>Desafio.</strong> Apesar do mercado esportivo estar ampliando sua oferta para o público feminino, muitas mulheres plus size enfrentavam dificuldades para encontrar produtos adequados — especialmente <strong>bras esportivos</strong> — além de questões de representatividade, inclusão e pertencimento. Outro ponto crítico era a insegurança no processo de compra online: modelagens, níveis de sustentação e indicações de uso pouco claras prejudicavam a tomada de decisão. O desafio era compreender genuinamente esse público e transformar os aprendizados em melhorias concretas para produto, comunicação e experiência.</p>
+          <p><strong>Solução.</strong> Participei da idealização e execução de uma <strong>experiência imersiva</strong> voltada para consumidoras plus size Nike Women, criando um ambiente de escuta ativa sobre produtos esportivos. Os insights gerados — conforto, segurança, performance, autoestima, representatividade — foram conectados às experiências de loja física e Nike.com: revisão da comunicação no PDV, ajustes em conteúdos de apoio à compra, descrição de produtos e informações capazes de reduzir as inseguranças online. O projeto reforçou a escuta ativa como ferramenta estratégica para experiências de marca mais inclusivas e jornadas de compra mais fluidas.</p>
           <div class="cs-press">
             <span class="cs-press-lbl">Vídeos</span>
             <a href="https://www.youtube.com/watch?v=QOYssfi5CEY" target="_blank" rel="noopener">Projeto Nike ↗</a>
             <a href="https://www.youtube.com/watch?v=Q_FIlmvmrWo" target="_blank" rel="noopener">Air Max Day ↗</a>
           </div>
-          <div class="case-framework" aria-label="Escopo, execução e entrega do case Nike">
+          <div class="case-framework" aria-label="Escopo, execução e entrega do case Nike Women">
             <div class="framework-col">
               <h6>Escopo</h6>
               <ul>
-                <li>Estratégia de Visual Merchandising para Nike.com e parceiros do varejo físico.</li>
-                <li>Integração entre exposição de produto, styling e jornada de compra omnichannel.</li>
+                <li>Estratégia omnichannel integrada entre lojas físicas e Nike.com, com foco na categoria Nike Women.</li>
+                <li>Pesquisa qualitativa e desenvolvimento de consumer insights com consumidoras plus size.</li>
               </ul>
             </div>
             <div class="framework-col">
               <h6>Execução</h6>
               <ul>
-                <li>Planejamento de VM digital, planos sazonais e briefings criativos para campanhas.</li>
-                <li>Treinamento de equipes, gestão de plataforma de VM e acompanhamento de engajamento.</li>
+                <li>Idealização e produção de experiência imersiva de escuta ativa com o público-alvo.</li>
+                <li>Mapeamento da jornada da consumidora e geração de insights para produto, comunicação e experiência.</li>
               </ul>
             </div>
             <div class="framework-col">
               <h6>Entrega</h6>
               <ul>
-                <li>Consistência entre Nike.com, Centauro, Authentic Feet e Artwalk.</li>
-                <li>Experiências de compra mais claras, comerciais e alinhadas ao storytelling das coleções.</li>
+                <li>Revisão da comunicação em loja física e aprimoramento da experiência digital de compra.</li>
+                <li>Jornada omnichannel mais inclusiva, conectando experiência física, digital e voz da consumidora.</li>
               </ul>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- Case 5 — Vivara -->
-      <article id="case-vivara" class="cs reveal">
-        <div class="cs-media">
-          <img src="images/vivara-01.jpg" alt="Vivara Trade Marketing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
-          <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/vivara-01.jpg</span>
+      <!-- ===== Galeria · Encontro Nike Women ===== -->
+      <div class="case-extra reveal" aria-label="Galeria — Encontro Nike Women">
+        <span class="cx-lbl">Galeria · Encontro Nike Women · escuta ativa com consumidoras plus size</span>
+        <div class="case-gallery">
+          <figure class="cg-hero"><img src="images/nike-women-04.jpg" alt="Grupo de consumidoras plus size no encontro Nike Women, em torno do letreiro nike women" loading="lazy"></figure>
+          <figure><img src="images/nike-women-03.jpg" alt="Cenografia do encontro Nike Women — área externa com letreiro institucional" loading="lazy"></figure>
+          <figure><img src="images/nike-women-01.jpg" alt="Arara dedicada de bras esportivos Nike linha Plus Size" loading="lazy"></figure>
+          <figure><img src="images/nike-women-02.jpg" alt="Área de prova com painéis Nike Women — suporte médio e suporte alto" loading="lazy"></figure>
         </div>
-        <div class="cs-body">
-          <div class="cs-tag">Case · Trade Marketing & Comunicação de PDV · 2022</div>
-          <h4 class="cs-name">Vivara</h4>
-          <p>Gestão da comunicação visual da rede de lojas, garantindo padrão visual e consistência de marca. Conduzi o workflow completo com agências criativas para campanhas de PDV — briefing, criação, aprovação e execução — e desenvolvi materiais de apoio para os times de loja.</p>
-          <p>Analisei a exposição de produtos por <strong>clusters de lojas e shoppings</strong>, prestei atendimento consultivo de marketing às lojas e participei de projetos de identidade de marca, como renovação de uniformes e embalagens.</p>
-          <div class="case-framework" aria-label="Escopo, execução e entrega do case Vivara">
-            <div class="framework-col">
-              <h6>Escopo</h6>
-              <ul>
-                <li>Gestão da comunicação visual e do padrão de marca na rede de lojas.</li>
-                <li>Apoio às campanhas de PDV e aos projetos de identidade da marca.</li>
-              </ul>
-            </div>
-            <div class="framework-col">
-              <h6>Execução</h6>
-              <ul>
-                <li>Workflow com agências criativas: briefing, criação, aprovação e execução.</li>
-                <li>Análise de exposição por clusters, materiais de apoio e atendimento consultivo às lojas.</li>
-              </ul>
-            </div>
-            <div class="framework-col">
-              <h6>Entrega</h6>
-              <ul>
-                <li>Comunicação de PDV mais padronizada, clara e aderente à identidade Vivara.</li>
-                <li>Suporte para equipes de loja aplicarem campanhas com consistência operacional.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
+      </div>
 
-      <!-- Case 6 — Farm Rio -->
+      <!-- Case 5 — Farm Rio -->
       <article id="case-farm" class="cs cs-rev reveal">
         <div class="cs-media">
-          <img src="images/farm-01.jpg" alt="Farm Rio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
+          <img src="images/farm-01.jpg" alt="Farm Rio — expansão de lojas e implementação de marca" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;border-radius:6px;box-shadow:var(--shadow)">
           <span class="ph" style="display:none;aspect-ratio:4/5;border-radius:6px;align-items:center;justify-content:center;background:var(--panel2);color:var(--soft);text-align:center;padding:18px">images/farm-01.jpg</span>
         </div>
         <div class="cs-body">
-          <div class="cs-tag">Case · Lojas, Pop-ups & Ativações · 2015–2020</div>
+          <div class="cs-tag">Case · Expansão de Lojas & Implementação de Marca · 2015–2020</div>
           <h4 class="cs-name">Farm Rio</h4>
-          <p>Gestão da equipe de Visual Merchandising em São Paulo — cronogramas, feedbacks e aprovações. Responsável pela inauguração de novas lojas e pop-ups em diversas regiões do Brasil e pela montagem de showroom orientado a vendas para parceiros multimarcas.</p>
-          <p>Organizei e executei ativações de marca em eventos estratégicos como <strong>Lollapalooza, Adidas, Havaianas e Enjoei</strong>, desenvolvendo campanhas promocionais e ações de trade marketing com acompanhamento de indicadores de performance.</p>
+          <p><strong>Contexto.</strong> Atuei na área de Visual Merchandising da FARM Rio, sendo responsável pela <strong>implementação da identidade visual da marca em novas lojas, pop-ups, eventos e canais multimarcas</strong> em diferentes regiões do Brasil. Minha atuação contemplava o planejamento estratégico das inaugurações, coordenação das implantações, treinamento de equipes e acompanhamento da execução dos padrões de Visual Merchandising — garantindo consistência da experiência de marca em todos os pontos de contato com o cliente.</p>
+          <p><strong>Operações implantadas.</strong> Participei da inauguração de operações relevantes da marca, incluindo o <strong>corner do Aeroporto Internacional de Guarulhos</strong>, as lojas dos shoppings <strong>Villa-Lobos, Cidade São Paulo, Eldorado e Vila Butantã</strong>, além de inaugurações em outras regiões do país: <strong>Uberaba Shopping, Brasília Shopping, Boulevard Shopping Belo Horizonte e Shopping Praia de Belas</strong> (Porto Alegre).</p>
+          <p><strong>Desafio.</strong> A expansão acelerada exigia a implementação simultânea de pontos de venda em diferentes regiões, cada um com características arquitetônicas, perfis de público e necessidades operacionais distintas. Era essencial garantir que as equipes compreendessem a inspiração das coleções, os direcionamentos estratégicos da marca e a aplicação correta dos conceitos de VM — assegurando experiência consistente independentemente da localização.</p>
+          <p><strong>Solução.</strong> Liderei o planejamento e a implementação de inaugurações e projetos especiais, do cronograma à montagem final. Organizei o <strong>showroom para apresentação das coleções às multimarcas</strong> de diferentes regiões, alinhando narrativa comercial e visual da marca. Conduzi <strong>treinamentos presenciais em diversas cidades</strong>, capacitando equipes em inspiração das coleções, exposição de produto, experiência do cliente e boas práticas de VM. Atuei também na organização de eventos estratégicos em São Paulo, incluindo ações no <strong>Lollapalooza</strong> e colaborações com <strong>Adidas, Havaianas e Enjoei</strong>. Fui responsável pela orientação e acompanhamento de duas profissionais da área.</p>
           <div class="case-framework" aria-label="Escopo, execução e entrega do case Farm Rio">
             <div class="framework-col">
               <h6>Escopo</h6>
               <ul>
-                <li>Gestão de Visual Merchandising em São Paulo, novas lojas, pop-ups e showroom.</li>
-                <li>Ativações de marca em eventos estratégicos e ações de trade marketing.</li>
+                <li>Implementação da identidade visual em novas lojas, pop-ups, corners, multimarcas e eventos.</li>
+                <li>Coordenação de equipe local, treinamentos de loja e acompanhamento de execução em campo.</li>
               </ul>
             </div>
             <div class="framework-col">
               <h6>Execução</h6>
               <ul>
-                <li>Coordenação de equipe, cronogramas, feedbacks, aprovações e inaugurações.</li>
-                <li>Montagem de showroom orientado a vendas e execução de experiências em eventos.</li>
+                <li>Inauguração de operações em SP, Brasília, BH, Porto Alegre, Uberaba e corner GRU.</li>
+                <li>Showroom para multimarcas, ativações em eventos e colaborações com marcas parceiras.</li>
               </ul>
             </div>
             <div class="framework-col">
               <h6>Entrega</h6>
               <ul>
-                <li>Experiências de varejo e marca consistentes em diferentes formatos de operação.</li>
-                <li>Ações promocionais com leitura de performance e suporte ao resultado comercial.</li>
+                <li>Padrão visual consistente em múltiplos formatos de operação e regiões do Brasil.</li>
+                <li>Equipes treinadas e cronogramas executados, sustentando a expansão acelerada da marca.</li>
               </ul>
             </div>
           </div>
         </div>
       </article>
-    </div>
-
-    <!-- Vídeos -->
-    <div style="margin-top:80px" class="reveal">
-      <div class="sec-num" style="margin-bottom:22px">Em movimento</div>
-      <!-- VÍDEOS DA SUA PASTA DO DRIVE: baixe os arquivos e salve em videos/ com estes nomes.
-           Adicione ou remova blocos <div class="vcard"> conforme a quantidade de vídeos. -->
-      <div class="native-videos">
-        <div class="vcard">
-          <video controls preload="metadata" playsinline poster="videos/poster-01.jpg">
-            <source src="videos/video-01.mp4" type="video/mp4" />
-          </video>
-          <span class="vcap">Westwing · projeto 01</span>
-        </div>
-        <div class="vcard">
-          <video controls preload="metadata" playsinline poster="videos/poster-02.jpg">
-            <source src="videos/video-02.mp4" type="video/mp4" />
-          </video>
-          <span class="vcap">Westwing · projeto 02</span>
-        </div>
-        <div class="vcard">
-          <video controls preload="metadata" playsinline poster="videos/poster-03.jpg">
-            <source src="videos/video-03.mp4" type="video/mp4" />
-          </video>
-          <span class="vcap">Westwing · projeto 03</span>
-        </div>
-        <div class="vcard">
-          <video controls preload="metadata" playsinline poster="videos/poster-04.jpg">
-            <source src="videos/video-04.mp4" type="video/mp4" />
-          </video>
-          <span class="vcap">Westwing · projeto 04</span>
-        </div>
-      </div>
-
-      <div class="sec-num" style="margin:42px 0 18px">Campanhas em vídeo</div>
-      <div class="video-row">
-        <iframe src="https://www.youtube-nocookie.com/embed/QOYssfi5CEY" title="Nike" loading="lazy" allowfullscreen></iframe>
-        <iframe src="https://www.youtube-nocookie.com/embed/Q_FIlmvmrWo" title="Nike Air Max Day" loading="lazy" allowfullscreen></iframe>
-        <iframe src="https://www.youtube-nocookie.com/embed/qnR55Q7XLZ0" title="Westwing" loading="lazy" allowfullscreen></iframe>
-      </div>
     </div>
 
   </div>
