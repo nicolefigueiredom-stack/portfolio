@@ -136,7 +136,6 @@ nav.scrolled{background:rgba(244,238,223,.88);backdrop-filter:blur(14px);border-
 .featured-title em{font-style:italic;color:var(--moss)}
 .cs{display:grid;grid-template-columns:1fr;gap:26px;padding:52px 0;border-top:1px solid var(--line-soft);position:relative}
 .cs::before{content:"";position:absolute;top:28px;left:0;width:36px;height:1px;background:var(--moss)}
-.cs-featured{align-items:center}
 .cs-media{display:flex;justify-content:center}
 .cs-media .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:380px!important;border-radius:14px 60px 14px 14px!important;box-shadow:var(--shadow-soft)!important}
 .cs-media .media-gallery{width:100%;margin:0}
@@ -270,6 +269,43 @@ footer{background:var(--ink);color:var(--leaf);padding:32px 0 96px;border-top:1p
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 
+
+/* === regras portadas da V1 com paleta verde === */
+.case-lead{display:flex;flex-direction:column;gap:26px}
+.case-feature-video{order:2;width:100%;max-width:360px;margin:0 auto;position:relative}
+.case-feature-video video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:10px 60px 10px 10px;background:#000;box-shadow:var(--shadow);border:1px solid var(--line-soft);cursor:pointer;display:block}
+.cs.cs-featured{grid-template-columns:1fr}
+
+.pdf-project{padding:36px 0 48px;border-top:1px dashed var(--line)}
+.pdf-project-head{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
+.pdf-project-title{font-family:var(--serif);font-weight:400;font-size:clamp(25px,6vw,38px);line-height:1.05;color:var(--ink);letter-spacing:-.02em}
+.pdf-project .slideshow{position:relative;top:auto;width:100%;max-width:980px;margin:0 auto}
+.cs-media .slideshow{position:relative;top:auto;width:100%;max-width:none}
+
+.slideshow{position:sticky;top:96px;display:flex;flex-direction:column;gap:14px;background:var(--bone);border:1px solid var(--line-soft);border-radius:12px;padding:16px;box-shadow:var(--shadow-soft)}
+.sl-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 2px}
+.sl-tag{font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--moss);font-weight:400;letter-spacing:0;text-transform:none}
+.sl-count{font-family:var(--serif);font-size:13px;color:var(--soft);font-weight:500;letter-spacing:.04em}
+.sl-stage{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--line-soft)}
+.sl-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;opacity:0;transition:opacity .45s ease;display:block}
+.sl-img.on{opacity:1;z-index:2}
+.sl-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(26,38,32,.82);backdrop-filter:blur(6px);color:var(--paper);font-size:22px;line-height:1;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;padding:0}
+.sl-nav:hover{background:var(--moss);color:var(--paper);border-color:var(--moss)}
+.sl-nav.prev{left:10px}
+.sl-nav.next{right:10px}
+.sl-caption{font-family:var(--serif);font-size:14.5px;color:var(--ink);font-weight:400;text-align:center;min-height:1.4em;line-height:1.35;font-style:italic}
+.sl-thumbs{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 2px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.sl-thumbs::-webkit-scrollbar{height:6px}
+.sl-thumbs::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.sl-thumb{flex:0 0 56px;aspect-ratio:16/9;border-radius:3px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#fff;padding:0;opacity:.55;transition:.25s}
+.sl-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.sl-thumb.on{opacity:1;border-color:var(--moss);box-shadow:0 0 0 2px rgba(63,90,65,.25)}
+.sl-thumb:hover{opacity:.9}
+.sl-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.sl-foot-dl{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--moss);font-size:12.5px;font-weight:600;letter-spacing:.04em;border:1px solid var(--moss);padding:8px 14px;border-radius:30px;transition:.25s}
+.sl-foot-dl:hover{background:var(--moss);color:var(--paper)}
+.sl-foot-hint{font-size:11px;color:var(--soft);letter-spacing:.02em;font-style:italic;font-family:var(--serif)}
+
 @media(min-width:860px){
   html{scroll-padding-top:90px}
   .wrap{padding:0 40px}
@@ -298,7 +334,6 @@ footer{background:var(--ink);color:var(--leaf);padding:32px 0 96px;border-top:1p
   .media-nav{display:block}
   .case-framework{grid-template-columns:repeat(3,1fr);gap:36px}
   .cs{grid-template-columns:1fr;gap:40px;padding:64px 0}
-  .cs-featured{grid-template-columns:minmax(0,400px) 1fr;gap:60px}
   .cs.cs-rev .cs-media{order:2}
   .cs::before{width:48px}
   .video-row{grid-template-columns:repeat(3,1fr)}
@@ -319,6 +354,23 @@ footer{background:var(--ink);color:var(--leaf);padding:32px 0 96px;border-top:1p
   .step-grid2{grid-template-columns:1fr 1fr;gap:14px}
   .ps-credits{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:40px}
   .ps-credits>div{max-width:54ch}
+}
+
+.case-video{margin:24px 0 0;border-radius:10px;overflow:hidden;background:#000;border:1px solid var(--line-soft);box-shadow:var(--shadow-soft)}
+.case-video video{display:block;width:100%;height:auto}
+.case-video figcaption{padding:12px 16px;font-size:12.5px;font-family:var(--serif);font-style:italic;color:var(--soft);background:var(--bone);border-top:1px solid var(--line-soft)}
+
+.case-credits{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line)}
+.case-credits p{margin-top:8px;font-size:14px;color:var(--soft);line-height:1.7;font-family:var(--sans)}
+.case-credits a{color:var(--moss);text-decoration:none;border-bottom:1px solid transparent;transition:.3s;font-style:italic;font-family:var(--serif)}
+.case-credits a:hover{border-color:var(--moss)
+  /* === regras portadas desktop === */
+  .slideshow{padding:18px}
+  .sl-thumb{flex-basis:62px}
+  .pdf-project-head{flex-direction:row;align-items:flex-end}
+  .case-lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,340px);gap:46px;align-items:start}
+  .case-lead .cs-body{max-width:760px}
+  .case-feature-video{order:0;position:sticky;top:96px}
 }
 </style>
 </head>
@@ -531,7 +583,111 @@ footer{background:var(--ink);color:var(--leaf);padding:32px 0 96px;border-top:1p
       <div class="sec-num reveal" style="margin-bottom:8px">Cases em destaque</div>
       <h3 class="featured-title reveal">Projetos que conectam marca, cultura e varejo.</h3>
 
-      <!-- Case 1 — Marina Bitu -->
+      <!-- Case 1 — Bienal de Arquitetura -->
+      <article id="case-bienal" class="cs cs-rev cs-featured reveal">
+        <div class="case-lead">
+          <div class="cs-body">
+            <div class="cs-tag">Case · Westwing Brand Experience</div>
+            <h4 class="cs-name">Bienal de Arquitetura Brasileira</h4>
+            <p>Liderei a frente de Brand Experience da Westwing na primeira Bienal de Arquitetura Brasileira, do planejamento à execução — coordenando orçamento, fornecedores, ativações, produção de conteúdo e relacionamento com stakeholders.</p>
+            <p>A cenografia foi desenvolvida em parceria com o arquiteto e designer <strong>Marcelo Rosenbaum</strong>, criando uma experiência imersiva alinhada aos valores da marca. Fiz a curadoria de mobiliário e decoração para pavilhões de ~100m² inspirados em estados brasileiros, fortalecendo a presença institucional da Westwing junto à comunidade de arquitetura e design.</p>
+            <div class="cs-press">
+              <span class="cs-press-lbl">Mais vídeos</span>
+              <a href="https://www.instagram.com/reel/DXpZPEADBGK/" target="_blank" rel="noopener">Pavilhões ↗</a>
+              <a href="https://www.instagram.com/reel/DXm_vCajpbf/" target="_blank" rel="noopener">Bastidores ↗</a>
+            </div>
+            <div class="case-framework" aria-label="Escopo, execução e entrega da Bienal de Arquitetura Brasileira">
+              <div class="framework-col">
+                <h6>Escopo</h6>
+                <ul>
+                  <li>Presença da Westwing na primeira Bienal de Arquitetura Brasileira.</li>
+                  <li>Construção de uma experiência institucional para comunidade de arquitetura e design.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Execução</h6>
+                <ul>
+                  <li>Gestão de orçamento, fornecedores, ativações, conteúdo e relacionamento com stakeholders.</li>
+                  <li>Curadoria de mobiliário e decoração para pavilhões desenvolvidos com Marcelo Rosenbaum.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Entrega</h6>
+                <ul>
+                  <li>Cenografia imersiva alinhada aos valores e à estética da marca.</li>
+                  <li>Fortalecimento da presença da Westwing no território de arquitetura e design.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="case-feature-video">
+            <video class="sound-on-click" autoplay muted loop playsinline preload="metadata" poster="images/bienal-01.jpg" aria-label="Vídeo vertical da Bienal de Arquitetura Brasileira">
+              <source src="videos/bab-social-02.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div class="cs-media">
+          <div class="media-gallery" id="babGallery" aria-label="Galeria de fotos da Bienal">
+            <button class="media-nav prev" aria-label="Foto anterior">‹</button>
+            <div class="media-track">
+              <figure class="media-shot"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-02.jpg" alt="Estantes e mobiliário — Espaço Westwing Bienal" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
+              <figure class="media-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
+            </div>
+            <button class="media-nav next" aria-label="Próxima foto">›</button>
+            <div class="media-dots"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto cenográfico em PDF -->
+      <div class="pdf-project reveal" id="pdf-bienal">
+        <div class="pdf-project-head">
+          <h4 class="pdf-project-title">Projeto cenográfico em PDF.</h4>
+          <a class="sl-foot-dl" href="docs/bienal-projeto-cenografico-westwing-rosenbaum.pdf" target="_blank" rel="noopener">
+            Abrir PDF completo ↗
+          </a>
+        </div>
+        <div class="slideshow" id="babSlideshow" aria-label="Slides do projeto cenográfico">
+          <div class="sl-head">
+            <span class="sl-tag">Projeto cenográfico · PDF</span>
+            <span class="sl-count" id="slCount">1 / 17</span>
+          </div>
+          <div class="sl-stage" id="slStage">
+            <img class="sl-img on" src="docs/slides/bienal-slide-01.jpg" alt="Capa — Lounge Westwing Bienal de Arquitetura Brasileira" data-cap="Capa — Estudo preliminar">
+            <img class="sl-img" src="docs/slides/bienal-slide-02.jpg" alt="Fotos da visita técnica ao espaço" data-cap="01 · Visita técnica ao pavilhão" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-03.jpg" alt="Desenho 3D — estrutura modular" data-cap="02 · Estrutura modular (esboço)" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-04.jpg" alt="Desenho 3D — base de madeira" data-cap="02 · Base de madeira" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-05.jpg" alt="Desenho 3D — composição com bases" data-cap="02 · Composição com bases" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-06.jpg" alt="Desenho 3D — mobiliário inserido" data-cap="02 · Mobiliário inserido" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-07.jpg" alt="Desenho 3D — finalização com carpete" data-cap="02 · Finalização com carpete" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-08.jpg" alt="Moodboard de materiais" data-cap="03 · Materialidade — moodboard" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-09.jpg" alt="Render 1 — vista interna do lounge" data-cap="04 · Render — vista interna" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-10.jpg" alt="Render 2 — banners W suspensos" data-cap="04 · Render — banners suspensos W" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-11.jpg" alt="Render 3 — corredor" data-cap="04 · Render — corredor" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-12.jpg" alt="Render 4 — vista frontal" data-cap="04 · Render — vista frontal" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-13.jpg" alt="Planta layout e corte AA" data-cap="05 · Planta layout e corte AA" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-14.jpg" alt="Elevação com curadoria de mobiliário" data-cap="05 · Elevação com mobiliário" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-15.jpg" alt="Corte técnico BB" data-cap="05 · Corte técnico BB" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-16.jpg" alt="Lista de mobiliário curado" data-cap="05 · Curadoria — lista de peças" loading="lazy">
+            <img class="sl-img" src="docs/slides/bienal-slide-17.jpg" alt="Créditos do projeto" data-cap="Créditos" loading="lazy">
+            <button class="sl-nav prev" id="slPrev" aria-label="Slide anterior">‹</button>
+            <button class="sl-nav next" id="slNext" aria-label="Próximo slide">›</button>
+          </div>
+          <div class="sl-caption" id="slCaption">Capa — Estudo preliminar</div>
+          <div class="sl-thumbs" id="slThumbs">
+            <!-- thumbnails geradas via JS -->
+          </div>
+          <div class="sl-foot">
+            <span class="sl-foot-hint">slideshow automático · use ‹ › se quiser navegar</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Case 2 — Marina Bitu -->
       <article id="case-marina" class="cs reveal">
         <div class="cs-body">
           <div class="cs-tag">Case · Corpo, Casa e Território</div>
@@ -703,110 +859,6 @@ footer{background:var(--ink);color:var(--leaf);padding:32px 0 96px;border-top:1p
         </div>
       </article>
 
-      <!-- Case 2 — Bienal de Arquitetura -->
-      <article id="case-bienal" class="cs cs-rev cs-featured reveal">
-        <div class="case-lead">
-          <div class="cs-body">
-            <div class="cs-tag">Case · Westwing Brand Experience</div>
-            <h4 class="cs-name">Bienal de Arquitetura Brasileira</h4>
-            <p>Liderei a frente de Brand Experience da Westwing na primeira Bienal de Arquitetura Brasileira, do planejamento à execução — coordenando orçamento, fornecedores, ativações, produção de conteúdo e relacionamento com stakeholders.</p>
-            <p>A cenografia foi desenvolvida em parceria com o arquiteto e designer <strong>Marcelo Rosenbaum</strong>, criando uma experiência imersiva alinhada aos valores da marca. Fiz a curadoria de mobiliário e decoração para pavilhões de ~100m² inspirados em estados brasileiros, fortalecendo a presença institucional da Westwing junto à comunidade de arquitetura e design.</p>
-            <div class="cs-press">
-              <span class="cs-press-lbl">Mais vídeos</span>
-              <a href="https://www.instagram.com/reel/DXpZPEADBGK/" target="_blank" rel="noopener">Pavilhões ↗</a>
-              <a href="https://www.instagram.com/reel/DXm_vCajpbf/" target="_blank" rel="noopener">Bastidores ↗</a>
-            </div>
-            <div class="case-framework" aria-label="Escopo, execução e entrega da Bienal de Arquitetura Brasileira">
-              <div class="framework-col">
-                <h6>Escopo</h6>
-                <ul>
-                  <li>Presença da Westwing na primeira Bienal de Arquitetura Brasileira.</li>
-                  <li>Construção de uma experiência institucional para comunidade de arquitetura e design.</li>
-                </ul>
-              </div>
-              <div class="framework-col">
-                <h6>Execução</h6>
-                <ul>
-                  <li>Gestão de orçamento, fornecedores, ativações, conteúdo e relacionamento com stakeholders.</li>
-                  <li>Curadoria de mobiliário e decoração para pavilhões desenvolvidos com Marcelo Rosenbaum.</li>
-                </ul>
-              </div>
-              <div class="framework-col">
-                <h6>Entrega</h6>
-                <ul>
-                  <li>Cenografia imersiva alinhada aos valores e à estética da marca.</li>
-                  <li>Fortalecimento da presença da Westwing no território de arquitetura e design.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="case-feature-video">
-            <video class="sound-on-click" autoplay muted loop playsinline preload="metadata" poster="images/bienal-01.jpg" aria-label="Vídeo vertical da Bienal de Arquitetura Brasileira">
-              <source src="videos/bab-social-02.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-        <div class="cs-media">
-          <div class="media-gallery" id="babGallery" aria-label="Galeria de fotos da Bienal">
-            <button class="media-nav prev" aria-label="Foto anterior">‹</button>
-            <div class="media-track">
-              <figure class="media-shot"><img src="images/bienal-01.jpg" alt="Espaço Westwing na Bienal de Arquitetura — equipe" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/bienal-02.jpg" alt="Estantes e mobiliário — Espaço Westwing Bienal" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/bienal-03.jpg" alt="Pavilhão Westwing com banners — Bienal" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/bienal-04.jpg" alt="Painel Westwing e ficha técnica — Bienal" loading="lazy"></figure>
-              <figure class="media-shot"><img src="images/bienal-05.jpg" alt="Vista ampla do Espaço Westwing — Bienal" loading="lazy"></figure>
-            </div>
-            <button class="media-nav next" aria-label="Próxima foto">›</button>
-            <div class="media-dots"></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Projeto cenográfico em PDF -->
-      <div class="pdf-project reveal" id="pdf-bienal">
-        <div class="pdf-project-head">
-          <h4 class="pdf-project-title">Projeto cenográfico em PDF.</h4>
-          <a class="sl-foot-dl" href="docs/bienal-projeto-cenografico-westwing-rosenbaum.pdf" target="_blank" rel="noopener">
-            Abrir PDF completo ↗
-          </a>
-        </div>
-        <div class="slideshow" id="babSlideshow" aria-label="Slides do projeto cenográfico">
-          <div class="sl-head">
-            <span class="sl-tag">Projeto cenográfico · PDF</span>
-            <span class="sl-count" id="slCount">1 / 17</span>
-          </div>
-          <div class="sl-stage" id="slStage">
-            <img class="sl-img on" src="docs/slides/bienal-slide-01.jpg" alt="Capa — Lounge Westwing Bienal de Arquitetura Brasileira" data-cap="Capa — Estudo preliminar">
-            <img class="sl-img" src="docs/slides/bienal-slide-02.jpg" alt="Fotos da visita técnica ao espaço" data-cap="01 · Visita técnica ao pavilhão" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-03.jpg" alt="Desenho 3D — estrutura modular" data-cap="02 · Estrutura modular (esboço)" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-04.jpg" alt="Desenho 3D — base de madeira" data-cap="02 · Base de madeira" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-05.jpg" alt="Desenho 3D — composição com bases" data-cap="02 · Composição com bases" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-06.jpg" alt="Desenho 3D — mobiliário inserido" data-cap="02 · Mobiliário inserido" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-07.jpg" alt="Desenho 3D — finalização com carpete" data-cap="02 · Finalização com carpete" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-08.jpg" alt="Moodboard de materiais" data-cap="03 · Materialidade — moodboard" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-09.jpg" alt="Render 1 — vista interna do lounge" data-cap="04 · Render — vista interna" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-10.jpg" alt="Render 2 — banners W suspensos" data-cap="04 · Render — banners suspensos W" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-11.jpg" alt="Render 3 — corredor" data-cap="04 · Render — corredor" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-12.jpg" alt="Render 4 — vista frontal" data-cap="04 · Render — vista frontal" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-13.jpg" alt="Planta layout e corte AA" data-cap="05 · Planta layout e corte AA" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-14.jpg" alt="Elevação com curadoria de mobiliário" data-cap="05 · Elevação com mobiliário" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-15.jpg" alt="Corte técnico BB" data-cap="05 · Corte técnico BB" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-16.jpg" alt="Lista de mobiliário curado" data-cap="05 · Curadoria — lista de peças" loading="lazy">
-            <img class="sl-img" src="docs/slides/bienal-slide-17.jpg" alt="Créditos do projeto" data-cap="Créditos" loading="lazy">
-            <button class="sl-nav prev" id="slPrev" aria-label="Slide anterior">‹</button>
-            <button class="sl-nav next" id="slNext" aria-label="Próximo slide">›</button>
-          </div>
-          <div class="sl-caption" id="slCaption">Capa — Estudo preliminar</div>
-          <div class="sl-thumbs" id="slThumbs">
-            <!-- thumbnails geradas via JS -->
-          </div>
-          <div class="sl-foot">
-            <span class="sl-foot-hint">slideshow automático · use ‹ › se quiser navegar</span>
-          </div>
-        </div>
-      </div>
-
-
       <!-- Case 3 — Vivara Dia dos Namorados -->
       <article id="case-vivara-namorados" class="cs reveal">
         <div class="cs-media">
@@ -927,6 +979,70 @@ footer{background:var(--ink);color:var(--leaf);padding:32px 0 96px;border-top:1p
               </div>
               <button class="media-nav next" aria-label="Próxima imagem">›</button>
               <div class="media-dots"></div>
+            </div>
+            <figure class="case-video" aria-label="Vídeo do projeto Nike Women">
+              <video controls preload="metadata" playsinline>
+                <source src="videos/nike-pedia.mp4" type="video/mp4" />
+              </video>
+              <figcaption>Conteúdo audiovisual do projeto Nike Women</figcaption>
+            </figure>
+          </div>
+
+          <div class="case-subsection" id="case-nike-nikepedia">
+            <div class="cs-tag">Frente de atuação · Nikepedia · plataforma digital interna</div>
+            <h5 class="case-subtitle">Experiência digital de marca para times Nike</h5>
+            <figure class="case-video" aria-label="Demonstração da plataforma Nikepedia">
+              <video controls preload="metadata" playsinline poster="images/nike-pedia-01.jpg">
+                <source src="videos/nikepedia-demo.mp4" type="video/mp4" />
+              </video>
+              <figcaption>Plataforma Nikepedia · demonstração da experiência digital</figcaption>
+            </figure>
+            <p>Ser guardião da marca mais amada do mundo é uma grande responsabilidade. Para isso, era essencial que cada profissional da Nike conhecesse a fundo a história da marca e as <strong>tecnologias presentes nos produtos</strong>.</p>
+            <p>A <strong>Nikepedia</strong> nasceu dessa premissa: uma plataforma digital interna com conteúdos sobre inovação, história da marca, tecnologias, dicas de <strong>styling</strong> e exposição de produtos — desenhada para apoiar atletas de loja, times administrativos e parceiros comerciais. O projeto foi construído em parceria entre o time de <strong>EKIN (especialistas de produto)</strong> e o time de <strong>Visual Merchandising & Styling</strong>, do qual fui uma das responsáveis pelas pautas de styling, exposição de produto e narrativa visual da plataforma.</p>
+            <div class="case-framework" aria-label="Escopo, execução e entrega da frente Nikepedia">
+              <div class="framework-col">
+                <h6>Escopo</h6>
+                <ul>
+                  <li>Plataforma digital interna Nike com conteúdos de marca, produto e styling.</li>
+                  <li>Frentes de styling, exposição de produto e narrativa visual sob minha responsabilidade.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Execução</h6>
+                <ul>
+                  <li>Construção colaborativa entre EKIN e VM/Styling — curadoria de pautas, produção e direção visual.</li>
+                  <li>Produção de conteúdos em estúdio e nas lojas, integrando trade, varejo e digital.</li>
+                </ul>
+              </div>
+              <div class="framework-col">
+                <h6>Entrega</h6>
+                <ul>
+                  <li>Plataforma digital ativa com base contínua de conteúdos sobre marca, produto e styling.</li>
+                  <li>Capacitação de atletas de loja, times administrativos e parceiros comerciais.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-credits">
+              <span class="cs-press-lbl">Equipe Nikepedia</span>
+              <p>EKIN — <a href="https://www.linkedin.com/in/ryane-boccia-342b4a138/" target="_blank" rel="noopener">Ryane Boccia</a>, <a href="https://www.linkedin.com/in/fernando-alvarenga-dannias/" target="_blank" rel="noopener">Fernando Alvarenga Dannias</a> e <a href="https://www.linkedin.com/in/fabiana-cecon/" target="_blank" rel="noopener">Fabiana Cecon</a>. VM &amp; Styling — <a href="https://www.linkedin.com/in/marlise-mendes-pera%C3%A7a-levorse-a9b030168/" target="_blank" rel="noopener">Marlise Mendes Peraça Levorse</a>, <a href="https://www.linkedin.com/in/everton-lopesmkt/" target="_blank" rel="noopener">Everton Lopes</a>, Nicole Moreira e Josiane dos Santos.</p>
+            </div>
+            <div class="media-gallery" id="nikepediaGallery" aria-label="Galeria de produção dos conteúdos Nikepedia">
+              <button class="media-nav prev" aria-label="Imagem anterior">‹</button>
+              <div class="media-track">
+                <figure class="media-shot"><img src="images/nike-pedia-07.jpg" alt="Loja Nike com painel neon JUST DO IT e produção de conteúdo Nikepedia em curso" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/nike-pedia-06.jpg" alt="Set de gravação Nikepedia em loja Nike com banner Vai no Novo e monitor de referência" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/nike-pedia-05.jpg" alt="Modelo estilizada com look Nike sendo fotografada para conteúdo Nikepedia" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/nike-pedia-03.jpg" alt="Bastidores de styling de mannequin com sneakers suspensos formando o swoosh para Nikepedia" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/nike-pedia-02.jpg" alt="Set de produção Nikepedia em estúdio com manequim e cenografia de styling" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/nike-pedia-01.jpg" alt="Estúdio Nikepedia com cenografia Nike: rack de roupas, mannequin e sneakers suspensos formando o swoosh" loading="lazy"></figure>
+                <figure class="media-shot"><img src="images/nike-pedia-04.jpg" alt="Conteúdo de lifestyle Nikepedia: modelo em sofá com cenografia de ambiente e produtos Nike" loading="lazy"></figure>
+              </div>
+              <button class="media-nav next" aria-label="Próxima imagem">›</button>
+              <div class="media-dots"></div>
+            </div>
+            <div class="cs-press">
+              <span class="cs-press-lbl">Conteúdo relacionado</span>
+              <a href="https://www.instagram.com/reel/Ca5cIsgJ7r1/" target="_blank" rel="noopener">Reel no Instagram ↗</a>
             </div>
           </div>
 
